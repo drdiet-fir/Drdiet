@@ -1,0 +1,199 @@
+.media-hero {
+  background-image: linear-gradient(135deg, rgba(43,53,32,0.93) 0%, rgba(67,78,48,0.87) 100%),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.media-gallery-section { }
+
+.media-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.media-grid .media-item:nth-child(5n+1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.media-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--off-white);
+}
+
+.media-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.media-item:hover img { transform: scale(1.08); }
+
+.media-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(43,53,32,0.65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.media-item:hover .media-item__overlay { opacity: 1; }
+
+.media-item__overlay i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.media-item__overlay span {
+  font-size: 0.85rem;
+  color: var(--white);
+  font-weight: 600;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.media-item__cat {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.55);
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Press */
+.press-grid { }
+
+.press-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  border: 1.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all var(--transition);
+}
+
+.press-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.press-card__logo {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+}
+
+.press-card__headline {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+  font-style: italic;
+  flex: 1;
+}
+
+.press-card__date { font-size: 0.8rem; color: var(--text-muted); }
+
+.press-card__link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap var(--transition);
+}
+
+.press-card__link:hover { gap: 10px; }
+.press-card__link i { font-size: 0.75rem; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.lightbox__close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background var(--transition);
+  border: none;
+}
+
+.lightbox__close:hover { background: rgba(255,255,255,0.2); }
+
+.lightbox__content {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.lightbox__content img {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+
+.lightbox__caption {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .media-grid { grid-template-columns: repeat(2, 1fr); }
+  .media-grid .media-item:nth-child(5n+1) { grid-column: span 1; grid-row: span 1; }
+  .press-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .media-grid { grid-template-columns: 1fr; }
+}

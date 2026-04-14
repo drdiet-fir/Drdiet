@@ -1,0 +1,291 @@
+.sub-hero {
+  background-image: linear-gradient(135deg, rgba(43,53,32,0.93) 0%, rgba(67,78,48,0.87) 100%),
+    url('https://images.unsplash.com/photo-1547592180-85f173990554?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Billing Toggle */
+.sub-billing-toggle-section { padding: 56px 0 80px; }
+
+.sub-billing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 6px;
+  gap: 4px;
+  width: fit-content;
+  margin: 0 auto 56px;
+}
+
+.sub-billing-btn {
+  padding: 10px 28px;
+  border-radius: var(--radius-full);
+  font-size: 0.92rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-muted);
+  transition: all var(--transition);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sub-billing-btn--active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.sub-billing-save {
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Plans grid */
+.sub-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.sub-plan-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 36px 28px;
+  border: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  transition: all var(--transition);
+}
+
+.sub-plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.sub-plan-card--highlight {
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px rgba(213,208,88,0.2);
+  transform: scale(1.02);
+}
+
+.sub-plan-card--highlight:hover {
+  transform: scale(1.02) translateY(-6px);
+}
+
+.sub-plan-card__popular {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.sub-plan-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.sub-plan-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.sub-plan-card__header h3 { font-size: 1.3rem; margin-bottom: 2px; color: var(--primary); }
+.sub-plan-card__tagline { font-size: 0.8rem; color: var(--text-muted); }
+
+.sub-plan-card__price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sub-plan-card__currency { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); vertical-align: top; line-height: 1; }
+.sub-plan-card__amount { font-size: 2.8rem; font-weight: 900; color: var(--primary); line-height: 1; }
+.sub-plan-card__period { font-size: 0.85rem; color: var(--text-muted); }
+.sub-plan-card__meals { font-size: 0.8rem; font-weight: 700; color: var(--accent); background: rgba(213,208,88,0.12); padding: 4px 10px; border-radius: var(--radius-full); }
+
+.sub-plan-card__divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+.sub-plan-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.sub-plan-card__feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+
+.sub-plan-card__feature--yes { color: var(--text); }
+.sub-plan-card__feature--yes i { color: var(--primary); }
+.sub-plan-card__feature--no { color: var(--neutral); text-decoration: line-through; }
+.sub-plan-card__feature--no i { color: var(--neutral); }
+
+.sub-plans-note {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sub-plans-note i { color: var(--primary); }
+.sub-plans-note a { color: var(--primary); font-weight: 600; }
+
+/* Steps */
+.sub-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.sub-steps::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: calc(12.5% + 24px);
+  right: calc(12.5% + 24px);
+  height: 2px;
+  background: rgba(213,208,88,0.2);
+  z-index: 0;
+}
+
+.sub-step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sub-step__number {
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.sub-step__icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(213,208,88,0.12);
+  border: 2px solid rgba(213,208,88,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.sub-step__icon i { font-size: 1.4rem; color: var(--accent); }
+.sub-step h4 { color: var(--white); font-size: 1rem; margin-bottom: 10px; }
+.sub-step p { color: rgba(245,237,225,0.65); font-size: 0.88rem; line-height: 1.7; }
+
+/* FAQ */
+.sub-faq {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sub-faq-item {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.sub-faq-item--open {
+  border-color: var(--primary);
+}
+
+.sub-faq-item__question {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sub-faq-item__question span {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text);
+}
+
+.sub-faq-item__question i {
+  color: var(--primary);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.sub-faq-item__answer {
+  padding: 0 24px 20px;
+  animation: fadeDown 0.2s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub-faq-item__answer p { font-size: 0.92rem; line-height: 1.8; }
+
+@media (max-width: 960px) {
+  .sub-plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto 40px; }
+  .sub-plan-card--highlight { transform: none; }
+  .sub-steps { grid-template-columns: repeat(2, 1fr); }
+  .sub-steps::before { display: none; }
+}
+
+@media (max-width: 640px) {
+  .sub-billing-toggle { width: 100%; }
+  .sub-steps { grid-template-columns: 1fr; }
+}
