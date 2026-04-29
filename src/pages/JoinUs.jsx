@@ -28,7 +28,7 @@ export default function JoinUs() {
         <div className="container">
           <span className="section-label section-label--white">Partner With Us</span>
           <h1>Grow With<br />Dr Diet</h1>
-          <p>Franchise opportunities, corporate catering, and B2B partnerships — there's a seat at our table for every ambition.</p>
+          <p>Franchise opportunities, corporate catering, and B2B partnerships. There's a seat at our table for every ambition.</p>
         </div>
       </section>
 
@@ -46,7 +46,7 @@ export default function JoinUs() {
         <div className="container">
           <div className="joinus-block">
             <div className="joinus-block__image fade-up">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=80" alt="Dr Diet Franchise" />
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Dr Diet Franchise" />
               <div className="joinus-block__tag">
                 <i className="fas fa-store" /> Franchise
               </div>
@@ -55,7 +55,7 @@ export default function JoinUs() {
               <span className="section-label section-label--dark">Own a Branch</span>
               <h2>Become a Dr Diet Franchise Partner</h2>
               <div className="divider divider--left" />
-              <p>Join the fastest-growing nutrition brand in the Kingdom. Our proven business model, full operational support, and powerful brand make Dr Diet one of the most attractive franchise opportunities in Saudi Arabia today.</p>
+              <p>Join the fastest-growing nutrition brand in India. Our proven business model, full operational support, and powerful brand make Dr Diet one of the most attractive franchise opportunities in the country today.</p>
 
               <div className="joinus-stats">
                 <div className="joinus-stat">
@@ -99,7 +99,7 @@ export default function JoinUs() {
 
               <div className="catering-packages">
                 {[
-                  { name: 'Small Team', size: '10–50 employees', price: 'From SAR 45/person/day', icon: 'fas fa-users' },
+                  { name: 'Small Team', size: '10–50 employees', price: 'From ₹150/person/day', icon: 'fas fa-users' },
                   { name: 'Enterprise', size: '50–500 employees', price: 'Custom Pricing', icon: 'fas fa-building' },
                   { name: 'Events', size: 'One-time catering', price: 'Quote on Request', icon: 'fas fa-calendar-alt' },
                 ].map((pkg) => (
@@ -126,7 +126,7 @@ export default function JoinUs() {
               </a>
             </div>
             <div className="joinus-block__image fade-up stagger-2">
-              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="Corporate Catering" />
+              <img src="/brand_assets/Chicken Brown rice Landscape.jpg" alt="Corporate Catering" />
               <div className="joinus-block__tag joinus-block__tag--right">
                 <i className="fas fa-building" /> Catering
               </div>
@@ -140,7 +140,7 @@ export default function JoinUs() {
         <div className="container">
           <div className="joinus-block">
             <div className="joinus-block__image fade-up">
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80" alt="B2B Partnership" />
+              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" alt="B2B Partnership" />
               <div className="joinus-block__tag">
                 <i className="fas fa-handshake" /> B2B
               </div>
@@ -149,7 +149,7 @@ export default function JoinUs() {
               <span className="section-label section-label--dark">Strategic Partnerships</span>
               <h2>Let's Build Something Together</h2>
               <div className="divider divider--left" />
-              <p>If you run a gym, clinic, hotel, or wellness center, partnering with Dr Diet means offering your clients the missing piece of their health journey — expert nutrition. We grow together.</p>
+              <p>If you run a gym, clinic, hotel, or wellness center, partnering with Dr Diet means offering your clients the missing piece of their health journey: expert nutrition. We grow together.</p>
 
               <div className="b2b-types">
                 {[

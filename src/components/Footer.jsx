@@ -20,16 +20,12 @@ const footerLinks = {
     { label: 'Franchise', path: '/join-us#franchise' },
     { label: 'Catering Services', path: '/join-us#catering' },
     { label: 'B2B Partnerships', path: '/join-us#b2b' },
-    { label: 'Events', path: '/contact#events' },
   ],
 }
 
 const socials = [
-  { icon: 'fab fa-instagram', href: '#', label: 'Instagram' },
-  { icon: 'fab fa-tiktok', href: '#', label: 'TikTok' },
-  { icon: 'fab fa-facebook-f', href: '#', label: 'Facebook' },
-  { icon: 'fab fa-snapchat-ghost', href: '#', label: 'Snapchat' },
-  { icon: 'fab fa-youtube', href: '#', label: 'YouTube' },
+  { icon: 'fab fa-instagram', href: 'https://instagram.com/drdiet.fit', label: 'Instagram' },
+  { icon: 'fab fa-whatsapp', href: 'https://wa.me/917015732242', label: 'WhatsApp' },
 ]
 
 export default function Footer() {
@@ -82,21 +78,25 @@ export default function Footer() {
             <ul className="footer__contact-list">
               <li>
                 <i className="fas fa-phone" />
-                <a href="tel:+966500000000">+966 50 000 0000</a>
+                <a href="tel:+917015732242">+91 70157 32242</a>
               </li>
               <li>
                 <i className="fab fa-whatsapp" />
-                <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/917015732242" target="_blank" rel="noopener noreferrer">
                   WhatsApp Us
                 </a>
               </li>
               <li>
                 <i className="fas fa-envelope" />
-                <a href="mailto:hello@drdiet.com">hello@drdiet.com</a>
+                <a href="mailto:drdietdelhi@gmail.com">drdietdelhi@gmail.com</a>
               </li>
               <li>
                 <i className="fas fa-map-marker-alt" />
-                <span>Riyadh, Jeddah, Dammam<br />& More Locations</span>
+                <span>Sector 70, Mohali 160071<br />Delhi · Gurgaon · Noida · Chandigarh · Bengaluru</span>
+              </li>
+              <li>
+                <i className="fas fa-motorcycle" />
+                <span>Order on Swiggy &amp; Zomato</span>
               </li>
             </ul>
           </div>

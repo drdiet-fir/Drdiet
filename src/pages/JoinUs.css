@@ -30,7 +30,7 @@
 }
 
 .joinus-nav-links a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   border-bottom-color: var(--accent);
 }
 
@@ -138,7 +138,7 @@
 .catering-package > div { display: flex; flex-direction: column; gap: 2px; }
 .catering-package strong { font-size: 0.95rem; color: var(--primary); }
 .catering-package span { font-size: 0.82rem; color: var(--text-muted); }
-.catering-package__price { color: var(--accent) !important; font-weight: 700 !important; font-size: 0.85rem !important; }
+.catering-package__price { color: var(--accent-text) !important; font-weight: 700 !important; font-size: 0.85rem !important; }
 
 /* B2B types */
 .b2b-types {

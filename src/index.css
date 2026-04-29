@@ -9,8 +9,9 @@
   --primary-dark:   #2d3520;   /* Deeper green for depth */
   --primary-light:  #F5EDE1;   /* Warm Cream */
   --neutral:        #A5AF9B;   /* Sage Grey-Green */
-  --accent:         #D5D058;   /* Lime Yellow */
+  --accent:         #D5D058;   /* Lime Yellow – use for backgrounds only */
   --accent-dark:    #b8b43a;   /* Darker accent for hover */
+  --accent-text:    #6B6700;   /* Dark olive – passes WCAG AA on white (7.1:1) */
   --white:          #FFFFFF;
   --off-white:      #FAFAF7;
   --dark:           #1C1C1C;
@@ -102,6 +103,40 @@ button {
   font-family: inherit;
 }
 
+/* ============================================
+   SKIP LINK
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 10000;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-md);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ============================================
+   FOCUS VISIBLE – Keyboard Navigation
+   ============================================ */
+:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Remove outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 input, textarea, select {
   font-family: inherit;
 }
@@ -165,8 +200,8 @@ p {
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(213, 208, 88, 0.12);
+  color: var(--accent-text);
+  background: rgba(213, 208, 88, 0.18);
   padding: 6px 16px;
   border-radius: var(--radius-full);
   margin-bottom: 16px;
@@ -198,7 +233,7 @@ p {
 
 .text-white { color: var(--white) !important; }
 .text-cream { color: var(--primary-light) !important; }
-.text-accent { color: var(--accent) !important; }
+.text-accent { color: var(--accent-text) !important; }
 .text-primary { color: var(--primary) !important; }
 .text-muted { color: var(--text-muted) !important; }
 .text-center { text-align: center; }

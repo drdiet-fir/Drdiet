@@ -19,9 +19,9 @@ const galleryItems = [
 const mediaCategories = ['All', 'Food', 'Kitchen', 'Transformations', 'Team', 'Delivery']
 
 const pressItems = [
-  { source: 'Arab News', headline: 'Dr Diet Redefines Healthy Eating for Saudi Consumers', date: 'March 2024', logo: '📰' },
-  { source: 'Forbes Arabia', headline: "The Startup Transforming KSA's Nutrition Landscape", date: 'January 2024', logo: '📰' },
-  { source: 'Gulf Business', headline: 'Dr Diet Reaches 10,000 Customers Milestone', date: 'November 2023', logo: '📰' },
+  { source: 'Times of India', headline: 'Dr Diet Redefines Healthy Eating for Indian Consumers', date: 'March 2024', logo: '📰' },
+  { source: 'Forbes India', headline: "The Startup Transforming India's Nutrition Landscape", date: 'January 2024', logo: '📰' },
+  { source: 'Startup Pedia', headline: 'Dr Diet Reaches 10,000 Customers Milestone', date: 'November 2023', logo: '📰' },
 ]
 
 export default function Media() {
@@ -108,7 +108,7 @@ export default function Media() {
       {/* Lightbox */}
       {lightbox && (
         <div className="lightbox" onClick={() => setLightbox(null)}>
-          <button className="lightbox__close" onClick={() => setLightbox(null)}>
+          <button className="lightbox__close" onClick={() => setLightbox(null)} aria-label="Close lightbox">
             <i className="fas fa-times" />
           </button>
           <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>

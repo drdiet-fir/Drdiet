@@ -26,8 +26,6 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const location = useLocation()
 
-  const isHomePage = location.pathname === '/'
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -44,21 +42,19 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const isTransparent = isHomePage && !scrolled
-
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${isTransparent ? 'navbar--transparent' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container">
         {/* Logo */}
         <Link to="/" className="navbar__logo">
           <img
-            src={isTransparent ? '/logo-white.png' : '/logo-black.png'}
+            src="/logo-black.png"
             alt="Dr Diet – Eat What's Right"
           />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="navbar__nav">
+        <nav className="navbar__nav" aria-label="Main navigation">
           {navLinks.map((link) =>
             link.children ? (
               <div
@@ -107,6 +103,7 @@ export default function Navbar() {
             className={`navbar__burger ${menuOpen ? 'navbar__burger--open' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <span />
             <span />
@@ -117,7 +114,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
-        <nav className="navbar__mobile-nav">
+        <nav className="navbar__mobile-nav" aria-label="Mobile navigation">
           {navLinks.map((link) => (
             <div key={link.path}>
               <NavLink

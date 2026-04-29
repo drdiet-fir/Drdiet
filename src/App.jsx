@@ -27,8 +27,9 @@ function AppContent() {
   return (
     <>
       <ScrollToTop />
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

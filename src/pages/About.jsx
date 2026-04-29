@@ -18,26 +18,41 @@ function useReveal() {
 }
 
 const team = [
-  { name: 'Dr. Yasser Al-Khamis', role: 'Founder & Chief Nutritionist', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80', bio: 'PhD in Clinical Nutrition from King Saud University. 15+ years transforming lives through food science.' },
-  { name: 'Nada Al-Otaibi', role: 'Head Chef & Menu Director', img: 'https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80', bio: 'Trained in Dubai and London. Believes healthy food must always be delicious first.' },
-  { name: 'Omar Bahamdan', role: 'Operations & Growth Director', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80', bio: 'Scaled Dr Diet from one kitchen to 12 locations across KSA in 3 years.' },
+  {
+    name: 'Mirnal Sethi',
+    role: 'Founder',
+    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
+    bio: 'Started Dr Diet to solve the problem of unhealthy, inaccessible food for students and working professionals. Built from a small 10x8 room in Chandigarh to 12 outlets across 5 cities in India. Still actively involved in the kitchen every day.',
+  },
+  {
+    name: 'Our Kitchen Team',
+    role: 'The People Behind Every Meal',
+    img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80',
+    bio: '"We don\'t hire chefs. We make them." Every kitchen team member is trained from the ground up in nutrition, clean cooking, and the Dr Diet way. Because when you\'re responsible for someone\'s health, good enough isn\'t good enough.',
+  },
+  {
+    name: 'Marketing & Branding Team',
+    role: 'In-House Creatives',
+    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80',
+    bio: 'From designing the meal box you unbox to the reel that stops your scroll. Everything is built in-house. Our creative team handles brand identity, content, social media, and campaigns end-to-end. No outsourcing. No compromises. Just a team that genuinely cares about how Dr Diet shows up in the world.',
+  },
 ]
 
 const values = [
-  { icon: 'fas fa-microscope', title: 'Science First', desc: 'Every meal plan is grounded in peer-reviewed nutritional research — not trends or fads.' },
-  { icon: 'fas fa-heart', title: 'Genuinely Cares', desc: 'We measure success by your transformation, not just your subscription renewal.' },
-  { icon: 'fas fa-seedling', title: 'Real Ingredients', desc: 'Clean, fresh, traceable. We know exactly what goes into every meal we deliver.' },
-  { icon: 'fas fa-handshake', title: 'Long-Term Partnership', desc: "We're not a quick fix - we're a lifestyle partner committed to your ongoing health." },
+  { icon: 'fas fa-flask', title: 'Real Nutrition', desc: 'Transparent macros, honest ingredients, no shortcuts.' },
+  { icon: 'fas fa-leaf', title: 'Desi at Heart', desc: 'Indian flavours you grew up with, made the way your body actually needs.' },
+  { icon: 'fas fa-fire', title: 'Taste First', desc: 'Healthy food should taste good. Always.' },
+  { icon: 'fas fa-map-marker-alt', title: 'Accessible Health', desc: '12 outlets, 5 cities, health on your doorstep.' },
 ]
 
 const milestones = [
-  { year: '2018', event: 'Dr Diet founded in Riyadh with 3 customers and 1 kitchen' },
-  { year: '2019', event: 'Expanded to Jeddah. Reached 500 active subscribers' },
-  { year: '2020', event: 'Launched digital subscription platform. 2,000+ customers' },
-  { year: '2021', event: 'Opened Dammam branch. Won Best Nutrition Brand in KSA' },
-  { year: '2022', event: 'Launched B2B & Catering division. 5,000+ customers' },
-  { year: '2023', event: 'Franchise model launched. 12 locations across KSA' },
-  { year: '2024', event: '10,000+ active customers. 500,000 meals delivered' },
+  { year: '2020', event: 'Started in a 10x8 room in Chandigarh. First meals at ₹99.' },
+  { year: '2020', event: 'COVID shutdown. Lost entire investment. Restarted with landlord\'s support.' },
+  { year: '2021', event: 'Official relaunch. New kitchen, team of 5 chefs, listed on Swiggy & Zomato.' },
+  { year: '2022–23', event: 'Expanded to Delhi, Noida, Gurgaon and Mohali via partner model.' },
+  { year: '2024', event: 'Crossed 14 outlets. Launched in Bengaluru. Cloud kitchens + QSR + Dine-in.' },
+  { year: '2025', event: '₹10 Cr+ annual revenue. Startup Pedia feature. Went viral nationally.' },
+  { year: '2026', event: 'Targeting ₹15–16 Cr. Expanding to Hyderabad, Pune & Mumbai.' },
 ]
 
 export default function About() {
@@ -52,8 +67,8 @@ export default function About() {
       <section className="page-hero about-hero">
         <div className="container">
           <span className="section-label section-label--white">Our Story</span>
-          <h1>We Believe Food<br />Is Medicine</h1>
-          <p>Dr Diet was born from a simple truth: you can't transform your body without transforming your plate. Since 2018, we've been on a mission to make proper nutrition accessible to everyone.</p>
+          <h1>From a 10x8 Room<br />to 14+ Outlets</h1>
+          <p>Eat What's Right. Built to make genuinely healthy, calorie-conscious food accessible for students and working professionals.</p>
         </div>
       </section>
 
@@ -64,16 +79,16 @@ export default function About() {
             <div className="about-mission__image fade-up">
               <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Dr Diet kitchen" />
               <div className="about-mission__badge">
-                <span className="about-mission__badge-num">6+</span>
-                <span>Years of Excellence</span>
+                <span className="about-mission__badge-num">14+</span>
+                <span>Outlets Across India</span>
               </div>
             </div>
             <div className="about-mission__content fade-up stagger-2">
               <span className="section-label section-label--dark">Our Mission</span>
-              <h2>To Transform Every Saudi Household Through the Power of Nutrition</h2>
+              <h2>To bring genuinely healthy, calorie-conscious Indian food to your doorstep.</h2>
               <div className="divider divider--left" />
-              <p>We started Dr Diet because we saw too many people working hard in the gym but failing in the kitchen. Not because they lacked willpower, but because they lacked access — to proper meal plans, clean food, and expert guidance.</p>
-              <p style={{marginTop:'16px'}}>Today, we deliver thousands of customized, chef-prepared meals across the Kingdom every single day. Our nutritionists, chefs, and support teams work together to ensure your meals are not just healthy — but something you genuinely look forward to eating.</p>
+              <p>Because eating right should feel like a choice you're proud of, not a sacrifice. We started Dr Diet because we saw too many students and working professionals eating the wrong food: watery dal, maida chapatis, zero protein. Not because they lacked willpower, but because they lacked access.</p>
+              <p style={{marginTop:'16px'}}>Today, we serve 2,000–2,500 people every day across Delhi, Chandigarh, and Bengaluru, with meals that are calorie-counted, macro-balanced, and genuinely delicious.</p>
               <Link to="/subscription" className="btn btn--dark" style={{marginTop:'32px'}}>
                 Start Your Plan <i className="fas fa-arrow-right" />
               </Link>
@@ -107,7 +122,7 @@ export default function About() {
         <div className="container">
           <div className="section-header">
             <span className="section-label section-label--white">Our Journey</span>
-            <h2 className="text-white">From One Kitchen<br />to a Kingdom-Wide Movement</h2>
+            <h2 className="text-white">From One Room<br />to a Nationwide Movement</h2>
             <div className="divider" />
           </div>
           <div className="timeline">
@@ -129,7 +144,7 @@ export default function About() {
         <div className="container">
           <div className="section-header">
             <span className="section-label">The Team</span>
-            <h2>The People Behind Your Transformation</h2>
+            <h2>The People Behind Every Meal</h2>
             <div className="divider" />
           </div>
           <div className="grid-3">
@@ -153,8 +168,8 @@ export default function About() {
       <section className="about-cta-bar">
         <div className="container about-cta-bar__content">
           <div>
-            <h3>Ready to experience the Dr Diet difference?</h3>
-            <p>Join 10,000+ people already eating what's right.</p>
+            <h3>Ready to Eat What's Right?</h3>
+            <p>Join 10,000+ people who chose clean eating over compromise.</p>
           </div>
           <div className="about-cta-bar__actions">
             <Link to="/subscription" className="btn btn--primary btn--lg">Start Your Plan</Link>

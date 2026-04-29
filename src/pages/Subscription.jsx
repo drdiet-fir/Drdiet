@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import './Subscription.css'
 
 function useReveal() {
@@ -17,176 +16,231 @@ function useReveal() {
   return ref
 }
 
-const plans = [
-  {
-    id: 'starter',
-    name: 'Starter',
-    tagline: 'Begin your health journey',
-    price: { monthly: 299, quarterly: 269, biannual: 249 },
-    meals: '2 meals / day',
-    features: [
-      '2 customized meals per day',
-      'Standard calorie targets',
-      'Weekly menu variety (15+ options)',
-      'Free delivery 6 days/week',
-      'Digital meal plan access',
-      'Weekly check-in email',
-      'Email & WhatsApp support',
-    ],
-    notIncluded: ['Nutritionist consultation', 'Snacks', 'Body composition tracking'],
-    highlight: false,
-    color: 'var(--neutral)',
-  },
-  {
-    id: 'transform',
-    name: 'Transform',
-    tagline: 'Maximum results — best value',
-    price: { monthly: 499, quarterly: 449, biannual: 399 },
-    meals: '3 meals + 2 snacks',
-    features: [
-      '3 meals + 2 healthy snacks/day',
-      'Full macro & calorie customization',
-      'Premium menu (40+ options)',
-      'Free delivery 7 days/week',
-      'Monthly nutritionist consultation',
-      'Bi-weekly progress review',
-      'Priority WhatsApp support',
-      'Monthly body measurement tracking',
-    ],
-    notIncluded: ['Weekly 1-on-1 sessions', 'Supplement guide'],
-    highlight: true,
-    color: 'var(--accent)',
-  },
-  {
-    id: 'elite',
-    name: 'Elite',
-    tagline: 'Zero compromise. Maximum transformation.',
-    price: { monthly: 799, quarterly: 719, biannual: 649 },
-    meals: '5 meals + unlimited snacks',
-    features: [
-      '5 meals + unlimited healthy snacks',
-      'Fully bespoke meal plan',
-      'Exclusive premium dishes',
-      'Free delivery 7 days/week',
-      'Weekly 1-on-1 nutritionist session',
-      'Weekly body composition scan',
-      'Dedicated account manager',
-      '24/7 priority support',
-      'Supplement & lifestyle guidance',
-      'Exclusive client events',
-    ],
-    notIncluded: [],
-    highlight: false,
-    color: 'var(--primary)',
-  },
+const values = [
+  { icon: 'fas fa-dumbbell',    title: 'High-Protein Meals',       desc: 'Up to 55g of protein per meal. Built for muscle, fat loss, and staying full.' },
+  { icon: 'fas fa-calculator',  title: 'Calorie-Counted',           desc: 'Every meal is weighed, portioned, and macro-tracked so you always hit your targets.' },
+  { icon: 'fas fa-leaf',        title: 'No Maida. No Shortcuts.',   desc: 'Clean whole ingredients only. Zero refined flour, zero empty calories, zero compromise.' },
+  { icon: 'fas fa-tag',         title: 'Starting at ₹200',          desc: 'Healthy food that doesn\'t cost a fortune. Plans for every budget and every goal.' },
+  { icon: 'fas fa-truck',       title: 'Delivered Fresh Daily',     desc: 'Cooked in our kitchen every morning and at your doorstep while it\'s still fresh.' },
+  { icon: 'fas fa-bullseye',    title: 'Customised for Your Goal',  desc: 'Weight loss, muscle gain, or clean eating. Your meals are built around your goal.' },
 ]
 
 const faqs = [
-  { q: 'Can I pause or cancel my subscription?', a: 'Yes. You can pause your subscription for up to 14 days per month or cancel anytime with 3 days notice. No cancellation fees.' },
-  { q: 'How are meals delivered?', a: 'Meals are prepared fresh daily in our HACCP-certified kitchen and delivered to your door before 7am (or your preferred time window), 6-7 days a week depending on your plan.' },
-  { q: 'Can I customize meals for allergies or preferences?', a: 'Absolutely. We accommodate all common allergies (gluten, dairy, nuts, etc.) and dietary preferences (keto, low-carb, vegan, high-protein, etc.). You specify during signup.' },
-  { q: 'What areas do you deliver to?', a: 'We currently deliver across Riyadh, Jeddah, Dammam, Khobar, Mecca, and Medina. Check our Locations page for specific neighborhoods.' },
-  { q: 'Is there a minimum commitment period?', a: 'No long-term commitment. You can start on a monthly basis. Quarterly and bi-annual plans are available at a discount.' },
-  { q: 'Do you offer a free trial?', a: 'We offer a 3-day trial box so you can experience the quality before subscribing. Contact us via WhatsApp to arrange one.' },
+  { q: 'Can I customise my meals?',    a: 'Yes. Every plan is built around your health goal, calorie target, and dietary preference (Veg / Non-Veg / Eggetarian). Nothing is one-size-fits-all.' },
+  { q: 'Which cities do you serve?',   a: 'We currently deliver across Delhi, Chandigarh, and Bengaluru. Expanding to more cities soon. Drop your city in the form and we\'ll update you.' },
+  { q: 'What\'s the starting price?',  a: 'Meals start at ₹200 per meal. Your total plan cost depends on your goal and the number of meals per day. Our team will share a tailored quote on WhatsApp.' },
+  { q: 'How does delivery work?',      a: 'We cook fresh every morning and deliver to your doorstep daily. No frozen meals, no reheating. Just freshly prepared, ready-to-eat food.' },
 ]
 
-export default function Subscription() {
-  const [billing, setBilling] = useState('monthly')
-  const [openFaq, setOpenFaq] = useState(null)
-  const s1 = useReveal()
-  const s2 = useReveal()
-  const s3 = useReveal()
+const initialForm = { name: '', phone: '', city: '', goal: '', diet: '', source: '' }
 
-  const billingMultiplier = { monthly: 1, quarterly: 0.9, biannual: 0.83 }
+export default function Subscription() {
+  const [openFaq, setOpenFaq]     = useState(null)
+  const [form, setForm]           = useState(initialForm)
+  const [submitted, setSubmitted] = useState(false)
+
+  const s1   = useReveal()
+  const s2   = useReveal()
+  const s3   = useReveal()
+  const sForm = useReveal()
+
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await fetch('https://drdiet.onrender.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (data.success) setSubmitted(true)
+      else throw new Error(data.error)
+    } catch (err) {
+      console.error('Form submission failed:', err)
+      alert('Something went wrong. Please try again or WhatsApp us directly.')
+    }
+  }
 
   return (
     <>
+      {/* Hero */}
       <section className="page-hero sub-hero">
         <div className="container">
           <span className="section-label section-label--white">Meal Plans</span>
-          <h1>Choose Your Plan.<br />Start Your Transformation.</h1>
-          <p>Flexible, customized, science-backed meal subscriptions. Pause or cancel anytime.</p>
+          <h1>Start Your Personalised<br />Diet Plan</h1>
+          <p>Healthy, high-protein meals tailored to your goal, delivered fresh every day.</p>
         </div>
       </section>
 
-      {/* Billing Toggle */}
-      <section className="sub-billing-toggle-section" ref={s1}>
+      {/* Value Section */}
+      <section className="sub-value-section" ref={s1}>
         <div className="container">
-          <div className="sub-billing-toggle">
-            {['monthly', 'quarterly', 'biannual'].map((b) => (
-              <button
-                key={b}
-                className={`sub-billing-btn ${billing === b ? 'sub-billing-btn--active' : ''}`}
-                onClick={() => setBilling(b)}
-              >
-                {b.charAt(0).toUpperCase() + b.slice(1)}
-                {b === 'quarterly' && <span className="sub-billing-save">Save 10%</span>}
-                {b === 'biannual' && <span className="sub-billing-save">Save 17%</span>}
-              </button>
-            ))}
+          <div className="section-header">
+            <span className="section-label section-label--dark">Why Dr Diet</span>
+            <h2>What You Get With Every Plan</h2>
+            <div className="divider" />
           </div>
-
-          <div className="sub-plans-grid">
-            {plans.map((plan, i) => (
-              <div key={plan.id} className={`sub-plan-card fade-up stagger-${i + 1} ${plan.highlight ? 'sub-plan-card--highlight' : ''}`}>
-                {plan.highlight && (
-                  <div className="sub-plan-card__popular">
-                    <i className="fas fa-fire" /> Most Popular
-                  </div>
-                )}
-                <div className="sub-plan-card__header">
-                  <div className="sub-plan-card__icon" style={{ background: plan.color === 'var(--accent)' ? 'rgba(213,208,88,0.15)' : 'rgba(67,78,48,0.08)' }}>
-                    <i className="fas fa-bowl-food" style={{ color: plan.color }} />
-                  </div>
-                  <div>
-                    <h3>{plan.name}</h3>
-                    <p className="sub-plan-card__tagline">{plan.tagline}</p>
-                  </div>
+          <div className="sub-value-grid">
+            {values.map((v, i) => (
+              <div key={v.title} className={`sub-value-card fade-up stagger-${(i % 3) + 1}`}>
+                <div className="sub-value-card__icon">
+                  <i className={v.icon} />
                 </div>
-
-                <div className="sub-plan-card__price">
-                  <div>
-                    <span className="sub-plan-card__currency">SAR</span>
-                    <span className="sub-plan-card__amount">
-                      {Math.round(plan.price.monthly * billingMultiplier[billing])}
-                    </span>
-                    <span className="sub-plan-card__period">/month</span>
-                  </div>
-                  <span className="sub-plan-card__meals">{plan.meals}</span>
-                </div>
-
-                <div className="sub-plan-card__divider" />
-
-                <ul className="sub-plan-card__features">
-                  {plan.features.map((f) => (
-                    <li key={f} className="sub-plan-card__feature sub-plan-card__feature--yes">
-                      <i className="fas fa-check" /> {f}
-                    </li>
-                  ))}
-                  {plan.notIncluded.map((f) => (
-                    <li key={f} className="sub-plan-card__feature sub-plan-card__feature--no">
-                      <i className="fas fa-times" /> {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://wa.me/966500000000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`btn ${plan.highlight ? 'btn--primary' : 'btn--outline-dark'}`}
-                  style={{ width: '100%', justifyContent: 'center', marginTop: 'auto' }}
-                >
-                  <i className="fab fa-whatsapp" /> Get Started
-                </a>
+                <h4>{v.title}</h4>
+                <p>{v.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <p className="sub-plans-note fade-up">
-            <i className="fas fa-shield-alt" /> All plans include free delivery, fresh daily preparation, and a satisfaction guarantee.
-            <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"> Questions? Chat with us.</a>
-          </p>
+      {/* Subscription Form */}
+      <section className="section sub-form-section" ref={sForm}>
+        <div className="container">
+          <div className="sub-form-wrap fade-up">
+            <div className="section-header">
+              <span className="section-label section-label--dark">Get Started</span>
+              <h2>Start My Plan</h2>
+              <div className="divider" />
+              <p>Tell us about yourself. Our team will reach out on WhatsApp within minutes.</p>
+            </div>
+
+            {submitted ? (
+              <div className="sub-form-success">
+                <div className="sub-form-success__icon"><i className="fas fa-check" /></div>
+                <h3>We've Got Your Details!</h3>
+                <p>Our team will contact you on WhatsApp shortly to personalise your diet plan.</p>
+                <a
+                  href="https://wa.me/917015732242"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary btn--lg"
+                >
+                  <i className="fab fa-whatsapp" /> Chat Now
+                </a>
+              </div>
+            ) : (
+              <form className="sub-form" onSubmit={handleSubmit}>
+                <div className="sub-form__row">
+                  <div className="form-group">
+                    <label htmlFor="sub-name">Full Name *</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="sub-name"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Your full name"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="sub-phone">Phone Number *</label>
+                    <input
+                      className="form-control"
+                      type="tel"
+                      id="sub-phone"
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="+91 XXXXX XXXXX"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                </div>
+
+                <div className="sub-form__row">
+                  <div className="form-group">
+                    <label htmlFor="sub-city">City *</label>
+                    <select
+                      className="form-control"
+                      id="sub-city"
+                      name="city"
+                      value={form.city}
+                      onChange={handleChange}
+                      required
+                      aria-required="true"
+                    >
+                      <option value="">Select your city</option>
+                      <option>Delhi</option>
+                      <option>Chandigarh</option>
+                      <option>Bengaluru</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="sub-goal">Health Goal *</label>
+                    <select
+                      className="form-control"
+                      id="sub-goal"
+                      name="goal"
+                      value={form.goal}
+                      onChange={handleChange}
+                      required
+                      aria-required="true"
+                    >
+                      <option value="">Select your goal</option>
+                      <option>Weight Loss</option>
+                      <option>Muscle Gain</option>
+                      <option>Eat Clean</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="sub-form__row">
+                  <div className="form-group">
+                    <label htmlFor="sub-diet">Dietary Preference *</label>
+                    <select
+                      className="form-control"
+                      id="sub-diet"
+                      name="diet"
+                      value={form.diet}
+                      onChange={handleChange}
+                      required
+                      aria-required="true"
+                    >
+                      <option value="">Select preference</option>
+                      <option>Veg</option>
+                      <option>Non-Veg</option>
+                      <option>Eggetarian</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="sub-source">How did you hear about us?</label>
+                    <select
+                      className="form-control"
+                      id="sub-source"
+                      name="source"
+                      value={form.source}
+                      onChange={handleChange}
+                    >
+                      <option value="">Select an option</option>
+                      <option>Instagram</option>
+                      <option>Swiggy / Zomato</option>
+                      <option>Friend / Referral</option>
+                      <option>YouTube</option>
+                      <option>Google</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" className="btn btn--primary btn--lg sub-form__submit">
+                  <i className="fas fa-arrow-right" /> Start My Plan
+                </button>
+              </form>
+            )}
+
+            <p className="sub-form-trust">
+              <i className="fab fa-whatsapp" /> Our team will contact you on WhatsApp to personalise your diet plan.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -200,10 +254,10 @@ export default function Subscription() {
           </div>
           <div className="sub-steps">
             {[
-              { step: '01', icon: 'fas fa-clipboard-list', title: 'Tell Us Your Goals', desc: 'Fill out our nutrition assessment. We learn about your goals, lifestyle, preferences, and any food restrictions.' },
-              { step: '02', icon: 'fas fa-user-md', title: 'Get Your Custom Plan', desc: 'Our nutritionists design a meal plan optimized for your specific goals and caloric needs.' },
-              { step: '03', icon: 'fas fa-utensils', title: 'We Cook, You Enjoy', desc: 'Our chefs prepare your meals fresh daily in our certified kitchen using clean, traceable ingredients.' },
-              { step: '04', icon: 'fas fa-truck', title: 'Delivered to Your Door', desc: 'Your meals arrive before 7am — portioned, labeled, and ready to eat. No cooking, no prep, no guessing.' },
+              { step: '01', icon: 'fas fa-clipboard-list', title: 'Tell Us Your Goal',            desc: 'Fill out the form above. Share your goal, diet preference, and city. Takes under a minute.' },
+              { step: '02', icon: 'fas fa-utensils',       title: 'Get Your Personalised Plan',   desc: 'Our team builds a meal plan around your calorie needs, goal, and food preferences.' },
+              { step: '03', icon: 'fas fa-fire-alt',       title: 'We Cook Fresh Daily',          desc: 'Every meal is freshly prepared in our kitchen each morning. No freezing, no shortcuts.' },
+              { step: '04', icon: 'fas fa-truck',          title: 'Delivered to Your Doorstep',   desc: 'Your meals arrive fresh every day, portioned, labelled, and ready to eat.' },
             ].map((s, i) => (
               <div key={s.step} className={`sub-step fade-up stagger-${i + 1}`}>
                 <div className="sub-step__number">{s.step}</div>
@@ -226,8 +280,15 @@ export default function Subscription() {
           </div>
           <div className="sub-faq">
             {faqs.map((faq, i) => (
-              <div key={i} className={`sub-faq-item fade-up stagger-${(i % 3) + 1} ${openFaq === i ? 'sub-faq-item--open' : ''}`}>
-                <button className="sub-faq-item__question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+              <div
+                key={i}
+                className={`sub-faq-item ${openFaq === i ? 'sub-faq-item--open' : ''}`}
+              >
+                <button
+                  className="sub-faq-item__question"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                >
                   <span>{faq.q}</span>
                   <i className={`fas fa-chevron-${openFaq === i ? 'up' : 'down'}`} />
                 </button>
@@ -241,7 +302,12 @@ export default function Subscription() {
           </div>
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
             <p style={{ marginBottom: '20px', fontSize: '1rem' }}>Still have questions?</p>
-            <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg">
+            <a
+              href="https://wa.me/917015732242"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--dark btn--lg"
+            >
               <i className="fab fa-whatsapp" /> Chat With Our Team
             </a>
           </div>

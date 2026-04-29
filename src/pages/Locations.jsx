@@ -19,41 +19,46 @@ function useReveal() {
 
 const locations = [
   {
-    city: 'Riyadh',
+    city: 'Delhi',
     branches: [
-      { name: 'Riyadh – Al Olaya Branch', address: 'Al Olaya District, King Fahd Road', phone: '+966 11 000 0001', hours: 'Sun–Thu: 6am–10pm', delivery: 'All Riyadh Districts' },
-      { name: 'Riyadh – Al Nakheel Branch', address: 'Al Nakheel District, Prince Mohammed Bin Salman Road', phone: '+966 11 000 0002', hours: 'Sun–Thu: 6am–10pm', delivery: 'North Riyadh' },
-      { name: 'Riyadh – Al Malaz Branch', address: 'Al Malaz, Al Imam Saud Bin Abdul Aziz Road', phone: '+966 11 000 0003', hours: 'Sun–Thu: 6am–10pm', delivery: 'Central Riyadh' },
-      { name: 'Riyadh – Al Diriyah Branch', address: 'Al Diriyah District, King Salman Road', phone: '+966 11 000 0004', hours: 'Sun–Thu: 6am–10pm', delivery: 'West Riyadh' },
+      { name: 'Malviya Nagar', address: 'D-89, near Karnataka Bank, DDA Flats, Malviya Nagar, New Delhi 110017', hours: 'Mon–Sun: 8am–9pm', delivery: 'South Delhi' },
+      { name: 'Lajpat Nagar',  address: 'D-166, Block D, Lajpat Nagar I, New Delhi 110024',                      hours: 'Mon–Sun: 8am–9pm', delivery: 'Central South Delhi' },
+      { name: 'Rajouri Garden', address: 'Rajouri Garden, West Delhi',                                            hours: 'Mon–Sun: 8am–9pm', delivery: 'West Delhi' },
+      { name: 'Karol Bagh',     address: 'Karol Bagh, New Delhi',                                                hours: 'Mon–Sun: 8am–9pm', delivery: 'Central Delhi' },
     ],
-    img: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&q=80',
+    img: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&q=80',
   },
   {
-    city: 'Jeddah',
+    city: 'Gurgaon',
     branches: [
-      { name: 'Jeddah – Al Hamra Branch', address: 'Al Hamra District, Madinah Road', phone: '+966 12 000 0001', hours: 'Sun–Thu: 6am–10pm', delivery: 'Central Jeddah' },
-      { name: 'Jeddah – Al Rawdah Branch', address: 'Al Rawdah District, Palestine Street', phone: '+966 12 000 0002', hours: 'Sun–Thu: 6am–10pm', delivery: 'North Jeddah' },
-      { name: 'Jeddah – Al Andalus Branch', address: 'Al Andalus District, Abdullah Al-Omar Street', phone: '+966 12 000 0003', hours: 'Sun–Thu: 6am–10pm', delivery: 'South Jeddah' },
-    ],
-    img: 'https://images.unsplash.com/photo-1609183461561-34f2dc3f9ca9?w=600&q=80',
-  },
-  {
-    city: 'Dammam',
-    branches: [
-      { name: 'Dammam – Al Faisaliah Branch', address: 'Al Faisaliah District, Prince Mohammed Bin Fahd Road', phone: '+966 13 000 0001', hours: 'Sun–Thu: 6am–10pm', delivery: 'Dammam & Khobar' },
-      { name: 'Dammam – Al Shatea Branch', address: 'Al Shatea District, King Fahd Road', phone: '+966 13 000 0002', hours: 'Sun–Thu: 6am–10pm', delivery: 'Dammam Central' },
+      { name: 'Sector 28, DLF City IV', address: 'F3CP+286, Sector 28, DLF City IV, Gurugram, Haryana 122009', hours: 'Mon–Sun: 8am–9pm', delivery: 'DLF City, Gurgaon' },
+      { name: 'Sapphire Mall, Sohna Road', address: 'Sapphire Mall, Sohna Road, Gurugram, Haryana',              hours: 'Mon–Sun: 8am–9pm', delivery: 'Sohna Road, Gurugram' },
     ],
     img: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&q=80',
   },
   {
-    city: 'Coming Soon',
+    city: 'Noida',
     branches: [
-      { name: 'Mecca – Al Aziziyah (Q3 2025)', address: 'Al Aziziyah District', phone: 'Notify Me', hours: 'Opening Soon', delivery: 'All Mecca Zones' },
-      { name: 'Medina – Al Munawarrah (Q4 2025)', address: 'Central Medina', phone: 'Notify Me', hours: 'Opening Soon', delivery: 'All Medina Zones' },
-      { name: 'Khobar – Al Thuqbah (Q2 2025)', address: 'Al Thuqbah, 1st Street', phone: 'Notify Me', hours: 'Opening Soon', delivery: 'Khobar & Dhahran' },
+      { name: 'Sector 73', address: 'Royal Avenue St, Sector 73, Noida, Uttar Pradesh 201316', hours: 'Mon–Sun: 8am–9pm', delivery: 'Sector 73, 74 & 75, Noida' },
+    ],
+    img: 'https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=600&q=80',
+  },
+  {
+    city: 'Chandigarh / Mohali',
+    branches: [
+      { name: 'Chandigarh – Sector 32', address: 'Sco no. 285/2, Sector 32D, Chandigarh 160030',                                       hours: 'Mon–Sun: 8am–9pm', delivery: 'Chandigarh & Panchkula' },
+      { name: 'Mohali – Sector 70',     address: 'Plot no. 201, Mattaur Rd, Sector 70, Sahibzada Ajit Singh Nagar, Punjab 160071', hours: 'Mon–Sun: 8am–9pm', delivery: 'Mohali & SAS Nagar' },
+      { name: 'Panchkula',              address: 'Panchkula, Haryana',                                                                hours: 'Mon–Sun: 8am–9pm', delivery: 'Panchkula' },
+      { name: 'Kharar',                 address: 'Kharar, SAS Nagar, Punjab',                                                         hours: 'Mon–Sun: 8am–9pm', delivery: 'Kharar & Kurali' },
     ],
     img: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80',
-    comingSoon: true,
+  },
+  {
+    city: 'Bengaluru',
+    branches: [
+      { name: 'Hebbal', address: 'Shop no 23, Sharadha Complex, Kempapura Main Rd, opp. Muthoot Finance, Hebbal, Bengaluru 560023', hours: 'Mon–Sun: 8am–9pm', delivery: 'Hebbal & North Bengaluru' },
+    ],
+    img: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=600&q=80',
   },
 ]
 
@@ -66,8 +71,8 @@ export default function Locations() {
       <section className="page-hero locations-hero">
         <div className="container">
           <span className="section-label section-label--white">Find Us</span>
-          <h1>Dr Diet Across<br />the Kingdom</h1>
-          <p>12 branches and growing. Fresh meals prepared locally and delivered to your door every morning.</p>
+          <h1>Dr Diet Across<br />India</h1>
+          <p>12 outlets across 5 cities. Fresh, healthy meals delivered daily.</p>
         </div>
       </section>
 
@@ -98,20 +103,12 @@ export default function Locations() {
                       </div>
                     </div>
                     <div className="location-branch-card__actions">
-                      {loc.comingSoon ? (
-                        <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark btn--sm">
-                          <i className="fab fa-whatsapp" /> Notify Me
-                        </a>
-                      ) : (
-                        <>
-                          <a href={`tel:${branch.phone}`} className="btn btn--outline-dark btn--sm">
-                            <i className="fas fa-phone" /> {branch.phone}
-                          </a>
-                          <a href={`https://maps.google.com?q=${encodeURIComponent(branch.address)}`} target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--sm">
-                            <i className="fas fa-map" /> Get Directions
-                          </a>
-                        </>
-                      )}
+                      <a href="https://wa.me/917015732242" target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark btn--sm">
+                        <i className="fab fa-whatsapp" /> WhatsApp
+                      </a>
+                      <a href={`https://maps.google.com?q=Dr+Diet+${encodeURIComponent(branch.name)}`} target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--sm">
+                        <i className="fas fa-map" /> Get Directions
+                      </a>
                     </div>
                   </div>
                 ))}
@@ -126,16 +123,16 @@ export default function Locations() {
         <div className="container">
           <div className="section-header">
             <span className="section-label section-label--white">Delivery</span>
-            <h2 className="text-white">We Deliver Everywhere You Are</h2>
+            <h2 className="text-white">We Deliver Fresh,<br />Wherever You Are</h2>
             <div className="divider" />
-            <p style={{ color: 'rgba(245,237,225,0.7)' }}>Fresh meals at your door before 7am. No waiting, no effort.</p>
+            <p style={{ color: 'rgba(245,237,225,0.7)' }}>Real food. Real health. Right at your doorstep.</p>
           </div>
           <div className="delivery-features">
             {[
-              { icon: 'fas fa-clock', title: 'Before 7am', desc: "Delivered fresh every morning so it's ready when you wake up" },
-              { icon: 'fas fa-temperature-low', title: 'Cold Chain', desc: 'Insulated packaging maintains freshness from kitchen to your door' },
-              { icon: 'fas fa-map-marked-alt', title: 'Live Tracking', desc: 'Know exactly when your delivery will arrive via WhatsApp updates' },
-              { icon: 'fas fa-calendar-alt', title: '6-7 Days/Week', desc: 'Delivery 6 days on Starter plans, 7 days on Transform & Elite' },
+              { icon: 'fas fa-fire-alt',       title: 'Fresh Meals Daily',              desc: 'Cooked fresh every morning and delivered the same day. No freezing, no reheating.' },
+              { icon: 'fas fa-dumbbell',        title: 'High Protein & Calorie-Counted', desc: 'Every meal is macro-tracked and designed around your health goal.' },
+              { icon: 'fas fa-map-marker-alt',  title: 'Delhi, Gurgaon, Noida & More',  desc: '12 outlets across 5 cities, with more locations coming soon.' },
+              { icon: 'fas fa-motorcycle',      title: 'Order on Swiggy & Zomato',       desc: 'Search "Dr. Diet" on your favourite food delivery app and order in minutes.' },
             ].map((f, i) => (
               <div key={f.title} className={`delivery-feature fade-up stagger-${i + 1}`}>
                 <div className="delivery-feature__icon"><i className={f.icon} /></div>
@@ -146,7 +143,7 @@ export default function Locations() {
           </div>
           <div style={{ textAlign: 'center', marginTop: '56px' }}>
             <Link to="/subscription" className="btn btn--primary btn--lg">
-              Start Your Subscription <i className="fas fa-arrow-right" />
+              Start Your Plan <i className="fas fa-arrow-right" />
             </Link>
           </div>
         </div>

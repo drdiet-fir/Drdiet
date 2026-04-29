@@ -59,7 +59,7 @@
 .testimonials-full-card__header span { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
 
 .testimonials-full-card__stars { display: flex; gap: 2px; }
-.testimonials-full-card__stars i { color: var(--accent); font-size: 0.78rem; }
+.testimonials-full-card__stars i { color: var(--accent-text); font-size: 0.78rem; }
 
 .testimonials-full-card__result {
   text-align: right;

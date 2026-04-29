@@ -17,20 +17,20 @@ function useReveal() {
 }
 
 const openings = [
-  { id: 1, title: 'Senior Nutritionist', dept: 'Nutrition', location: 'Riyadh', type: 'Full-time', desc: 'Lead client nutrition consultations, design customized meal plans, and drive transformation outcomes for our growing subscriber base.' },
-  { id: 2, title: 'Head Chef – New Branch', dept: 'Kitchen', location: 'Jeddah', type: 'Full-time', desc: 'Lead kitchen operations for our new Jeddah branch. Must have 5+ years in high-volume food production and a passion for healthy cooking.' },
-  { id: 3, title: 'Digital Marketing Manager', dept: 'Marketing', location: 'Riyadh', type: 'Full-time', desc: "Own our digital marketing strategy across social, paid, and SEO. We're growing fast and need someone who can grow with us." },
+  { id: 1, title: 'Senior Nutritionist', dept: 'Nutrition', location: 'Delhi', type: 'Full-time', desc: 'Lead client nutrition consultations, design customized meal plans, and drive transformation outcomes for our growing subscriber base.' },
+  { id: 2, title: 'Head Chef – New Branch', dept: 'Kitchen', location: 'Bengaluru', type: 'Full-time', desc: 'Lead kitchen operations for our new Bengaluru branch. Must have 5+ years in high-volume food production and a passion for healthy cooking.' },
+  { id: 3, title: 'Digital Marketing Manager', dept: 'Marketing', location: 'Delhi', type: 'Full-time', desc: "Own our digital marketing strategy across social, paid, and SEO. We're growing fast and need someone who can grow with us." },
   { id: 4, title: 'Customer Success Specialist', dept: 'Operations', location: 'Remote', type: 'Full-time', desc: 'Be the voice of Dr Diet for our customers. Handle onboarding, check-ins, and ensure every subscriber feels supported on their journey.' },
-  { id: 5, title: 'Delivery Fleet Coordinator', dept: 'Logistics', location: 'Dammam', type: 'Full-time', desc: 'Manage our delivery fleet to ensure meals arrive on time, every time. Experience in logistics coordination required.' },
-  { id: 6, title: 'Social Media Content Creator', dept: 'Marketing', location: 'Riyadh', type: 'Part-time', desc: 'Create engaging content for our Instagram, TikTok, and Snapchat. Food photography and video editing skills a must.' },
+  { id: 5, title: 'Delivery Fleet Coordinator', dept: 'Logistics', location: 'Gurgaon', type: 'Full-time', desc: 'Manage our delivery fleet to ensure meals arrive on time, every time. Experience in logistics coordination required.' },
+  { id: 6, title: 'Social Media Content Creator', dept: 'Marketing', location: 'Delhi', type: 'Part-time', desc: 'Create engaging content for our Instagram, TikTok, and Snapchat. Food photography and video editing skills a must.' },
 ]
 
 const perks = [
   { icon: 'fas fa-utensils', title: 'Free Meals', desc: 'All Dr Diet meals on us, every day.' },
   { icon: 'fas fa-chart-line', title: 'Growth Path', desc: 'We promote from within and invest in your career.' },
   { icon: 'fas fa-heart', title: 'Health Insurance', desc: 'Comprehensive medical coverage for you and family.' },
-  { icon: 'fas fa-mosque', title: 'Prayer Breaks', desc: 'Flexible work schedule respecting all prayer times.' },
-  { icon: 'fas fa-plane', title: 'Annual Leave', desc: '21 days + national holidays as per KSA labor law.' },
+  { icon: 'fas fa-om', title: 'Flexible Hours', desc: 'Flexible work schedule that respects your work-life balance.' },
+  { icon: 'fas fa-plane', title: 'Annual Leave', desc: '21 days + national holidays as per Indian labor law.' },
   { icon: 'fas fa-graduation-cap', title: 'Training', desc: 'Annual learning budget for courses & certifications.' },
 ]
 
@@ -49,7 +49,7 @@ export default function Careers() {
         <div className="container">
           <span className="section-label section-label--white">Join the Team</span>
           <h1>Build a Career<br />That Transforms Lives</h1>
-          <p>At Dr Diet, we're not just delivering meals — we're changing how Saudi Arabia eats. Join us and be part of something meaningful.</p>
+          <p>At Dr Diet, we're not just delivering meals. We're changing how India eats. Join us and be part of something meaningful.</p>
         </div>
       </section>
 
@@ -61,8 +61,8 @@ export default function Careers() {
               <span className="section-label section-label--dark">Our Culture</span>
               <h2>Where Passion Meets Purpose</h2>
               <div className="divider divider--left" />
-              <p>We're a team of nutritionists, chefs, technologists, and marketers united by one belief: that what you eat shapes who you become. We work hard, we eat well, and we celebrate every transformation — our customers' and our team's.</p>
-              <p style={{marginTop:'16px'}}>If you're driven, care about your craft, and want your work to genuinely matter — you'll fit right in.</p>
+              <p>We're a team of nutritionists, chefs, technologists, and marketers united by one belief: that what you eat shapes who you become. We work hard, we eat well, and we celebrate every transformation, our customers' and our team's.</p>
+              <p style={{marginTop:'16px'}}>If you're driven, care about your craft, and want your work to genuinely matter, you'll fit right in.</p>
             </div>
             <div className="careers-culture__images fade-up stagger-2">
               <img src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=500&q=80" alt="Dr Diet team" className="careers-culture__img1" />
@@ -127,7 +127,7 @@ export default function Careers() {
                   <div className="careers-job-card__body">
                     <p>{job.desc}</p>
                     <div className="careers-job-card__actions">
-                      <a href={`https://wa.me/966500000000?text=I'd like to apply for the ${job.title} position`} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+                      <a href={`https://wa.me/917015732242?text=I'd like to apply for the ${job.title} position`} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
                         <i className="fab fa-whatsapp" /> Apply via WhatsApp
                       </a>
                       <a href="mailto:careers@drdiet.com?subject=Application: Dr Diet" className="btn btn--outline-dark">

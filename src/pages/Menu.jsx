@@ -19,18 +19,18 @@ function useReveal() {
 const categories = ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snacks', 'High Protein', 'Low Carb', 'Vegan']
 
 const meals = [
-  { id: 1, name: 'Grilled Salmon Power Bowl', cat: ['Lunch', 'High Protein'], cal: 480, protein: 42, carbs: 28, fat: 18, tag: 'Best Seller', img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80' },
-  { id: 2, name: 'Overnight Oats with Berries', cat: ['Breakfast'], cal: 340, protein: 18, carbs: 45, fat: 8, tag: 'Fan Fav', img: 'https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=400&q=80' },
-  { id: 3, name: 'Chicken Shawarma Wrap', cat: ['Lunch'], cal: 520, protein: 38, carbs: 42, fat: 14, tag: null, img: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80' },
-  { id: 4, name: 'Zucchini Bolognese', cat: ['Dinner', 'Low Carb'], cal: 420, protein: 35, carbs: 12, fat: 22, tag: 'Low Carb', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&q=80' },
-  { id: 5, name: 'Quinoa Veggie Power Bowl', cat: ['Lunch', 'Vegan'], cal: 380, protein: 22, carbs: 48, fat: 10, tag: 'Vegan', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80' },
-  { id: 6, name: 'Beef Kofta with Roasted Veg', cat: ['Dinner', 'High Protein'], cal: 560, protein: 45, carbs: 22, fat: 28, tag: 'Bulk Gain', img: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&q=80' },
-  { id: 7, name: 'Greek Yogurt Parfait', cat: ['Breakfast', 'Snacks'], cal: 280, protein: 20, carbs: 28, fat: 8, tag: null, img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80' },
-  { id: 8, name: 'Grilled Chicken Caesar', cat: ['Lunch', 'High Protein'], cal: 450, protein: 40, carbs: 18, fat: 20, tag: null, img: 'https://images.unsplash.com/photo-1551248429-40975aa4de74?w=400&q=80' },
-  { id: 9, name: 'Lemon Herb Sea Bass', cat: ['Dinner'], cal: 400, protein: 38, carbs: 14, fat: 16, tag: 'Premium', img: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&q=80' },
-  { id: 10, name: 'Protein Energy Balls', cat: ['Snacks', 'High Protein'], cal: 180, protein: 12, carbs: 16, fat: 7, tag: null, img: 'https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?w=400&q=80' },
-  { id: 11, name: 'Avocado Egg Toast', cat: ['Breakfast'], cal: 360, protein: 22, carbs: 30, fat: 18, tag: null, img: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&q=80' },
-  { id: 12, name: 'Chickpea Curry Bowl', cat: ['Dinner', 'Vegan'], cal: 440, protein: 18, carbs: 55, fat: 14, tag: 'Vegan', img: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&q=80' },
+  { id: 1,  name: 'Grilled Chicken Rice Bowl',       price: 249, cat: ['Lunch', 'High Protein'],        cal: 420, protein: 38, carbs: 42, fat: 10, tag: 'Best Seller', img: '/brand_assets/Chicken Brown rice Landscape.jpg' },
+  { id: 2,  name: 'Buckwheat Noodles (Veg)',          price: 199, cat: ['Lunch', 'Vegan', 'Low Carb'],   cal: 320, protein: 14, carbs: 52, fat:  8, tag: null,         img: '/brand_assets/Veg buckweat noodles.jpg' },
+  { id: 3,  name: 'Chicken Tikka Wrap',               price: 249, cat: ['Lunch', 'High Protein'],        cal: 460, protein: 36, carbs: 40, fat: 12, tag: null,         img: '/brand_assets/Chicken Tikka Wrap.png' },
+  { id: 4,  name: 'High Protein Chilly Chicken',      price: 249, cat: ['Dinner', 'High Protein'],       cal: 450, protein: 42, carbs: 18, fat: 16, tag: 'High Protein', img: '/brand_assets/Chilli chicken.jpg' },
+  { id: 5,  name: 'Quinoa Patty Burger',              price: 249, cat: ['Lunch', 'Vegan'],               cal: 420, protein: 22, carbs: 48, fat: 14, tag: 'Vegan',       img: '/brand_assets/Quinoa Patty Burger.png' },
+  { id: 6,  name: 'Stuffed Chicken Breast',           price: 280, cat: ['Dinner', 'High Protein'],       cal: 480, protein: 46, carbs: 12, fat: 22, tag: null,         img: '/brand_assets/Juiciest stuffed chicken breast.jpg' },
+  { id: 7,  name: 'Nutella Protein Pancakes',         price: 249, cat: ['Breakfast', 'Snacks'],          cal: 380, protein: 28, carbs: 44, fat: 12, tag: 'Fan Fav',     img: '/brand_assets/Nuttela Pancake.png' },
+  { id: 8,  name: 'Grilled Paneer Protein Bowl',      price: 249, cat: ['Lunch', 'High Protein'],        cal: 420, protein: 32, carbs: 30, fat: 18, tag: null,         img: '/brand_assets/achari paneer bowl.jpg' },
+  { id: 9,  name: 'Thai Chili Fish Rice Bowl',        price: 349, cat: ['Dinner', 'High Protein'],       cal: 480, protein: 38, carbs: 46, fat: 12, tag: 'Premium',     img: '/brand_assets/Thai curry bowl.jpg' },
+  { id: 10, name: 'Mexican Protein Wrap',             price: 249, cat: ['Lunch'],                        cal: 440, protein: 32, carbs: 44, fat: 14, tag: null,         img: '/brand_assets/Maxican Protein Wrap.png' },
+  { id: 11, name: 'Double Paneer Tikka Sandwich',     price: 199, cat: ['Snacks', 'Lunch'],              cal: 380, protein: 26, carbs: 38, fat: 14, tag: null,         img: '/brand_assets/Double panner tikka sandwich.jpg' },
+  { id: 12, name: 'Chickpea Curry Bowl',              price: 249, cat: ['Dinner', 'Vegan'],              cal: 380, protein: 18, carbs: 52, fat: 10, tag: 'Vegan',       img: '/brand_assets/curried chole bowl.jpg' },
 ]
 
 export default function Menu() {
@@ -78,7 +78,10 @@ export default function Menu() {
                   </div>
                 </div>
                 <div className="menu-card__body">
-                  <h4 className="menu-card__name">{meal.name}</h4>
+                  <div className="menu-card__header-row">
+                    <h4 className="menu-card__name">{meal.name}</h4>
+                    <span className="menu-card__price">₹{meal.price}</span>
+                  </div>
                   <div className="menu-card__macros">
                     <div className="menu-card__macro">
                       <span>{meal.protein}g</span>
