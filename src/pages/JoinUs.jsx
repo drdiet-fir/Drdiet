@@ -79,7 +79,7 @@ export default function JoinUs() {
                 ))}
               </ul>
 
-              <a href="https://wa.me/966500000000?text=I'm interested in a Dr Diet franchise" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg" style={{marginTop:'32px'}}>
+              <a href="https://wa.me/917015732242?text=I'm interested in a Dr Diet franchise" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg" style={{marginTop:'32px'}}>
                 <i className="fab fa-whatsapp" /> Inquire About Franchise
               </a>
             </div>
@@ -121,7 +121,7 @@ export default function JoinUs() {
                 ))}
               </ul>
 
-              <a href="https://wa.me/966500000000?text=I'd like to inquire about corporate catering" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg" style={{marginTop:'32px'}}>
+              <a href="https://wa.me/917015732242?text=I'd like to inquire about corporate catering" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg" style={{marginTop:'32px'}}>
                 <i className="fab fa-whatsapp" /> Get a Catering Quote
               </a>
             </div>
@@ -168,7 +168,7 @@ export default function JoinUs() {
                 ))}
               </div>
 
-              <a href="https://wa.me/966500000000?text=I'm interested in a B2B partnership with Dr Diet" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg" style={{marginTop:'32px'}}>
+              <a href="https://wa.me/917015732242?text=I'm interested in a B2B partnership with Dr Diet" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg" style={{marginTop:'32px'}}>
                 <i className="fab fa-whatsapp" /> Start a Partnership Conversation
               </a>
             </div>
