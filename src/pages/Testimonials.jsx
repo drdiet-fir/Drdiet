@@ -76,7 +76,6 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <div key={t.name} className={`testimonials-full-card fade-up stagger-${(i % 3) + 1}`}>
                 <div className="testimonials-full-card__header">
-                  <img src={t.avatar} alt={t.name} />
                   <div>
                     <strong>{t.name}</strong>
                     <span>{t.role} · {t.city}</span>
