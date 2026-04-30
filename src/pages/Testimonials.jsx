@@ -100,33 +100,6 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Video reviews */}
-      <section className="section section--cream" ref={s2}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label--dark">Video Stories</span>
-            <h2>Watch Their Transformations</h2>
-            <div className="divider" />
-          </div>
-          <div className="grid-3">
-            {videoReviews.map((v) => (
-              <div key={v.name} className="video-card fade-up">
-                <div className="video-card__thumb">
-                  <img src={v.thumbnail} alt={v.name} />
-                  <div className="video-card__play">
-                    <i className="fas fa-play" />
-                  </div>
-                  <span className="video-card__duration">{v.duration}</span>
-                </div>
-                <div className="video-card__info">
-                  <strong>{v.name}'s Story</strong>
-                  <p>Watch how {v.name} transformed with Dr Diet</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="section section--dark" ref={s3}>
