@@ -208,5 +208,28 @@
 .menu-note strong { color: var(--primary); }
 
 @media (max-width: 1100px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 768px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px)  { .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+@media (max-width: 480px)  { .menu-grid { grid-template-columns: 1fr; gap: 14px; } }
+
+@media (max-width: 768px) {
+  .menu-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 8px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .menu-filters::-webkit-scrollbar { display: none; }
+  .menu-filter-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .menu-filter-btn--active {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+    border-color: var(--primary) !important;
+  }
+}

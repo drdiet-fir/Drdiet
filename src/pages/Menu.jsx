@@ -41,6 +41,11 @@ export default function Menu() {
     ? meals
     : meals.filter((m) => m.cat.includes(activeCategory))
 
+  useEffect(() => {
+    if (!ref.current) return
+    ref.current.querySelectorAll('.fade-up').forEach((el) => el.classList.add('visible'))
+  }, [activeCategory])
+
   return (
     <>
       <section className="page-hero menu-hero">
