@@ -19,26 +19,18 @@
 
 .location-city__header {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  align-items: stretch;
+  grid-template-columns: 280px 1fr;
+  align-items: center;
   background: var(--primary);
-  min-height: 120px;
 }
 
 .location-city__image {
   position: relative;
+  height: 140px;
   overflow: hidden;
-  min-height: 120px;
 }
 
-.location-city__image img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.65);
-}
+.location-city__image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65); }
 
 .location-city__soon-badge {
   position: absolute;
@@ -54,14 +46,9 @@
   letter-spacing: 0.07em;
 }
 
-.location-city__meta {
-  padding: 24px 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.location-city__meta h2 { color: var(--white); font-size: 1.6rem; margin-bottom: 4px; }
-.location-city__meta p { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0; }
+.location-city__meta { padding: 0 32px; }
+.location-city__meta h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 4px; }
+.location-city__meta p { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
 
 .location-branches {
   display: flex;
@@ -135,8 +122,8 @@
 
 @media (max-width: 960px) {
   .location-city__header { grid-template-columns: 1fr; }
-  .location-city__image { min-height: 160px; height: 160px; position: relative; }
-  .location-city__meta { padding: 20px 24px; justify-content: flex-start; }
+  .location-city__image { height: 160px; }
+  .location-city__meta { padding: 20px 24px; }
   .delivery-features { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -145,25 +132,3 @@
   .location-branch-card__details { flex-direction: column; gap: 6px; }
   .location-branch-card__actions { width: 100%; }
 }
-
-.location-city__desc {
-  padding: 16px 28px;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-}
-.location-city__desc p {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin: 0;
-}
-.location-city__page-link {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-decoration: none;
-}
-.location-city__page-link:hover { text-decoration: underline; }
-.location-city__page-link i { margin-left: 4px; font-size: 0.7rem; }
