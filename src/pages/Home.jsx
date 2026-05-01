@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import PageMeta from '../components/PageMeta'
 import './Home.css'
 
 /* ── Scroll-animation hook (inline for page-level use) ── */
@@ -797,6 +798,72 @@ function LocationsSection() {
   )
 }
 
+function AudienceSection() {
+  const ref = useReveal()
+  const segments = [
+    {
+      icon: 'fas fa-weight',
+      title: 'Weight Loss',
+      desc: 'Calorie-deficit meal plans with high protein. Lose 6–10kg in 6 weeks without starving.',
+      link: '/blog/how-to-lose-weight-without-starving',
+      cta: 'Read: How to Lose Weight',
+    },
+    {
+      icon: 'fas fa-dumbbell',
+      title: 'Muscle Gain',
+      desc: '35–55g protein per meal to fuel your workouts and build lean muscle without extra fat.',
+      link: '/blog/high-protein-indian-meal-plan-muscle-gain',
+      cta: 'Read: Muscle Gain Guide',
+    },
+    {
+      icon: 'fas fa-briefcase',
+      title: 'Office Professionals',
+      desc: 'Skip the canteen. Get a calorie-counted, high-protein office lunch delivered every morning.',
+      link: '/blog/healthy-office-lunch-delhi-gurgaon',
+      cta: 'Read: Office Lunch Guide',
+    },
+    {
+      icon: 'fas fa-heartbeat',
+      title: 'Medical Goals',
+      desc: 'Custom plans for PCOS, diabetes, thyroid, and lifestyle conditions. Clean, whole-food meals.',
+      link: '/blog/pcos-diet-plan-india',
+      cta: 'Read: PCOS Diet Guide',
+    },
+  ]
+
+  return (
+    <section className="section section--cream audience-section" ref={ref}>
+      <div className="container">
+        <div className="section-header">
+          <span className="section-label section-label--dark">Who It's For</span>
+          <h2>Every Goal Has a Plan</h2>
+          <div className="divider" />
+          <p>Whether you want to lose weight, build muscle, eat clean at work, or manage a health condition — Dr Diet has a meal plan built for your specific goal.</p>
+        </div>
+        <div className="audience-grid">
+          {segments.map((s, i) => (
+            <div key={s.title} className={`audience-card fade-up stagger-${i + 1}`}>
+              <div className="audience-card__icon"><i className={s.icon} /></div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              <Link to={s.link} className="audience-card__link">{s.cta} <i className="fas fa-arrow-right" /></Link>
+            </div>
+          ))}
+        </div>
+        <div className="audience-cities fade-up">
+          <p className="audience-cities__label">Delivering across India:</p>
+          <div className="audience-cities__list">
+            <Link to="/healthy-meal-plan-delhi">Delhi</Link>
+            <Link to="/diet-food-gurgaon">Gurgaon</Link>
+            <Link to="/healthy-meals-chandigarh">Chandigarh & Mohali</Link>
+            <Link to="/weight-loss-meals-bangalore">Bangalore</Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function CtaBanner() {
   return (
     <section className="cta-banner">
@@ -831,9 +898,16 @@ function CtaBanner() {
 export default function Home() {
   return (
     <>
+      <PageMeta
+        title="Dr Diet – Healthy Meal Plans Delivered Daily | Weight Loss & High-Protein Meals"
+        description="Dr Diet delivers fresh, calorie-counted, high-protein meal plans across Delhi, Gurgaon, Chandigarh & Bangalore. Plans for weight loss, muscle gain, PCOS & office professionals. Starting ₹199/day."
+        canonical="/"
+        ogImage="/brand_assets/Food image 1.webp"
+      />
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
+      <AudienceSection />
       <TransformationsSection />
       <TrialFormSection />
       <StarMealsSection />

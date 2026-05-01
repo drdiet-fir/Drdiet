@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import PageMeta from '../components/PageMeta'
 import './Locations.css'
 
 function useReveal() {
@@ -20,6 +21,9 @@ function useReveal() {
 const locations = [
   {
     city: 'Delhi',
+    cityPage: '/healthy-meal-plan-delhi',
+    cityPageLabel: 'View Delhi Meal Plans',
+    intro: 'Dr Diet delivers healthy, calorie-counted meal plans across Delhi including Malviya Nagar, Lajpat Nagar, Rajouri Garden, Karol Bagh, and surrounding areas. Our plans are designed for working professionals, gym-goers, and individuals seeking weight loss or muscle gain diets in Delhi NCR.',
     branches: [
       { name: 'Malviya Nagar', address: 'D-89, near Karnataka Bank, DDA Flats, Malviya Nagar, New Delhi 110017', hours: 'Mon–Sun: 8am–9pm', delivery: 'South Delhi' },
       { name: 'Lajpat Nagar',  address: 'D-166, Block D, Lajpat Nagar I, New Delhi 110024',                      hours: 'Mon–Sun: 8am–9pm', delivery: 'Central South Delhi' },
@@ -30,6 +34,9 @@ const locations = [
   },
   {
     city: 'Gurgaon',
+    cityPage: '/diet-food-gurgaon',
+    cityPageLabel: 'View Gurgaon Meal Plans',
+    intro: 'Dr Diet delivers diet food and healthy meal plans in Gurgaon including DLF City, Sohna Road, Cyber City, and Golf Course Road. Our high-protein, calorie-counted meals are ideal for Gurgaon\'s corporate professionals and gym-goers.',
     branches: [
       { name: 'Sector 28, DLF City IV', address: 'F3CP+286, Sector 28, DLF City IV, Gurugram, Haryana 122009', hours: 'Mon–Sun: 8am–9pm', delivery: 'DLF City, Gurgaon' },
       { name: 'Sapphire Mall, Sohna Road', address: 'Sapphire Mall, Sohna Road, Gurugram, Haryana',              hours: 'Mon–Sun: 8am–9pm', delivery: 'Sohna Road, Gurugram' },
@@ -38,6 +45,8 @@ const locations = [
   },
   {
     city: 'Noida',
+    cityPage: null,
+    intro: 'Dr Diet serves healthy meal plans in Noida including Sector 73, 74, and 75. Fresh, calorie-counted meals delivered daily across Noida.',
     branches: [
       { name: 'Sector 73', address: 'Royal Avenue St, Sector 73, Noida, Uttar Pradesh 201316', hours: 'Mon–Sun: 8am–9pm', delivery: 'Sector 73, 74 & 75, Noida' },
     ],
@@ -45,6 +54,9 @@ const locations = [
   },
   {
     city: 'Chandigarh / Mohali',
+    cityPage: '/healthy-meals-chandigarh',
+    cityPageLabel: 'View Chandigarh Meal Plans',
+    intro: 'Founded in Chandigarh, Dr Diet is the Tricity\'s most trusted healthy meal service. We deliver fresh, macro-balanced meals daily across Chandigarh, Mohali, Panchkula, Kharar, and Zirakpur — ideal for students, IT professionals, and fitness enthusiasts.',
     branches: [
       { name: 'Chandigarh – Sector 32', address: 'Sco no. 285/2, Sector 32D, Chandigarh 160030',                                       hours: 'Mon–Sun: 8am–9pm', delivery: 'Chandigarh & Panchkula' },
       { name: 'Mohali – Sector 70',     address: 'Plot no. 201, Mattaur Rd, Sector 70, Sahibzada Ajit Singh Nagar, Punjab 160071', hours: 'Mon–Sun: 8am–9pm', delivery: 'Mohali & SAS Nagar' },
@@ -55,6 +67,9 @@ const locations = [
   },
   {
     city: 'Bengaluru',
+    cityPage: '/weight-loss-meals-bangalore',
+    cityPageLabel: 'View Bangalore Meal Plans',
+    intro: 'Dr Diet delivers healthy weight loss and muscle gain meal plans across Bangalore including Hebbal, Koramangala, Whitefield, Indiranagar, and HSR Layout. Fresh, calorie-counted Indian food for Bengaluru\'s fitness-conscious professionals.',
     branches: [
       { name: 'Hebbal', address: 'Shop no 23, Sharadha Complex, Kempapura Main Rd, opp. Muthoot Finance, Hebbal, Bengaluru 560023', hours: 'Mon–Sun: 8am–9pm', delivery: 'Hebbal & North Bengaluru' },
     ],
@@ -68,11 +83,17 @@ export default function Locations() {
 
   return (
     <>
+      <PageMeta
+        title="Dr Diet Locations – Healthy Meal Delivery in Delhi, Gurgaon, Chandigarh & Bangalore"
+        description="Find Dr Diet outlets near you. We deliver healthy, calorie-counted meal plans across Delhi, Gurgaon, Noida, Chandigarh, Mohali, Panchkula, and Bangalore. 12 outlets across 5 cities."
+        canonical="/locations"
+        ogImage="/brand_assets/Chicken Brown rice Landscape.webp"
+      />
       <section className="page-hero locations-hero">
         <div className="container">
           <span className="section-label section-label--white">Find Us</span>
-          <h1>Dr Diet Across<br />India</h1>
-          <p>12 outlets across 5 cities. Fresh, healthy meals delivered daily.</p>
+          <h1>Dr Diet Locations –<br />Healthy Meals Across India</h1>
+          <p>12 outlets across 5 cities. Fresh, calorie-counted meals delivered daily to Delhi, Gurgaon, Noida, Chandigarh & Bangalore.</p>
         </div>
       </section>
 
@@ -89,6 +110,12 @@ export default function Locations() {
                 <div className="location-city__meta">
                   <h2>{loc.city}</h2>
                   <p>{loc.branches.length} {loc.branches.length === 1 ? 'Branch' : 'Branches'}</p>
+                  {loc.intro && <p className="location-city__intro">{loc.intro}</p>}
+                  {loc.cityPage && (
+                    <Link to={loc.cityPage} className="location-city__page-link">
+                      {loc.cityPageLabel} <i className="fas fa-arrow-right" />
+                    </Link>
+                  )}
                 </div>
               </div>
               <div className="location-branches">

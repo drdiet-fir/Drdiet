@@ -132,3 +132,20 @@
   .location-branch-card__details { flex-direction: column; gap: 6px; }
   .location-branch-card__actions { width: 100%; }
 }
+
+.location-city__intro {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 8px;
+}
+.location-city__page-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+.location-city__page-link:hover { text-decoration: underline; }
+.location-city__page-link i { margin-left: 4px; font-size: 0.7rem; }

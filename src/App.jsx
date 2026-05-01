@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -14,6 +15,12 @@ import Locations from './pages/Locations'
 import JoinUs from './pages/JoinUs'
 import Careers from './pages/Careers'
 import Contact from './pages/Contact'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
+import Delhi from './pages/cities/Delhi'
+import Gurgaon from './pages/cities/Gurgaon'
+import Bangalore from './pages/cities/Bangalore'
+import Chandigarh from './pages/cities/Chandigarh'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -41,6 +48,12 @@ function AppContent() {
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/healthy-meal-plan-delhi" element={<Delhi />} />
+          <Route path="/diet-food-gurgaon" element={<Gurgaon />} />
+          <Route path="/weight-loss-meals-bangalore" element={<Bangalore />} />
+          <Route path="/healthy-meals-chandigarh" element={<Chandigarh />} />
         </Routes>
       </main>
       <Footer />
@@ -51,8 +64,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }

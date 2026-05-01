@@ -15,6 +15,13 @@ const footerLinks = {
     { label: 'Our Menu', path: '/menu' },
     { label: 'Locations', path: '/locations' },
     { label: 'Testimonials', path: '/testimonials' },
+    { label: 'Nutrition Blog', path: '/blog' },
+  ],
+  Cities: [
+    { label: 'Healthy Meals in Delhi', path: '/healthy-meal-plan-delhi' },
+    { label: 'Diet Food in Gurgaon', path: '/diet-food-gurgaon' },
+    { label: 'Meals in Bangalore', path: '/weight-loss-meals-bangalore' },
+    { label: 'Meals in Chandigarh', path: '/healthy-meals-chandigarh' },
   ],
   'Join Us': [
     { label: 'Franchise', path: '/join-us#franchise' },
