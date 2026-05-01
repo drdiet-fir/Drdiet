@@ -50,6 +50,50 @@ function useCounter(value, suffix = '') {
   return ref
 }
 
+/* ── Live ticker hook (count-up then fluctuates every 2s) ── */
+function useLiveTicker(base, min, max, suffix = '') {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    let started = false
+    let intervalId = null
+
+    const startTick = () => {
+      intervalId = setInterval(() => {
+        const val = Math.floor(Math.random() * (max - min + 1)) + min
+        el.textContent = val.toLocaleString() + suffix
+      }, 2000)
+    }
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          started = true
+          let startTs = null
+          const duration = 2000
+          const step = (ts) => {
+            if (!startTs) startTs = ts
+            const p = Math.min((ts - startTs) / duration, 1)
+            const eased = 1 - Math.pow(1 - p, 3)
+            el.textContent = Math.floor(eased * base).toLocaleString() + (p < 1 ? '' : suffix)
+            if (p < 1) requestAnimationFrame(step)
+            else startTick()
+          }
+          requestAnimationFrame(step)
+        }
+      },
+      { threshold: 0.6 }
+    )
+    obs.observe(el)
+    return () => {
+      obs.disconnect()
+      if (intervalId) clearInterval(intervalId)
+    }
+  }, [base, min, max, suffix])
+  return ref
+}
+
 /* ─────────────────── SECTIONS ─────────────────── */
 
 function HeroSection() {
@@ -554,8 +598,8 @@ function StarMealsSection() {
 
 function StatsSection() {
   const c1 = useCounter(12, '+')
-  const c2 = useCounter(2500, '+')
-  const c3 = useCounter(10000, '+')
+  const c2 = useLiveTicker(2500, 2480, 2545, '+')
+  const c3 = useLiveTicker(10000, 10000, 10180, '+')
   const c4 = useCounter(5, '')
 
   const stats = [
