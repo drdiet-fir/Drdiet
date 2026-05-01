@@ -110,14 +110,18 @@ export default function Locations() {
                 <div className="location-city__meta">
                   <h2>{loc.city}</h2>
                   <p>{loc.branches.length} {loc.branches.length === 1 ? 'Branch' : 'Branches'}</p>
-                  {loc.intro && <p className="location-city__intro">{loc.intro}</p>}
+                </div>
+              </div>
+              {(loc.intro || loc.cityPage) && (
+                <div className="location-city__desc">
+                  {loc.intro && <p>{loc.intro}</p>}
                   {loc.cityPage && (
                     <Link to={loc.cityPage} className="location-city__page-link">
                       {loc.cityPageLabel} <i className="fas fa-arrow-right" />
                     </Link>
                   )}
                 </div>
-              </div>
+              )}
               <div className="location-branches">
                 {loc.branches.map((branch) => (
                   <div key={branch.name} className="location-branch-card">

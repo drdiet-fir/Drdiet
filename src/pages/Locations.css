@@ -133,16 +133,21 @@
   .location-branch-card__actions { width: 100%; }
 }
 
-.location-city__intro {
+.location-city__desc {
+  padding: 16px 28px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.location-city__desc p {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.7;
-  margin-top: 8px;
+  margin: 0;
 }
 .location-city__page-link {
   display: inline-block;
-  margin-top: 12px;
-  font-size: 0.85rem;
+  margin-top: 10px;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--primary);
   text-decoration: none;
