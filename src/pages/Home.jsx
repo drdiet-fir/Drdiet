@@ -87,12 +87,12 @@ function HeroSection() {
         <div className="hero__right fade-up stagger-2">
           <div className="hero__img-stack">
             <img
-              src="/brand_assets/Food image 1.png"
+              src="/brand_assets/Food image 1.webp"
               alt="Fresh healthy bowl"
               className="hero__img hero__img--main"
             />
             <img
-              src="/brand_assets/Food image 2.png"
+              src="/brand_assets/Food image 2.webp"
               alt="Grilled protein wrap"
               className="hero__img hero__img--secondary"
             />
@@ -228,12 +228,12 @@ function SolutionSection() {
           <div className="solution-intro__visual fade-up stagger-2">
             <div className="solution-image-stack">
               <img
-                src="/brand_assets/Mediterranean stuffed panner.jpg"
+                src="/brand_assets/Mediterranean stuffed panner.webp"
                 alt="Mediterranean stuffed paneer"
                 className="solution-img solution-img--main"
               />
               <img
-                src="/brand_assets/mashed potato portrait.jpg"
+                src="/brand_assets/mashed potato portrait.webp"
                 alt="Mashed potato dish"
                 className="solution-img solution-img--accent"
               />
@@ -273,8 +273,8 @@ function TransformationsSection() {
       loss: '-18 kg',
       goal: 'Fat Loss',
       quote: '"I tried everything before. Dr Diet is the only thing that actually worked."',
-      beforeImg: '/brand_assets/Tranformation 1 before.png',
-      afterImg: '/brand_assets/Tranformation 1 after.png',
+      beforeImg: '/brand_assets/Tranformation 1 before.webp',
+      afterImg: '/brand_assets/Tranformation 1 after.webp',
     },
     {
       name: 'Alok',
@@ -282,8 +282,8 @@ function TransformationsSection() {
       loss: '-22 kg',
       goal: 'Body Recomp',
       quote: '"From 30% body fat to lean and athletic. My energy levels are insane now."',
-      beforeImg: '/brand_assets/Tranformation 2 before.png',
-      afterImg: '/brand_assets/Tranformation 2 after.png',
+      beforeImg: '/brand_assets/Tranformation 2 before.webp',
+      afterImg: '/brand_assets/Tranformation 2 after.webp',
     },
     {
       name: 'Simran',
@@ -291,8 +291,8 @@ function TransformationsSection() {
       loss: '-12 kg',
       goal: 'Postpartum',
       quote: "\"After my second baby I thought I'd never get my body back. I was wrong.\"",
-      beforeImg: '/brand_assets/Tranformation 3 Before.png',
-      afterImg: '/brand_assets/Tranformation 3 after.png',
+      beforeImg: '/brand_assets/Tranformation 3 Before.webp',
+      afterImg: '/brand_assets/Tranformation 3 after.webp',
     },
   ]
 
@@ -471,42 +471,42 @@ function StarMealsSection() {
       price: '₹280',
       protein: '55g protein',
       tag: 'High Protein',
-      img: '/brand_assets/Juiciest stuffed chicken breast.jpg',
+      img: '/brand_assets/Juiciest stuffed chicken breast.webp',
     },
     {
       name: 'Brown Rice Chicken Tikka Biryani',
       price: '₹249',
       protein: '38g protein',
       tag: 'Light & Fresh',
-      img: '/brand_assets/Chicken Brown rice Landscape.jpg',
+      img: '/brand_assets/Chicken Brown rice Landscape.webp',
     },
     {
       name: 'Guilt Free Paneer Makhani Bowl',
       price: '₹249',
       protein: '32g protein',
       tag: 'Fit Rice Bowl',
-      img: '/brand_assets/Guilt Free Paneer Makhani Bowl.png',
+      img: '/brand_assets/Guilt Free Paneer Makhani Bowl.webp',
     },
     {
       name: 'Chicken Tikka Wrap',
       price: '₹249',
       protein: '38g protein',
       tag: 'Rolling Rolls',
-      img: '/brand_assets/Chicken Tikka Wrap.png',
+      img: '/brand_assets/Chicken Tikka Wrap.webp',
     },
     {
       name: 'Quinoa Patty Protein Burger',
       price: '₹249',
       protein: '28g protein',
       tag: 'Multigrain Burger',
-      img: '/brand_assets/Quinoa Patty Burger.png',
+      img: '/brand_assets/Quinoa Patty Burger.webp',
     },
     {
       name: 'Nutella Protein Pancakes',
       price: '₹249',
       protein: '22g protein',
       tag: 'Protein Dessert',
-      img: '/brand_assets/Nuttela Pancake.png',
+      img: '/brand_assets/Nuttela Pancake.webp',
     },
   ]
 

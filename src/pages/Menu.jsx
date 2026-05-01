@@ -19,18 +19,18 @@ function useReveal() {
 const categories = ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snacks', 'High Protein', 'Low Carb', 'Vegan']
 
 const meals = [
-  { id: 1,  name: 'Grilled Chicken Rice Bowl',       price: 249, cat: ['Lunch', 'High Protein'],        cal: 420, protein: 38, carbs: 42, fat: 10, tag: 'Best Seller', img: '/brand_assets/Chicken Brown rice Landscape.jpg' },
-  { id: 2,  name: 'Buckwheat Noodles (Veg)',          price: 199, cat: ['Lunch', 'Vegan', 'Low Carb'],   cal: 320, protein: 14, carbs: 52, fat:  8, tag: null,         img: '/brand_assets/Veg buckweat noodles.jpg' },
-  { id: 3,  name: 'Chicken Tikka Wrap',               price: 249, cat: ['Lunch', 'High Protein'],        cal: 460, protein: 36, carbs: 40, fat: 12, tag: null,         img: '/brand_assets/Chicken Tikka Wrap.png' },
-  { id: 4,  name: 'High Protein Chilly Chicken',      price: 249, cat: ['Dinner', 'High Protein'],       cal: 450, protein: 42, carbs: 18, fat: 16, tag: 'High Protein', img: '/brand_assets/Chilli chicken.jpg' },
-  { id: 5,  name: 'Quinoa Patty Burger',              price: 249, cat: ['Lunch', 'Vegan'],               cal: 420, protein: 22, carbs: 48, fat: 14, tag: 'Vegan',       img: '/brand_assets/Quinoa Patty Burger.png' },
-  { id: 6,  name: 'Stuffed Chicken Breast',           price: 280, cat: ['Dinner', 'High Protein'],       cal: 480, protein: 46, carbs: 12, fat: 22, tag: null,         img: '/brand_assets/Juiciest stuffed chicken breast.jpg' },
-  { id: 7,  name: 'Nutella Protein Pancakes',         price: 249, cat: ['Breakfast', 'Snacks'],          cal: 380, protein: 28, carbs: 44, fat: 12, tag: 'Fan Fav',     img: '/brand_assets/Nuttela Pancake.png' },
-  { id: 8,  name: 'Grilled Paneer Protein Bowl',      price: 249, cat: ['Lunch', 'High Protein'],        cal: 420, protein: 32, carbs: 30, fat: 18, tag: null,         img: '/brand_assets/achari paneer bowl.jpg' },
-  { id: 9,  name: 'Thai Chili Fish Rice Bowl',        price: 349, cat: ['Dinner', 'High Protein'],       cal: 480, protein: 38, carbs: 46, fat: 12, tag: 'Premium',     img: '/brand_assets/Thai curry bowl.jpg' },
-  { id: 10, name: 'Mexican Protein Wrap',             price: 249, cat: ['Lunch'],                        cal: 440, protein: 32, carbs: 44, fat: 14, tag: null,         img: '/brand_assets/Maxican Protein Wrap.png' },
-  { id: 11, name: 'Double Paneer Tikka Sandwich',     price: 199, cat: ['Snacks', 'Lunch'],              cal: 380, protein: 26, carbs: 38, fat: 14, tag: null,         img: '/brand_assets/Double panner tikka sandwich.jpg' },
-  { id: 12, name: 'Chickpea Curry Bowl',              price: 249, cat: ['Dinner', 'Vegan'],              cal: 380, protein: 18, carbs: 52, fat: 10, tag: 'Vegan',       img: '/brand_assets/curried chole bowl.jpg' },
+  { id: 1,  name: 'Grilled Chicken Rice Bowl',       price: 249, cat: ['Lunch', 'High Protein'],        cal: 420, protein: 38, carbs: 42, fat: 10, tag: 'Best Seller', img: '/brand_assets/Chicken Brown rice Landscape.webp' },
+  { id: 2,  name: 'Buckwheat Noodles (Veg)',          price: 199, cat: ['Lunch', 'Vegan', 'Low Carb'],   cal: 320, protein: 14, carbs: 52, fat:  8, tag: null,         img: '/brand_assets/Veg buckweat noodles.webp' },
+  { id: 3,  name: 'Chicken Tikka Wrap',               price: 249, cat: ['Lunch', 'High Protein'],        cal: 460, protein: 36, carbs: 40, fat: 12, tag: null,         img: '/brand_assets/Chicken Tikka Wrap.webp' },
+  { id: 4,  name: 'High Protein Chilly Chicken',      price: 249, cat: ['Dinner', 'High Protein'],       cal: 450, protein: 42, carbs: 18, fat: 16, tag: 'High Protein', img: '/brand_assets/Chilli chicken.webp' },
+  { id: 5,  name: 'Quinoa Patty Burger',              price: 249, cat: ['Lunch', 'Vegan'],               cal: 420, protein: 22, carbs: 48, fat: 14, tag: 'Vegan',       img: '/brand_assets/Quinoa Patty Burger.webp' },
+  { id: 6,  name: 'Stuffed Chicken Breast',           price: 280, cat: ['Dinner', 'High Protein'],       cal: 480, protein: 46, carbs: 12, fat: 22, tag: null,         img: '/brand_assets/Juiciest stuffed chicken breast.webp' },
+  { id: 7,  name: 'Nutella Protein Pancakes',         price: 249, cat: ['Breakfast', 'Snacks'],          cal: 380, protein: 28, carbs: 44, fat: 12, tag: 'Fan Fav',     img: '/brand_assets/Nuttela Pancake.webp' },
+  { id: 8,  name: 'Grilled Paneer Protein Bowl',      price: 249, cat: ['Lunch', 'High Protein'],        cal: 420, protein: 32, carbs: 30, fat: 18, tag: null,         img: '/brand_assets/achari paneer bowl.webp' },
+  { id: 9,  name: 'Thai Chili Fish Rice Bowl',        price: 349, cat: ['Dinner', 'High Protein'],       cal: 480, protein: 38, carbs: 46, fat: 12, tag: 'Premium',     img: '/brand_assets/Thai curry bowl.webp' },
+  { id: 10, name: 'Mexican Protein Wrap',             price: 249, cat: ['Lunch'],                        cal: 440, protein: 32, carbs: 44, fat: 14, tag: null,         img: '/brand_assets/Maxican Protein Wrap.webp' },
+  { id: 11, name: 'Double Paneer Tikka Sandwich',     price: 199, cat: ['Snacks', 'Lunch'],              cal: 380, protein: 26, carbs: 38, fat: 14, tag: null,         img: '/brand_assets/Double panner tikka sandwich.webp' },
+  { id: 12, name: 'Chickpea Curry Bowl',              price: 249, cat: ['Dinner', 'Vegan'],              cal: 380, protein: 18, carbs: 52, fat: 10, tag: 'Vegan',       img: '/brand_assets/curried chole bowl.webp' },
 ]
 
 export default function Menu() {

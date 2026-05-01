@@ -21,19 +21,19 @@ const team = [
   {
     name: 'Mirnal Sethi',
     role: 'Founder',
-    img: '/brand_assets/IMG_2241.PNG',
+    img: '/brand_assets/IMG_2241.webp',
     bio: 'Started Dr Diet to solve the problem of unhealthy, inaccessible food for students and working professionals. Built from a small 10x8 room in Chandigarh to 12 outlets across 5 cities in India. Still actively involved in the kitchen every day.',
   },
   {
     name: 'Our Kitchen Team',
     role: 'The People Behind Every Meal',
-    img: '/brand_assets/128199f1-f61a-4058-b3fd-c3431ddf93aa.jpg',
+    img: '/brand_assets/128199f1-f61a-4058-b3fd-c3431ddf93aa.webp',
     bio: '"We don\'t hire chefs. We make them." Every kitchen team member is trained from the ground up in nutrition, clean cooking, and the Dr Diet way. Because when you\'re responsible for someone\'s health, good enough isn\'t good enough.',
   },
   {
     name: 'Marketing & Branding Team',
     role: 'In-House Creatives',
-    img: '/brand_assets/a643568a-00bc-4e4f-b9cf-220b0ec4ed29.jpg',
+    img: '/brand_assets/a643568a-00bc-4e4f-b9cf-220b0ec4ed29.webp',
     bio: 'From designing the meal box you unbox to the reel that stops your scroll. Everything is built in-house. Our creative team handles brand identity, content, social media, and campaigns end-to-end. No outsourcing. No compromises. Just a team that genuinely cares about how Dr Diet shows up in the world.',
   },
 ]
@@ -77,7 +77,7 @@ export default function About() {
         <div className="container">
           <div className="about-mission__grid">
             <div className="about-mission__image fade-up">
-              <img src="/brand_assets/IMG_2241.PNG" alt="Dr Diet kitchen" />
+              <img src="/brand_assets/IMG_2241.webp" alt="Dr Diet kitchen" />
               <div className="about-mission__badge">
                 <span className="about-mission__badge-num">14+</span>
                 <span>Outlets Across India</span>

@@ -126,7 +126,7 @@ export default function JoinUs() {
               </a>
             </div>
             <div className="joinus-block__image fade-up stagger-2">
-              <img src="/brand_assets/Chicken Brown rice Landscape.jpg" alt="Corporate Catering" />
+              <img src="/brand_assets/Chicken Brown rice Landscape.webp" alt="Corporate Catering" />
               <div className="joinus-block__tag joinus-block__tag--right">
                 <i className="fas fa-building" /> Catering
               </div>
