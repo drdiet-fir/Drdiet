@@ -1,15 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Dr Diet – Eat What's Right. Customized meal plans and healthy food subscriptions that transform your health through proper nutrition." />
-    <meta name="keywords" content="healthy meal plans, diet subscription, meal delivery, nutrition, Dr Diet, weight loss, healthy food" />
-    <meta property="og:title" content="Dr Diet – Eat What's Right" />
-    <meta property="og:description" content="Transform your health through proper nutrition. Customized meal plans delivered to your door." />
+
+    <!-- Primary Meta Tags -->
+    <title>Dr Diet – Healthy Meal Plans Delivered in Delhi, Chandigarh & Bengaluru</title>
+    <meta name="description" content="Dr Diet delivers fresh, calorie-counted, high-protein meals to your doorstep across Delhi, Gurgaon, Noida, Chandigarh and Bengaluru. Plans from ₹200/meal. Eat What's Right." />
+    <meta name="keywords" content="healthy meal plans Delhi, diet food delivery Chandigarh, high protein meals, calorie counted food, Dr Diet, weight loss meal plan India, healthy tiffin service" />
+    <meta name="author" content="Dr Diet" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
-    <title>Dr Diet – Eat What's Right</title>
+    <meta property="og:url" content="https://www.drdiet.fit/" />
+    <meta property="og:title" content="Dr Diet – Healthy Meal Plans Delivered Fresh Daily" />
+    <meta property="og:description" content="Calorie-counted, high-protein Indian meals delivered fresh to your door. Starting ₹200/meal across Delhi, Chandigarh, Gurgaon, Noida & Bengaluru." />
+    <meta property="og:image" content="https://www.drdiet.fit/brand_assets/Food image 1.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Dr Diet" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dr Diet – Healthy Meal Plans Delivered Fresh Daily" />
+    <meta name="twitter:description" content="Calorie-counted, high-protein Indian meals delivered fresh to your door. Starting ₹200/meal." />
+    <meta name="twitter:image" content="https://www.drdiet.fit/brand_assets/Food image 1.webp" />
+
+    <!-- Structured Data: LocalBusiness + Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.drdiet.fit/#organization",
+          "name": "Dr Diet",
+          "url": "https://www.drdiet.fit",
+          "logo": "https://www.drdiet.fit/favicon.png",
+          "sameAs": [
+            "https://instagram.com/drdiet.fit"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-70157-32242",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Hindi"]
+          }
+        },
+        {
+          "@type": "FoodEstablishment",
+          "@id": "https://www.drdiet.fit/#local",
+          "name": "Dr Diet",
+          "description": "Fresh, calorie-counted, high-protein Indian meals delivered daily across Delhi, Gurgaon, Noida, Chandigarh and Bengaluru.",
+          "url": "https://www.drdiet.fit",
+          "telephone": "+91-70157-32242",
+          "email": "drdietdelhi@gmail.com",
+          "priceRange": "₹₹",
+          "servesCuisine": "Indian",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Plot no. 201, Mattaur Rd, Sector 70",
+            "addressLocality": "Mohali",
+            "addressRegion": "Punjab",
+            "postalCode": "160071",
+            "addressCountry": "IN"
+          },
+          "areaServed": ["Delhi", "Gurgaon", "Noida", "Chandigarh", "Mohali", "Bengaluru"],
+          "openingHours": "Mo-Sa 08:00-21:00",
+          "hasMenu": "https://www.drdiet.fit/menu",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "10000"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.drdiet.fit/#website",
+          "url": "https://www.drdiet.fit",
+          "name": "Dr Diet",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.drdiet.fit/menu?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TMVJQK14P"></script>
@@ -20,19 +101,29 @@
       gtag('config', 'G-1TMVJQK14P');
     </script>
 
-    <!-- Google Fonts: Barlow -->
+    <!-- Google Fonts: Barlow (preconnect to reduce render blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+    </noscript>
 
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome Icons (deferred to reduce render blocking) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
