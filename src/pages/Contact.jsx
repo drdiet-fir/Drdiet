@@ -21,10 +21,28 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' })
   const s1 = useReveal()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Placeholder: integrate with form service (Formspree, EmailJS, etc.)
-    setSubmitted(true)
+    try {
+      const res = await fetch('https://drdiet.onrender.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          city: '',
+          goal: form.subject,
+          diet: '',
+          source: form.message,
+        }),
+      })
+      const data = await res.json()
+      if (data.success) setSubmitted(true)
+      else throw new Error(data.error)
+    } catch (err) {
+      console.error('Contact form failed:', err)
+      alert('Something went wrong. Please WhatsApp us directly.')
+    }
   }
 
   const handleChange = (e) => {
@@ -128,7 +146,7 @@ export default function Contact() {
                       </div>
                       <div className="form-group">
                         <label htmlFor="phone">Phone Number</label>
-                        <input className="form-control" type="tel" id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder="+966 XX XXX XXXX" />
+                        <input className="form-control" type="tel" id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" />
                       </div>
                     </div>
                     <div className="form-group">

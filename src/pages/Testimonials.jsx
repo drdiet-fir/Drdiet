@@ -113,7 +113,7 @@ export default function Testimonials() {
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/subscription" className="btn btn--primary btn--lg">Start My Plan</Link>
-            <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg">
+            <a href="https://wa.me/917015732242" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg">
               <i className="fab fa-whatsapp" /> Chat With Us
             </a>
           </div>

@@ -3,7 +3,7 @@ import './WhatsAppButton.css'
 
 export default function WhatsAppButton() {
   const [hovered, setHovered] = useState(false)
-  const phone = '966500000000'
+  const phone = '917015732242'
   const message = encodeURIComponent("Hello Dr Diet! I'd like to learn more about your meal plans.")
 
   return (
