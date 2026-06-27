@@ -79,9 +79,14 @@ export default function JoinUs() {
                 ))}
               </ul>
 
-              <a href="https://wa.me/917015732242?text=I'm interested in a Dr Diet franchise" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg" style={{marginTop:'32px'}}>
-                <i className="fab fa-whatsapp" /> Inquire About Franchise
-              </a>
+              <div style={{display:'flex', gap:'16px', flexWrap:'wrap', marginTop:'32px'}}>
+                <a href="/brand_assets/Pitch Deck Dr Diet.pdf" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg">
+                  <i className="fas fa-file-pdf" /> View Franchise Deck
+                </a>
+                <a href="https://wa.me/917015732242?text=I'm interested in a Dr Diet franchise" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg">
+                  <i className="fab fa-whatsapp" /> Inquire About Franchise
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -678,6 +678,11 @@ function JoinUsPreviewSection() {
               <div className="join-preview-card__body">
                 <h3>{opt.title}</h3>
                 <p>{opt.desc}</p>
+                {opt.title === 'Franchise' && (
+                  <a href="/brand_assets/Pitch Deck Dr Diet.pdf" target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark btn--sm" style={{marginBottom:'10px', display:'inline-flex', alignItems:'center', gap:'6px'}}>
+                    <i className="fas fa-file-pdf" /> View Pitch Deck
+                  </a>
+                )}
                 <Link to={`/join-us${opt.hash}`} className="btn btn--dark btn--sm">
                   {opt.cta} <i className="fas fa-arrow-right" />
                 </Link>
