@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import './Subscription.css'
 
 function useReveal() {
@@ -38,16 +39,26 @@ export default function Subscription() {
   const [openFaq, setOpenFaq]     = useState(null)
   const [form, setForm]           = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading]     = useState(false)
 
   const s1   = useReveal()
   const s2   = useReveal()
   const s3   = useReveal()
   const sForm = useReveal()
 
+  const location = useLocation()
+  useEffect(() => {
+    if (location.hash === '#get-started' && sForm.current) {
+      const el = sForm.current
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80)
+    }
+  }, [location.hash])
+
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     try {
       const res = await fetch('https://drdiet.onrender.com/submit', {
         method: 'POST',
@@ -60,6 +71,8 @@ export default function Subscription() {
     } catch (err) {
       console.error('Form submission failed:', err)
       alert('Something went wrong. Please try again or WhatsApp us directly.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -97,7 +110,7 @@ export default function Subscription() {
       </section>
 
       {/* Subscription Form */}
-      <section className="section sub-form-section" ref={sForm}>
+      <section id="get-started" className="section sub-form-section" ref={sForm}>
         <div className="container">
           <div className="sub-form-wrap fade-up">
             <div className="section-header">
@@ -231,8 +244,15 @@ export default function Subscription() {
                   </div>
                 </div>
 
-                <button type="submit" className="btn btn--primary btn--lg sub-form__submit">
-                  <i className="fas fa-arrow-right" /> Start My Plan
+                <button
+                  type="submit"
+                  className="btn btn--primary btn--lg sub-form__submit"
+                  disabled={loading}
+                >
+                  {loading
+                    ? <><i className="fas fa-spinner fa-spin" /> Sending…</>
+                    : <><i className="fas fa-arrow-right" /> Start My Plan</>
+                  }
                 </button>
               </form>
             )}

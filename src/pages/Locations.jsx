@@ -142,7 +142,7 @@ export default function Locations() {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '56px' }}>
-            <Link to="/subscription" className="btn btn--primary btn--lg">
+            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">
               Start Your Plan <i className="fas fa-arrow-right" />
             </Link>
           </div>

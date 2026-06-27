@@ -40,7 +40,7 @@ export default function Delhi() {
           <h1>Healthy Meal Plans in Delhi<br />for Weight Loss & Fitness</h1>
           <p>Calorie-counted, high-protein meals delivered fresh daily across Delhi. Starting at ₹199/day.</p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
-            <Link to="/subscription" className="btn btn--primary btn--lg">Start My Plan</Link>
+            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
             <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Delhi" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg" style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}>
               <i className="fab fa-whatsapp" /> Chat With Us
             </a>
@@ -147,7 +147,7 @@ export default function Delhi() {
           <h2>Start Your Healthy Meal Plan in Delhi Today</h2>
           <p>Join thousands of Delhi residents eating right every day. Plans from ₹199/day.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/subscription" className="btn btn--primary btn--lg">Start My Plan</Link>
+            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
             <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Delhi" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg">
               <i className="fab fa-whatsapp" /> Chat on WhatsApp
             </a>

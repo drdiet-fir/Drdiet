@@ -89,7 +89,7 @@ export default function About() {
               <div className="divider divider--left" />
               <p>Because eating right should feel like a choice you're proud of, not a sacrifice. We started Dr Diet because we saw too many students and working professionals eating the wrong food: watery dal, maida chapatis, zero protein. Not because they lacked willpower, but because they lacked access.</p>
               <p style={{marginTop:'16px'}}>Today, we serve 2,000–2,500 people every day across Delhi, Chandigarh, and Bengaluru, with meals that are calorie-counted, macro-balanced, and genuinely delicious.</p>
-              <Link to="/subscription" className="btn btn--dark" style={{marginTop:'32px'}}>
+              <Link to="/subscription#get-started" className="btn btn--dark" style={{marginTop:'32px'}}>
                 Start Your Plan <i className="fas fa-arrow-right" />
               </Link>
             </div>
@@ -172,7 +172,7 @@ export default function About() {
             <p>Join 10,000+ people who chose clean eating over compromise.</p>
           </div>
           <div className="about-cta-bar__actions">
-            <Link to="/subscription" className="btn btn--primary btn--lg">Start Your Plan</Link>
+            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start Your Plan</Link>
             <Link to="/contact" className="btn btn--outline btn--lg">Talk to Us</Link>
           </div>
         </div>

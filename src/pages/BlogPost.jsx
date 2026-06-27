@@ -48,7 +48,7 @@ export default function BlogPost() {
             <div className="blog-sidebar-card">
               <h3>Start Your Plan</h3>
               <p>Fresh, calorie-counted meals delivered daily from ₹199/day.</p>
-              <Link to="/subscription" className="btn btn--primary" style={{ width: '100%', textAlign: 'center', marginBottom: '12px' }}>
+              <Link to="/subscription#get-started" className="btn btn--primary" style={{ width: '100%', textAlign: 'center', marginBottom: '12px' }}>
                 View Meal Plans
               </Link>
               <a href="https://wa.me/917015732242?text=I want to start a Dr Diet meal plan" target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark" style={{ width: '100%', textAlign: 'center' }}>
@@ -79,7 +79,7 @@ export default function BlogPost() {
             Dr Diet delivers fresh, calorie-counted, high-protein meals across Delhi, Gurgaon, Chandigarh & Bangalore. Starting at ₹199/day.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/subscription" className="btn btn--primary btn--lg">Start My Plan</Link>
+            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
             <Link to="/blog" className="btn btn--outline-dark btn--lg">Read More Articles</Link>
           </div>
         </div>

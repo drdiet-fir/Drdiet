@@ -116,7 +116,7 @@ function HeroSection() {
             Starting at <strong>₹199</strong>.
           </p>
           <div className="hero__actions">
-            <Link to="/subscription" className="btn btn--dark btn--lg">
+            <Link to="/subscription#get-started" className="btn btn--dark btn--lg">
               Start Your Transformation
             </Link>
             <Link to="/menu" className="hero__link">
@@ -386,7 +386,7 @@ function TransformationsSection() {
 
         <div className="transformations-cta fade-up">
           <p className="text-cream">Ready to write your own success story?</p>
-          <Link to="/subscription" className="btn btn--primary btn--lg">
+          <Link to="/subscription#get-started" className="btn btn--primary btn--lg">
             Start My Transformation <i className="fas fa-arrow-right" />
           </Link>
         </div>
@@ -926,7 +926,7 @@ function CtaBanner() {
           </p>
         </div>
         <div className="cta-banner__actions">
-          <Link to="/subscription" className="btn btn--dark btn--lg">
+          <Link to="/subscription#get-started" className="btn btn--dark btn--lg">
             <i className="fas fa-rocket" /> Start Your Plan
           </Link>
           <a

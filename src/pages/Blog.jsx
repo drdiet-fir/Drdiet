@@ -57,7 +57,7 @@ export default function Blog() {
             <h3>Ready to start eating right?</h3>
             <p>Get fresh, calorie-counted meals delivered to your door every morning.</p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <Link to="/subscription" className="btn btn--primary">View Meal Plans</Link>
+              <Link to="/subscription#get-started" className="btn btn--primary">View Meal Plans</Link>
               <a href="https://wa.me/917015732242?text=I want to know about Dr Diet meal plans" target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark">
                 <i className="fab fa-whatsapp" /> Chat With Us
               </a>

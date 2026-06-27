@@ -40,7 +40,7 @@ export default function Gurgaon() {
           <h1>Diet Food Delivery in Gurgaon<br />for Professionals & Fitness Goals</h1>
           <p>Healthy, calorie-counted meals delivered to your office or home across Gurgaon. Starting at ₹199/day.</p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
-            <Link to="/subscription" className="btn btn--primary btn--lg">Start My Plan</Link>
+            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
             <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Gurgaon" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg" style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}>
               <i className="fab fa-whatsapp" /> Chat With Us
             </a>
@@ -146,7 +146,7 @@ export default function Gurgaon() {
           <h2>Start Your Healthy Meal Plan in Gurgaon Today</h2>
           <p>Join working professionals across Gurugram who eat right every day. Plans from ₹199/day.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/subscription" className="btn btn--primary btn--lg">Start My Plan</Link>
+            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
             <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Gurgaon" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg">
               <i className="fab fa-whatsapp" /> Chat on WhatsApp
             </a>

@@ -330,6 +330,7 @@
 /* ── Form Section ── */
 .sub-form-section {
   background: var(--off-white);
+  scroll-margin-top: var(--navbar-height);
 }
 
 .sub-form-wrap {
