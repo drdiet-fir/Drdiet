@@ -94,7 +94,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="navbar__actions">
-          <Link to="/subscription" className="btn btn--primary btn--sm">
+          <Link to="/subscription#get-started" className="btn btn--primary btn--sm">
             Start Your Plan
           </Link>
 
