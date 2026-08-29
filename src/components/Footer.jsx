@@ -9,6 +9,7 @@ const footerLinks = {
     { label: 'Careers', path: '/careers' },
     { label: 'Media / Gallery', path: '/media' },
     { label: 'Contact Us', path: '/contact' },
+    { label: 'Menu (PDF)', href: '/brand_assets/DR DIET MENU.pdf' },
   ],
   Plans: [
     { label: 'Subscription Plans', path: '/subscription' },
@@ -71,8 +72,14 @@ export default function Footer() {
               <h4 className="footer__col-title">{title}</h4>
               <ul className="footer__col-links">
                 {links.map((link) => (
-                  <li key={link.path}>
-                    <Link to={link.path}>{link.label}</Link>
+                  <li key={link.path || link.href}>
+                    {link.href ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link to={link.path}>{link.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>
