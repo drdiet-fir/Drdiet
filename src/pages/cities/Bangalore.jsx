@@ -5,13 +5,13 @@ import './CityPage.css'
 const benefits = [
   { icon: 'fas fa-weight', title: 'Weight Loss Plans', desc: 'Science-backed calorie-deficit plans for Bangalore\'s fitness-conscious population. Lose weight without giving up taste.' },
   { icon: 'fas fa-dumbbell', title: 'Muscle Gain Meals', desc: 'High-protein meals (35–55g per serving) to support gym recovery and muscle building.' },
-  { icon: 'fas fa-briefcase', title: 'Office Meal Plans', desc: 'Healthy tiffin for IT professionals in Whitefield, Electronic City, and Koramangala.' },
+  { icon: 'fas fa-briefcase', title: 'Office Meal Plans', desc: 'Healthy tiffin for IT professionals in Whitefield and Hebbal.' },
   { icon: 'fas fa-heartbeat', title: 'Medical Diet Plans', desc: 'Plans for PCOS, diabetes, thyroid, and lifestyle conditions, aligned with medical advice.' },
   { icon: 'fas fa-leaf', title: 'Clean Ingredients', desc: 'No maida, no preservatives, no seed oils. Fresh ingredients cooked daily in our certified kitchen.' },
   { icon: 'fas fa-truck', title: 'Daily Fresh Delivery', desc: 'Freshly cooked meals delivered to your doorstep across Bangalore every morning.' },
 ]
 
-const areas = ['Hebbal', 'Koramangala', 'Indiranagar', 'Whitefield', 'Electronic City', 'HSR Layout', 'BTM Layout', 'Marathahalli', 'Bellandur', 'Sarjapur Road']
+const areas = ['Hebbal', 'Whitefield']
 
 const meals = [
   { name: 'Chilli Chicken Bowl', cal: '450 kcal', protein: '42g protein', img: '/brand_assets/Chilli chicken.webp' },
@@ -21,7 +21,7 @@ const meals = [
 
 const testimonials = [
   { text: 'As a software engineer in Whitefield, I was surviving on Swiggy\'s junk. Dr Diet fixed my nutrition completely. Lost 18kg and I feel incredible.', name: 'Arjun Mehta', role: 'Software Engineer, Whitefield', rating: 5 },
-  { text: 'Finally found healthy food delivery in Bangalore that\'s actually healthy. Macro-tracked, fresh, and genuinely delicious. Worth every rupee.', name: 'Divya Nair', role: 'Product Manager, Koramangala', rating: 5 },
+  { text: 'Finally found healthy food delivery in Bangalore that\'s actually healthy. Macro-tracked, fresh, and genuinely delicious. Worth every rupee.', name: 'Divya Nair', role: 'Product Manager, Hebbal', rating: 5 },
 ]
 
 export default function Bangalore() {
@@ -29,7 +29,7 @@ export default function Bangalore() {
     <>
       <PageMeta
         title="Healthy Weight Loss Meal Plans in Bangalore – Dr Diet"
-        description="Dr Diet delivers fresh, calorie-counted healthy meal plans in Bangalore including Hebbal, Koramangala, Whitefield & HSR Layout. Weight loss, muscle gain & office meal plans from ₹199/day."
+        description="Dr Diet delivers fresh, calorie-counted healthy meal plans in Bangalore including Hebbal & Whitefield. Weight loss, muscle gain & office meal plans from ₹199/day."
         canonical="/weight-loss-meals-bangalore"
         ogImage="/brand_assets/Chilli chicken.webp"
       />
@@ -51,7 +51,7 @@ export default function Bangalore() {
       <section className="section city-intro-section">
         <div className="container">
           <p>
-            Dr Diet delivers healthy, calorie-counted meal plans across Bangalore including Hebbal, Koramangala, Whitefield, Indiranagar, and HSR Layout. Our meal plans are designed for Bangalore's IT professionals, gym enthusiasts, and individuals seeking effective weight loss or muscle gain diets.
+            Dr Diet delivers healthy, calorie-counted meal plans across Bangalore including Hebbal and Whitefield. Our meal plans are designed for Bangalore's IT professionals, gym enthusiasts, and individuals seeking effective weight loss or muscle gain diets.
           </p>
           <p>
             Bangalore's tech-driven lifestyle means long hours, late nights, and too many food delivery orders that aren't actually healthy. Dr Diet provides a real alternative: freshly cooked, macro-balanced Indian meals delivered to your door every morning — so healthy eating becomes effortless, not a project.
