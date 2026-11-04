@@ -21,7 +21,7 @@ export default function BlogPost() {
         ogImage={post.image}
       />
 
-      <section className="page-hero blog-post-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(43,53,32,0.92) 0%, rgba(67,78,48,0.85) 100%), url(${post.image})` }}>
+      <section className="page-hero blog-post-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(42, 50, 38,0.92) 0%, rgba(65, 76, 60,0.85) 100%), url(${post.image})` }}>
         <div className="container">
           <div className="blog-post-hero__breadcrumb">
             <Link to="/blog">Blog</Link>

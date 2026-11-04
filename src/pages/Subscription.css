@@ -1,5 +1,5 @@
 .sub-hero {
-  background-image: linear-gradient(135deg, rgba(43,53,32,0.93) 0%, rgba(67,78,48,0.87) 100%),
+  background-image: linear-gradient(135deg, rgba(42, 50, 38,0.93) 0%, rgba(65, 76, 60,0.87) 100%),
     url('https://images.unsplash.com/photo-1547592180-85f173990554?w=1400&q=80');
   background-size: cover;
   background-position: center;
@@ -300,13 +300,13 @@
 .sub-value-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(67, 78, 48, 0.25);
+  border-color: rgba(65, 76, 60, 0.25);
 }
 
 .sub-value-card__icon {
   width: 52px;
   height: 52px;
-  background: rgba(67, 78, 48, 0.08);
+  background: rgba(65, 76, 60, 0.08);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;

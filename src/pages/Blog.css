@@ -1,4 +1,4 @@
-.blog-hero { background: linear-gradient(135deg, rgba(43,53,32,0.93) 0%, rgba(67,78,48,0.87) 100%), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1400&q=80') center/cover; }
+.blog-hero { background: linear-gradient(135deg, rgba(42, 50, 38,0.93) 0%, rgba(65, 76, 60,0.87) 100%), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1400&q=80') center/cover; }
 
 .blog-listing-section { background: var(--off-white); }
 

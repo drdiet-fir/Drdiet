@@ -1,5 +1,5 @@
 .media-hero {
-  background-image: linear-gradient(135deg, rgba(43,53,32,0.93) 0%, rgba(67,78,48,0.87) 100%),
+  background-image: linear-gradient(135deg, rgba(42, 50, 38,0.93) 0%, rgba(65, 76, 60,0.87) 100%),
     url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80');
   background-size: cover;
   background-position: center;
@@ -48,7 +48,7 @@
 .media-item__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(43,53,32,0.65);
+  background: rgba(42, 50, 38,0.65);
   display: flex;
   flex-direction: column;
   align-items: center;

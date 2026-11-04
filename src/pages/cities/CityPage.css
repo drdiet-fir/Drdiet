@@ -1,4 +1,4 @@
-.city-hero { background: linear-gradient(135deg, rgba(43,53,32,0.93) 0%, rgba(67,78,48,0.87) 100%), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1400&q=80') center/cover; }
+.city-hero { background: linear-gradient(135deg, rgba(42, 50, 38,0.93) 0%, rgba(65, 76, 60,0.87) 100%), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1400&q=80') center/cover; }
 
 .city-intro-section { background: var(--off-white); }
 .city-intro-section .container { max-width: 820px; }
@@ -21,7 +21,7 @@
 .city-benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .city-benefit-card__icon {
   width: 60px; height: 60px;
-  background: rgba(67,78,48,0.08);
+  background: rgba(65, 76, 60,0.08);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 16px;
@@ -39,8 +39,8 @@
   margin-top: 32px;
 }
 .city-area-pill {
-  background: rgba(67,78,48,0.06);
-  border: 1px solid rgba(67,78,48,0.12);
+  background: rgba(65, 76, 60,0.06);
+  border: 1px solid rgba(65, 76, 60,0.12);
   border-radius: var(--radius-full);
   padding: 10px 16px;
   text-align: center;
