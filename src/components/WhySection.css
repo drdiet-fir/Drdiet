@@ -1,0 +1,164 @@
+/* ============================================
+   WHY SECTION — "Eating Healthy Shouldn't Be This Hard"
+   ============================================ */
+.why-section {
+  position: relative;
+  background: var(--primary-dr-diet-color);
+  padding: 96px 0 92px;
+  overflow: hidden;
+}
+
+.why-section__wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(-99%);
+  pointer-events: none;
+}
+
+.why-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.why-section__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.why-section__headline {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.38;
+  color: var(--dr-diet-bg-color);
+}
+
+.why-section__sub {
+  margin: 0;
+  max-width: 634px;
+  font-size: 20px;
+  line-height: 26px;
+  color: var(--dr-diet-stroke-color);
+}
+
+.why-section__grid {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.why-card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-peach);
+  border-radius: 12px;
+  padding-top: 12px;
+  overflow: hidden;
+}
+
+.why-card__wave {
+  display: block;
+  width: 100%;
+  height: 0;
+  object-fit: cover;
+  object-position: top;
+  transform: scaleY(-1);
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.12));
+  transition: height 0.25s ease;
+}
+
+.why-card:hover .why-card__wave {
+  height: 22px;
+}
+
+.why-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 28px;
+}
+
+.why-card__copy h3 {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.4;
+  color: var(--primary-dr-diet-color);
+}
+
+.why-card__copy p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--label);
+}
+
+.why-card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 252 / 203;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 1.5px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.25s ease;
+}
+
+.why-card:hover .why-card__image {
+  box-shadow: 0 5px 2px rgba(0, 0, 0, 0.15);
+}
+
+.why-card__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.why-card:hover .why-card__image img {
+  transform: scale(1.13);
+}
+
+.why-card__image-overlay {
+  inset: auto !important;
+  left: -10.4% !important;
+  top: 68.54% !important;
+  width: 120.82% !important;
+  height: 31.36% !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 960px) {
+  .why-section__grid {
+    flex-wrap: wrap;
+  }
+  .why-card {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-section {
+    padding: 64px 0 56px;
+  }
+  .why-section__inner {
+    gap: 40px;
+  }
+  .why-card {
+    flex: 1 1 100%;
+  }
+}

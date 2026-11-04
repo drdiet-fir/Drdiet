@@ -1,0 +1,114 @@
+/* ============================================
+   CITIES SECTION
+   ============================================ */
+.cities-section {
+  background: var(--primary-dr-diet-color);
+  padding: 82px 0 90px;
+}
+
+.cities-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.cities-section__headline {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.38;
+  color: var(--dr-diet-bg-color);
+  text-align: center;
+}
+
+.cities-section__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.city-card {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 3px solid var(--dr-diet-bg-color);
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.city-card__image {
+  height: 182px;
+  margin-bottom: -10px;
+  overflow: hidden;
+}
+
+.city-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.city-card:hover .city-card__image img {
+  transform: scale(1.1);
+}
+
+.city-card__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 16px 24px;
+  background: var(--primary-dr-diet-color);
+  border-radius: 0;
+}
+
+.city-card__label {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dr-diet-bg-color);
+  text-align: center;
+}
+
+.city-card__directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 0;
+  margin-top: 0;
+  padding: 0 16px;
+  border: 1px solid var(--dr-diet-bg-color);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  color: var(--dr-diet-bg-color);
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.25s ease, margin-top 0.25s ease, opacity 0.2s ease;
+}
+
+.city-card:hover .city-card__directions {
+  height: 28px;
+  margin-top: 12px;
+  opacity: 1;
+}
+
+.city-card__directions i {
+  font-size: 0.8em;
+}
+
+@media (max-width: 640px) {
+  .cities-section {
+    padding: 56px 0;
+  }
+  .cities-section__grid {
+    gap: 10px;
+  }
+}

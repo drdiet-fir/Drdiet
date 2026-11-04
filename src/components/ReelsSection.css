@@ -1,0 +1,134 @@
+/* ============================================
+   REELS SECTION — "Real People, Real Feeling"
+   ============================================ */
+.reels-section {
+  background: var(--primary-dr-diet-color);
+  padding: 82px 0 90px;
+  overflow: hidden;
+}
+
+.reels-section__headline {
+  margin: 0 0 64px;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.38;
+  color: var(--dr-diet-bg-color);
+  text-align: center;
+}
+
+.reels-section__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.reel-card {
+  position: relative;
+  flex-shrink: 0;
+  width: 270px;
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-peach);
+  cursor: pointer;
+  transform-origin: top left;
+  will-change: transform;
+  transition: border-radius 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reel-card--center {
+  width: 337.5px;
+  height: 600px;
+  border-radius: 16px;
+  cursor: default;
+}
+
+.reel-card__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reel-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 14px;
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease;
+}
+
+.reel-card__badge:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.reel-card__mute {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 15px;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease;
+}
+
+.reel-card__mute:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 900px) {
+  .reels-section__track {
+    gap: 14px;
+  }
+  .reel-card {
+    width: 150px;
+    height: 266px;
+  }
+  .reel-card--center {
+    width: 190px;
+    height: 338px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reels-section {
+    padding: 56px 0;
+  }
+  .reels-section__headline {
+    margin-bottom: 40px;
+  }
+  .reels-section__track {
+    gap: 8px;
+  }
+  .reel-card {
+    width: 90px;
+    height: 160px;
+    border-radius: 8px;
+  }
+  .reel-card--center {
+    width: 120px;
+    height: 213px;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,129 @@
+/* ============================================
+   TESTIMONIALS V2 — "Happy Customers"
+   ============================================ */
+.testimonials-v2 {
+  background: var(--dr-diet-bg-color);
+  padding: 82px 0 90px;
+  overflow: hidden;
+}
+
+.testimonials-v2__headline {
+  margin: 0 0 44px;
+  padding: 0 24px;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.38;
+  color: var(--primary-dr-diet-color);
+  text-align: center;
+}
+
+.testimonials-v2__marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.testimonials-v2__track {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  width: max-content;
+  animation: testimonialsMarquee 40s linear infinite;
+}
+
+.testimonials-v2__marquee:hover .testimonials-v2__track {
+  animation-play-state: paused;
+}
+
+@keyframes testimonialsMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 12px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-v2__track {
+    animation: none;
+  }
+}
+
+.testimonial-card-v2 {
+  position: relative;
+  flex: 0 0 398px;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(140deg, #414c3c 33%, #6d7d65 125%);
+}
+
+.testimonial-card-v2__quote-mark {
+  position: absolute;
+  top: -17px;
+  left: 20%;
+  width: 70%;
+  height: auto;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.testimonial-card-v2__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 22px 38px;
+}
+
+.testimonial-card-v2__text {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--dr-diet-bg-color);
+  overflow: hidden;
+}
+
+.testimonial-card-v2__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.testimonial-card-v2__footer strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dr-diet-bg-color);
+}
+
+.testimonial-card-v2__footer span {
+  font-size: 14px;
+  color: var(--dr-diet-bg-color);
+  opacity: 0.85;
+}
+
+.testimonial-card-v2__platform {
+  flex-shrink: 0;
+  padding: 4px 16px;
+  border: 1px solid var(--dr-diet-bg-color);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  color: var(--dr-diet-bg-color);
+  opacity: 1 !important;
+}
+
+@media (max-width: 640px) {
+  .testimonials-v2 {
+    padding: 56px 0;
+  }
+  .testimonial-card-v2 {
+    flex-basis: 300px;
+    height: 240px;
+  }
+}

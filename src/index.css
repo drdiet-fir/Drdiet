@@ -3,6 +3,14 @@
    Brand Colors from Brand Guideline
    ============================================ */
 
+@font-face {
+  font-family: 'Bethany Elingston';
+  src: url('/fonts/Bethany Elingston.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Brand Colors */
   --primary:        #434E30;   /* Dark Forest Green */
@@ -17,10 +25,21 @@
   --dark:           #1C1C1C;
   --text:           #2D2D2D;
   --text-muted:     #6B7060;
+
+  /* Figma design-system tokens (new palette, used by newer sections) */
+  --primary-dr-diet-color: #414C3C;
+  --dr-diet-bg-color:      #F8F4EC;
+  --dr-diet-stroke-color:  #EBE0C9;
+  --dr-diet-stroke-color-2: #DACAA9;
+  --label:                 #7B7B7B;
+  --card-peach:            #FBE3C8;
+  --accent-dr-diet-color:  #E2E573;
   --border:         #E0DDD5;
 
   /* Typography */
-  --font-primary: 'Barlow', sans-serif;
+  --font-primary: 'Inter', sans-serif;
+  --font-script: 'Bethany Elingston', cursive;
+  --font-watermark: 'Beth Ellen', cursive;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -53,8 +72,10 @@
   --transition: 0.3s ease;
   --transition-slow: 0.5s ease;
 
-  /* Navbar height */
-  --navbar-height: 80px;
+  /* Navbar height (promo bar + nav row) */
+  --navbar-row-height: 80px;
+  --promo-bar-height: 38px;
+  --navbar-height: calc(var(--navbar-row-height) + var(--promo-bar-height));
 }
 
 /* ============================================

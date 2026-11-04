@@ -1,0 +1,38 @@
+/* ============================================
+   CHECKLIST BAR
+   ============================================ */
+.checklist-bar {
+  background: var(--accent-dr-diet-color);
+  padding: 32px 24px;
+}
+
+.checklist-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+  align-items: center;
+  justify-content: center;
+}
+
+.checklist-bar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-dr-diet-color);
+  white-space: nowrap;
+}
+
+.checklist-bar__item i {
+  font-size: 20px;
+}
+
+@media (max-width: 640px) {
+  .checklist-bar__inner {
+    gap: 12px 24px;
+  }
+  .checklist-bar__item {
+    font-size: 16px;
+  }
+}

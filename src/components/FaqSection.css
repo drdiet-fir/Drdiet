@@ -1,0 +1,115 @@
+/* ============================================
+   FAQ SECTION V2
+   ============================================ */
+.faq-section-v2 {
+  background: var(--dr-diet-bg-color);
+  padding: 70px 0;
+}
+
+.faq-section-v2__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.faq-section-v2__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--primary-dr-diet-color);
+}
+
+.faq-section-v2__head h2 {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.38;
+}
+
+.faq-section-v2__head p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.faq-section-v2__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 948px;
+}
+
+.faq-item-v2 {
+  border: 1px solid var(--primary-dr-diet-color);
+  border-radius: 20px;
+  background: transparent;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.faq-item-v2--open {
+  background: var(--primary-dr-diet-color);
+  border-color: var(--dr-diet-stroke-color-2);
+  box-shadow: 0 12px 16px -4px rgba(33, 33, 33, 0.08), 0 4px 6px -2px rgba(33, 33, 33, 0.03);
+}
+
+.faq-item-v2__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  color: var(--primary-dr-diet-color);
+}
+
+.faq-item-v2--open .faq-item-v2__header {
+  color: var(--dr-diet-bg-color);
+}
+
+.faq-item-v2__header i {
+  flex-shrink: 0;
+  font-size: 14px;
+  transition: transform var(--transition);
+}
+
+.faq-item-v2--open .faq-item-v2__header i {
+  transform: rotate(180deg);
+}
+
+.faq-item-v2__answer {
+  margin: 0;
+  padding: 0 21px 21px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: var(--dr-diet-bg-color);
+}
+
+@media (max-width: 640px) {
+  .faq-section-v2 {
+    padding: 56px 0;
+  }
+  .faq-section-v2__inner {
+    gap: 40px;
+  }
+  .faq-item-v2__header {
+    padding: 16px;
+    font-size: 15px;
+  }
+  .faq-item-v2__answer {
+    padding: 0 16px 16px;
+  }
+}

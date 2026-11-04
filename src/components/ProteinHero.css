@@ -1,0 +1,172 @@
+/* ============================================
+   PROTEIN HERO — scroll-scrubbed bowl animation
+   ============================================ */
+.protein-hero {
+  position: relative;
+  background: var(--dr-diet-bg-color, #f8f4ec);
+}
+
+.protein-hero__track {
+  position: relative;
+  height: calc(100vh + 150vh);
+}
+
+.protein-hero__stage-wrap {
+  position: sticky;
+  top: var(--navbar-height);
+  height: calc(100vh - var(--navbar-height));
+  min-height: 420px;
+  overflow: hidden;
+  display: block;
+}
+
+/* Headline */
+.protein-hero__headline {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  width: 90vw;
+  max-width: 970px;
+  text-align: center;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(40px, 7.8vw, 112px);
+  line-height: 1;
+  color: var(--primary-dr-diet-color, var(--primary));
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.protein-hero__sub {
+  position: absolute;
+  top: 11.6vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 606px;
+  margin: 0;
+  text-align: center;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.5;
+  color: var(--text-muted);
+  z-index: 3;
+  transition: opacity 0.2s linear;
+}
+
+/* Scroll hint */
+.protein-hero__hint {
+  position: absolute;
+  top: 14vw;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.protein-hero__hint span {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1px;
+  color: var(--primary-dr-diet-color, var(--primary));
+  white-space: nowrap;
+}
+
+.protein-hero__hint-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: proteinHeroPendulum 1.4s ease-in-out infinite;
+}
+
+.protein-hero__hint img {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes proteinHeroPendulum {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .protein-hero__hint-icons {
+    animation: none;
+  }
+}
+
+/* Stage — morphs from a small rounded card into the full-bleed background.
+   Stickers are direct children of this (unclipped); pattern/plate live in
+   the inner `stage-clip` layer so only they get cropped by the rounded edge. */
+.protein-hero__stage {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dr-diet-bg-color, #f8f4ec);
+  border-style: solid;
+  border-color: var(--primary-dr-diet-color, var(--primary));
+  z-index: 1;
+}
+
+.protein-hero__stage-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.protein-hero__pattern,
+.protein-hero__plate {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.protein-hero__pattern {
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.protein-hero__pattern img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.protein-hero__plate {
+  z-index: 2;
+  filter: drop-shadow(-10px 14px 14px rgba(0, 0, 0, 0.2));
+}
+
+.protein-hero__plate img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.protein-hero__sticker {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .protein-hero__track {
+    height: auto;
+  }
+  .protein-hero__stage-wrap {
+    position: relative;
+    top: 0;
+    height: auto;
+    min-height: 0;
+  }
+}

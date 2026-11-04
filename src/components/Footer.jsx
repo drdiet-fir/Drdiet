@@ -7,31 +7,24 @@ const footerLinks = {
   Company: [
     { label: 'About Us', path: '/about' },
     { label: 'Careers', path: '/careers' },
-    { label: 'Media / Gallery', path: '/media' },
+    { label: 'Media/Gallery', path: '/media' },
     { label: 'Contact Us', path: '/contact' },
-    { label: 'Menu (PDF)', href: '/brand_assets/DR DIET MENU.pdf' },
+    { label: 'Menu', href: '/brand_assets/DR DIET MENU.pdf' },
   ],
   Plans: [
     { label: 'Subscription Plans', path: '/subscription' },
-    { label: 'Our Menu', path: '/menu' },
-    { label: 'Locations', path: '/locations' },
-    { label: 'Testimonials', path: '/testimonials' },
-    { label: 'Nutrition Blog', path: '/blog' },
-  ],
-  Cities: [
-    { label: 'Healthy Meals in Delhi', path: '/healthy-meal-plan-delhi' },
-    { label: 'Diet Food in Gurgaon', path: '/diet-food-gurgaon' },
-    { label: 'Meals in Bangalore', path: '/weight-loss-meals-bangalore' },
-    { label: 'Meals in Chandigarh', path: '/healthy-meals-chandigarh' },
+    { label: 'Nutritional Blog', path: '/blog' },
   ],
   'Join Us': [
     { label: 'Franchise', path: '/join-us#franchise' },
-    { label: 'Catering Services', path: '/join-us#catering' },
-    { label: 'B2B Partnerships', path: '/join-us#b2b' },
+    { label: 'Catering Service', path: '/join-us#catering' },
+    { label: 'B2B Partnership', path: '/join-us#b2b' },
   ],
 }
 
 const socials = [
+  { icon: 'fab fa-linkedin-in', href: '#', label: 'LinkedIn' },
+  { icon: 'fab fa-facebook-f', href: '#', label: 'Facebook' },
   { icon: 'fab fa-instagram', href: 'https://instagram.com/drdiet.fit', label: 'Instagram' },
   { icon: 'fab fa-whatsapp', href: 'https://wa.me/917015732242', label: 'WhatsApp' },
 ]
@@ -39,17 +32,29 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="footer__top">
+      <div className="footer__main">
+        <div className="container footer__top">
           {/* Brand column */}
           <div className="footer__brand">
             <Link to="/">
-              <img src="/logo-white.png" alt="Dr Diet" className="footer__logo" />
+              <img src="/logo-primary.png" alt="Dr Diet" className="footer__logo" />
             </Link>
-            <p className="footer__tagline">
-              Eat What's Right. Transform your health through science-backed
-              nutrition, delivered fresh to your door every day.
-            </p>
+
+            <ul className="footer__contact-list">
+              <li>
+                <i className="fas fa-map-marker-alt" />
+                <span>Bengaluru | Delhi | Gurgaon | Noida | Mohali | Chandigarh</span>
+              </li>
+              <li>
+                <i className="fas fa-phone" />
+                <a href="tel:+917015732242">+91 70157 32242</a>
+              </li>
+              <li>
+                <i className="fas fa-envelope" />
+                <a href="mailto:drdietdelhi@gmail.com">drdietdelhi@gmail.com</a>
+              </li>
+            </ul>
+
             <div className="footer__socials">
               {socials.map((s) => (
                 <a
@@ -67,60 +72,38 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title} className="footer__col">
-              <h4 className="footer__col-title">{title}</h4>
-              <ul className="footer__col-links">
-                {links.map((link) => (
-                  <li key={link.path || link.href}>
-                    {link.href ? (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer">
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link to={link.path}>{link.label}</Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Contact column */}
-          <div className="footer__col">
-            <h4 className="footer__col-title">Contact</h4>
-            <ul className="footer__contact-list">
-              <li>
-                <i className="fas fa-phone" />
-                <a href="tel:+917015732242">+91 70157 32242</a>
-              </li>
-              <li>
-                <i className="fab fa-whatsapp" />
-                <a href="https://wa.me/917015732242" target="_blank" rel="noopener noreferrer">
-                  WhatsApp Us
-                </a>
-              </li>
-              <li>
-                <i className="fas fa-envelope" />
-                <a href="mailto:drdietdelhi@gmail.com">drdietdelhi@gmail.com</a>
-              </li>
-              <li>
-                <i className="fas fa-map-marker-alt" />
-                <span>Sector 70, Mohali 160071<br />Delhi · Gurgaon · Noida · Chandigarh · Bengaluru</span>
-              </li>
-              <li>
-                <i className="fas fa-motorcycle" />
-                <span>Order on Swiggy &amp; Zomato</span>
-              </li>
-            </ul>
+          <div className="footer__menu">
+            {Object.entries(footerLinks).map(([title, links]) => (
+              <div key={title} className="footer__col">
+                <h4 className="footer__col-title">{title}</h4>
+                <ul className="footer__col-links">
+                  {links.map((link) => (
+                    <li key={link.path || link.href}>
+                      {link.href ? (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link to={link.path}>{link.label}</Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-        </div>
 
-        <div className="footer__bottom">
-          <p>&copy; {currentYear} Dr Diet. All rights reserved. | Eat What's Right.</p>
+          <p className="footer__watermark" aria-hidden="true">Dieting Made Delicious.</p>
+        </div>
+      </div>
+
+      <div className="footer__bottom">
+        <div className="container footer__bottom-inner">
+          <p>&copy; {currentYear} - All rights reserved. Designed and Developed by Odd Lemon Design Studio</p>
           <div className="footer__legal">
+            <a href="#">Terms &amp; Conditions</a>
+            <span className="footer__legal-divider" />
             <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
           </div>
         </div>
       </div>

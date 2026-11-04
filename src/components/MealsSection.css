@@ -1,0 +1,202 @@
+/* ============================================
+   MEALS SECTION — "No Nonsense Meals"
+   ============================================ */
+.meals-section-v2 {
+  background: var(--dr-diet-bg-color);
+  padding: 70px 0;
+}
+
+.meals-section-v2__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.meals-section-v2__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--primary-dr-diet-color);
+}
+
+.meals-section-v2__headline {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.38;
+}
+
+.meals-section-v2__sub {
+  margin: 0;
+  max-width: 634px;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.meals-section-v2__grid {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.meal-card-v2 {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--white);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.meal-card-v2:hover {
+  border-color: var(--primary-dr-diet-color);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.12);
+}
+
+.meal-card-v2__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.meal-card-v2__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meal-card-v2__content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.meal-card-v2__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.meal-card-v2__title-row h3 {
+  flex: 1;
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.25;
+  color: var(--primary-dr-diet-color);
+}
+
+.meal-card-v2__order {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-dr-diet-color);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  color: var(--primary-dr-diet-color);
+  white-space: nowrap;
+  transition: background var(--transition), color var(--transition);
+}
+
+.meal-card-v2__order:hover {
+  background: var(--primary-dr-diet-color);
+  color: var(--dr-diet-bg-color);
+}
+
+.meal-card-v2__order i {
+  font-size: 0.8em;
+}
+
+.meal-card-v2__desc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--label);
+}
+
+.meal-card-v2__divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+}
+
+.meal-card-v2__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meal-card-v2__meta span {
+  padding-right: 18px;
+  border-right: 1px solid var(--primary-dr-diet-color);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  color: var(--primary-dr-diet-color);
+}
+
+.meal-card-v2__meta span:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.meals-section-v2__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 10px 24px;
+  background: var(--primary-dr-diet-color);
+  border-radius: 999px;
+  color: var(--dr-diet-bg-color);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  transition: background var(--transition);
+}
+
+.meals-section-v2__view-all:hover {
+  background: var(--primary-dark);
+}
+
+.meals-section-v2__view-all i {
+  font-size: 0.8em;
+}
+
+@media (max-width: 960px) {
+  .meals-section-v2__grid {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .meals-section-v2 {
+    padding: 56px 0;
+  }
+  .meals-section-v2__inner {
+    gap: 40px;
+  }
+  .meal-card-v2__title-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .meal-card-v2__meta {
+    flex-wrap: wrap;
+    gap: 8px 0;
+  }
+}
