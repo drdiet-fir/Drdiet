@@ -17,7 +17,7 @@ const navLinksRight = [
 
 const navLinks = [...navLinksLeft, ...navLinksRight]
 
-const PROMO_MESSAGE = 'Offer Live'
+const PROMO_MESSAGE = '20% Off on Your First Subscription'
 const promoItems = Array.from({ length: 8 })
 
 export default function Navbar() {
