@@ -95,8 +95,8 @@ export default function Contact() {
                   <div className="contact-channel__icon"><i className="fas fa-map-marker-alt" /></div>
                   <div>
                     <strong>Head Office</strong>
-                    <span>Plot no. 201, Mattaur Rd, Sector 70</span>
-                    <span className="contact-channel__note">Sahibzada Ajit Singh Nagar, Punjab 160071</span>
+                    <span>Dr Diet, Plot 201, Modern Market, Sector 70</span>
+                    <span className="contact-channel__note">Mohali, 160070</span>
                   </div>
                 </div>
                 <div className="contact-channel">

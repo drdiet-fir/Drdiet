@@ -63,7 +63,7 @@ const locations = [
   {
     city: 'Mohali',
     branches: [
-      { name: 'Mohali – Sector 70', address: 'Plot no. 201, Mattaur Rd, Sector 70, Sahibzada Ajit Singh Nagar, Punjab 160071' },
+      { name: 'Mohali – Sector 70', address: 'Dr Diet, Plot 201, Modern Market, Sector 70, Mohali, 160070' },
       { name: 'Kharar',             address: 'Kharar, SAS Nagar, Punjab' },
     ],
   },

@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
+import DOMPurify from 'dompurify'
 import PageMeta from '../components/PageMeta'
 import PageHero from '../components/PageHero'
 import { blogPosts } from '../data/blogData'
@@ -42,7 +43,7 @@ export default function BlogPost() {
         <div className="container blog-post-container">
           <article
             className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
           />
 
           <aside className="blog-post-sidebar">

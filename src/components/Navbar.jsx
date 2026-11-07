@@ -89,9 +89,9 @@ export default function Navbar() {
             </nav>
 
             <div className="navbar__actions">
-              <Link to="/subscription#get-started" className="btn btn--dark btn--sm navbar__order">
+              <a href="https://order.drdiet.fit/" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--sm navbar__order">
                 Order
-              </Link>
+              </a>
 
               {/* Hamburger */}
               <button
@@ -123,9 +123,9 @@ export default function Navbar() {
               </NavLink>
             </div>
           ))}
-          <Link to="/subscription" className="btn btn--primary" style={{ marginTop: '24px' }}>
+          <a href="https://order.drdiet.fit/" target="_blank" rel="noopener noreferrer" className="btn btn--primary" style={{ marginTop: '24px' }}>
             Order Now
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

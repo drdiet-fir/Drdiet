@@ -15,16 +15,18 @@
   padding-top: 20px;
   border-top: 1px solid rgba(var(--accent-rgb), 0.25);
   text-decoration: none;
-  transition: opacity var(--transition);
 }
-
-.joinus-quicknav-item:hover { opacity: 0.8; }
 
 .joinus-quicknav-item > i:first-child { font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
 
 .joinus-quicknav-item__text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
-.joinus-quicknav-item__text strong { font-size: 0.95rem; font-weight: 600; color: var(--dr-diet-bg-color); }
-.joinus-quicknav-item__text small { font-size: 0.8rem; color: var(--dr-diet-stroke-color); }
+.joinus-quicknav-item__text strong { font-size: 0.95rem; font-weight: 600; color: var(--dr-diet-bg-color); transition: color var(--transition); }
+.joinus-quicknav-item__text small { font-size: 0.8rem; color: var(--dr-diet-stroke-color); transition: color var(--transition); }
+
+.joinus-quicknav-item:hover .joinus-quicknav-item__text strong,
+.joinus-quicknav-item:hover .joinus-quicknav-item__text small {
+  color: var(--accent);
+}
 
 .joinus-quicknav-item__arrow { font-size: 0.85rem; color: var(--accent); transform: rotate(45deg); flex-shrink: 0; }
 

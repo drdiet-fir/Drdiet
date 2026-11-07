@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3.125rem 0 5rem;
+  padding: 5rem 0 6rem;
   gap: 60px;
 }
 
@@ -82,7 +82,7 @@
 @media (max-width: 1024px) {
   .about-mission-v2 .about-mission-v2__grid {
     flex-direction: column;
-    padding: 2.5rem 0;
+    padding: 3.5rem 0 4rem;
   }
   .about-mission-v2__image {
     width: 100%;

@@ -2,13 +2,41 @@ require('dotenv').config()
 
 const express    = require('express')
 const cors       = require('cors')
+const rateLimit  = require('express-rate-limit')
 const { google } = require('googleapis')
 const twilio     = require('twilio')
 
 const app = express()
 
-app.use(cors())
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'https://www.drdiet.fit,https://drdiet.fit,http://localhost:5173')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean)
+
+app.use(cors({
+  origin(origin, callback) {
+    // Requests with no Origin header (curl, server-to-server, health checks) are allowed.
+    if (!origin) return callback(null, true)
+    const isAllowed = allowedOrigins.includes(origin) || /\.vercel\.app$/.test(new URL(origin).hostname)
+    return isAllowed ? callback(null, true) : callback(new Error('Not allowed by CORS'))
+  },
+}))
 app.use(express.json())
+
+const submitLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: 'Too many submissions. Please try again later.' },
+})
+
+// Values Google Sheets would otherwise evaluate as formulas get a leading
+// apostrophe so they render as literal text (CSV/Sheets formula injection).
+function sheetSafe(value) {
+  const str = (value ?? '').toString()
+  return /^[=+\-@]/.test(str) ? `'${str}` : str
+}
 
 // ── Google Sheets Auth ────────────────────────────────────────
 function getSheetsClient() {
@@ -59,7 +87,7 @@ async function notifyUser(phone) {
 }
 
 // ── POST /submit ──────────────────────────────────────────────
-app.post('/submit', async (req, res) => {
+app.post('/submit', submitLimiter, async (req, res) => {
   const { name, phone, city, goal, diet, source } = req.body
 
   if (!name || !phone || !city || !goal || !diet) {
@@ -72,7 +100,7 @@ app.post('/submit', async (req, res) => {
     hour: '2-digit', minute: '2-digit', hour12: true,
   })
 
-  const row = [name, phone, city, goal, diet, source || '', timestamp]
+  const row = [name, phone, city, goal, diet, source, timestamp].map(sheetSafe)
 
   // 1. Save to Google Sheets
   try {
@@ -105,6 +133,15 @@ app.post('/submit', async (req, res) => {
 // ── Health check ──────────────────────────────────────────────
 app.get('/', (_req, res) => {
   res.json({ status: 'Dr Diet API is running' })
+})
+
+// ── Error handler (catches CORS rejections etc.) ─────────────
+app.use((err, _req, res, _next) => {
+  if (err.message === 'Not allowed by CORS') {
+    return res.status(403).json({ success: false, error: 'Origin not allowed.' })
+  }
+  console.error('❌ Unhandled error:', err.message)
+  return res.status(500).json({ success: false, error: 'Internal server error.' })
 })
 
 // ── Start ─────────────────────────────────────────────────────
