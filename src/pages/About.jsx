@@ -45,6 +45,16 @@ const values = [
   { icon: '/brand_assets/about/value-icon-4.svg', title: 'Accessible Health', desc: '12 outlets, 5 cities, health on your doorstep.' },
 ]
 
+const pressItems = [
+  {
+    source: 'StartupPedia',
+    headline: 'Seeing Students Lack Proper Nutrition, This Lawyer Built a Cloud Kitchen Offering High-Protein Meals for ₹200, Clocking ₹10 Crore Annually',
+    date: 'March 2026',
+    logo: '📰',
+    url: 'https://startuppedia.in/smbs/seeing-students-lack-proper-nutrition-this-lawyer-built-a-cloud-kitchen-offering-high-protein-meals-for-200-clocking-10-crore-annually-11247428',
+  },
+]
+
 const milestones = [
   { year: '2019', event: 'Started in a 10×8 room in Chandigarh. First meals at ₹99.', img: '/brand_assets/about/timeline-2019.png' },
   { year: '2020', event: "COVID shutdown. Lost entire investment. Restarted with landlord's support.", img: '/brand_assets/about/timeline-2020.png' },
@@ -60,6 +70,7 @@ export default function About() {
   const s2 = useReveal()
   const s3 = useReveal()
   const s4 = useReveal()
+  const s5 = useReveal()
 
   return (
     <>
@@ -153,6 +164,29 @@ export default function About() {
                   <p>{member.bio}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Press */}
+      <section className="about-press-v2" ref={s5}>
+        <div className="container about-press-v2__inner">
+          <h2>Dr Diet in the Media</h2>
+          <div className="about-press-v2__grid">
+            {pressItems.map((item, i) => (
+              <a
+                key={item.source}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`about-press-card-v2 fade-up stagger-${i + 1}`}
+              >
+                <div className="about-press-card-v2__logo">{item.logo} {item.source}</div>
+                <h4 className="about-press-card-v2__headline">"{item.headline}"</h4>
+                <span className="about-press-card-v2__date">{item.date}</span>
+                <span className="about-press-card-v2__link">Read Article <i className="fas fa-arrow-up-right-from-square" /></span>
+              </a>
             ))}
           </div>
         </div>

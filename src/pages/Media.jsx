@@ -19,12 +19,6 @@ const galleryItems = [
 
 const mediaCategories = ['All', 'Food', 'Kitchen', 'Transformations', 'Team', 'Delivery']
 
-const pressItems = [
-  { source: 'Times of India', headline: 'Dr Diet Redefines Healthy Eating for Indian Consumers', date: 'March 2024', logo: '📰' },
-  { source: 'Forbes India', headline: "The Startup Transforming India's Nutrition Landscape", date: 'January 2024', logo: '📰' },
-  { source: 'Startup Pedia', headline: 'Dr Diet Reaches 10,000 Customers Milestone', date: 'November 2023', logo: '📰' },
-]
-
 export default function Media() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [lightbox, setLightbox] = useState(null)
@@ -74,26 +68,6 @@ export default function Media() {
                   <span>{item.caption}</span>
                 </div>
                 <span className="media-item__cat">{item.category}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Press */}
-      <section className="section section--cream">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label--dark">In the News</span>
-            <h2>Dr Diet in the Media</h2>
-            <div className="divider" />
-          </div>
-          <div className="grid-3 press-grid">
-            {pressItems.map((item) => (
-              <div key={item.source} className="press-card">
-                <div className="press-card__logo">{item.logo} {item.source}</div>
-                <h4 className="press-card__headline">"{item.headline}"</h4>
-                <span className="press-card__date">{item.date}</span>
               </div>
             ))}
           </div>

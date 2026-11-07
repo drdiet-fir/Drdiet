@@ -21,18 +21,28 @@ function useReveal() {
 const categories = ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snacks', 'High Protein', 'Low Carb', 'Vegan']
 
 const meals = [
-  { id: 1,  name: 'Grilled Chicken Rice Bowl',       price: 249, cat: ['Lunch', 'High Protein'],        protein: 38, diet: 'Non-Veg', desc: 'Grilled chicken over seasoned rice with a fresh side salad.', img: '/brand_assets/Chicken Brown rice Landscape.webp' },
-  { id: 2,  name: 'Buckwheat Noodles (Veg)',          price: 199, cat: ['Lunch', 'Vegan', 'Low Carb'],   protein: 14, diet: 'Veg',     desc: 'Stir-fried buckwheat noodles tossed with crisp vegetables.', img: '/brand_assets/Veg buckweat noodles.webp' },
-  { id: 3,  name: 'Chicken Tikka Wrap',               price: 249, cat: ['Lunch', 'High Protein'],        protein: 36, diet: 'Non-Veg', desc: 'Smoky chicken tikka rolled in a soft multigrain wrap.', img: '/brand_assets/Chicken Tikka Wrap.webp' },
-  { id: 4,  name: 'High Protein Chilly Chicken',      price: 249, cat: ['Dinner', 'High Protein'],       protein: 42, diet: 'Non-Veg', desc: 'Pan-tossed chicken in a bold, spicy chilly sauce.', img: '/brand_assets/Chilli chicken.webp' },
-  { id: 5,  name: 'Quinoa Patty Protein Burger',      price: 249, cat: ['Lunch', 'Vegan'],               protein: 22, diet: 'Veg',     desc: 'A multigrain protein patty loaded between fresh buns with crisp veggies.', img: '/brand_assets/Quinoa Patty Burger.webp' },
-  { id: 6,  name: 'Stuffed Chicken Breast',           price: 280, cat: ['Dinner', 'High Protein'],       protein: 46, diet: 'Non-Veg', desc: 'Tender chicken breast stuffed and oven-baked, finished with a rich, savoury sauce.', img: '/brand_assets/Juiciest stuffed chicken breast.webp' },
-  { id: 7,  name: 'Nutella Protein Pancakes',         price: 249, cat: ['Breakfast', 'Snacks'],          protein: 28, diet: 'Veg',     desc: 'Fluffy protein pancakes drizzled with a hint of Nutella.', img: '/brand_assets/Nuttela Pancake.webp' },
-  { id: 8,  name: 'Grilled Paneer Protein Bowl',      price: 249, cat: ['Lunch', 'High Protein'],        protein: 32, diet: 'Veg',     desc: 'Grilled paneer and veggies over a protein-rich grain base.', img: '/brand_assets/achari paneer bowl.webp' },
-  { id: 9,  name: 'Thai Chili Fish Rice Bowl',        price: 349, cat: ['Dinner', 'High Protein'],       protein: 38, diet: 'Non-Veg', desc: 'Flaky fish in a Thai chilli glaze over fragrant rice.', img: '/brand_assets/Thai curry bowl.webp' },
-  { id: 10, name: 'Mexican Protein Wrap',             price: 249, cat: ['Lunch'],                        protein: 32, diet: 'Non-Veg', desc: 'A multigrain wrap with grilled chicken, beans, and salsa.', img: '/brand_assets/Maxican Protein Wrap.webp' },
-  { id: 11, name: 'Double Paneer Tikka Sandwich',     price: 199, cat: ['Snacks', 'Lunch'],              protein: 26, diet: 'Veg',     desc: 'Toasted sandwich loaded with double paneer tikka filling.', img: '/brand_assets/Double panner tikka sandwich.webp' },
-  { id: 12, name: 'Chickpea Curry Bowl',              price: 249, cat: ['Dinner', 'Vegan'],              protein: 18, diet: 'Veg',     desc: 'A comforting chickpea curry over fibre-rich grains.', img: '/brand_assets/curried chole bowl.webp' },
+  { id: 1,  name: 'Stuffed Moong Dal Chilla',           price: 249, cat: ['Breakfast'],                  protein: 18,   diet: 'Veg',     desc: 'A savoury moong dal chilla stuffed with a wholesome filling.', img: '/brand_assets/menu/Stuffed Moong Dal Chilla.webp' },
+  { id: 2,  name: 'Nutella Protein Pancakes',           price: 249, cat: ['Breakfast', 'Snacks'],        protein: 22,   diet: 'Veg',     desc: "Guilt-free stack with house Nutella and fresh fruit — founder's favourite.", img: '/brand_assets/menu/Nutella Protein Pancakes.webp' },
+  { id: 3,  name: 'Chicken Tikka Wrap',                 price: 249, cat: ['Lunch', 'High Protein'],      protein: 25.5, diet: 'Non-Veg', desc: 'Smoky chicken tikka rolled in a soft multigrain wrap.', img: '/brand_assets/menu/Chicken Tikka Wrap.webp' },
+  { id: 4,  name: 'Tofu Tikka Wrap',                    price: 199, cat: ['Lunch', 'Vegan'],             protein: 14,   diet: 'Veg',     desc: 'Smoky tofu tikka rolled in a soft multigrain wrap.', img: '/brand_assets/menu/Tofu Tikka Wrap.webp' },
+  { id: 5,  name: 'Baked Falafel Wrap',                 price: 249, cat: ['Lunch', 'High Protein'],      protein: 13,   diet: 'Veg',     desc: 'Crisp baked falafel rolled in a soft wrap with fresh veggies.', img: '/brand_assets/menu/Baked Falafel Wrap.webp' },
+  { id: 6,  name: 'Artisan Stuffed Chicken Breast',     price: 299, cat: ['Dinner', 'High Protein'],     protein: 65,   diet: 'Non-Veg', desc: 'Tender chicken breast stuffed and oven-baked, finished with a rich, savoury sauce.', img: '/brand_assets/menu/Artisan Stuffed Chicken Breast.webp' },
+  { id: 7,  name: 'Half Pound Chicken Breast Meal',     price: 299, cat: ['Dinner', 'High Protein'],     protein: 55,   diet: 'Non-Veg', desc: 'A hearty half-pound portion of seasoned, grilled chicken breast.', img: '/brand_assets/menu/Half Pound Chicken Breast Meal.webp' },
+  { id: 8,  name: 'Steamed Chicken Hummus Salad',       price: 299, cat: ['Lunch', 'High Protein'],      protein: 53,   diet: 'Non-Veg', desc: 'Steamed chicken served over a fresh hummus salad.', img: '/brand_assets/menu/Steamed Chicken Hummus Salad.webp' },
+  { id: 9,  name: 'Baked Creamy Chicken with Mushroom & Paprika', price: 299, cat: ['Dinner', 'High Protein'], protein: 54, diet: 'Non-Veg', desc: 'Oven-baked chicken in a creamy mushroom and paprika sauce.', img: '/brand_assets/menu/Baked Creamy Chicken with Mushroom & Paprika.webp' },
+  { id: 10, name: 'Healthy Stuffed Paneer',             price: 299, cat: ['Dinner', 'High Protein'],     protein: 34,   diet: 'Veg',     desc: 'Paneer stuffed and baked for a wholesome, protein-rich meal.', img: '/brand_assets/menu/Healthy Stuffed Paneer.webp' },
+  { id: 11, name: 'Half Pound Paneer & Veggies',        price: 299, cat: ['Dinner', 'High Protein'],     protein: 42,   diet: 'Veg',     desc: 'A generous half-pound serving of grilled paneer with fresh veggies.', img: '/brand_assets/menu/Half Pound Paneer & Veggies.webp' },
+  { id: 12, name: 'Arrabiata Veg Protein Pasta',        price: 299, cat: ['Lunch', 'High Protein'],      protein: 26,   diet: 'Veg',     desc: 'Whole wheat pasta with fresh veggies, your choice of protein, and a spicy arrabiata sauce.', img: '/brand_assets/menu/Arrabiata Veg Protein Pasta.webp' },
+  { id: 13, name: 'Mashed Potatoes Comfort Bowl (Veg)', price: 299, cat: ['Dinner'],                      protein: 18,   diet: 'Veg',     desc: 'Build-your-own comfort bowl with mashed potato and grilled paneer.', img: '/brand_assets/menu/Mashed Patatoes Comfort Bowl(Veg).webp' },
+  { id: 14, name: 'Mashed Potatoes Comfort Bowl (Non-Veg)', price: 299, cat: ['Dinner', 'High Protein'],  protein: 27,   diet: 'Non-Veg', desc: 'Build-your-own comfort bowl with mashed potato and steamed chicken.', img: '/brand_assets/menu/Mashed Potatoes Comfort Bowl(Non Veg).webp' },
+  { id: 15, name: 'Veg Protein Burrito Bowl',           price: 349, cat: ['Lunch', 'High Protein'],      protein: 19,   diet: 'Veg',     desc: 'Build-your-own burrito bowl with grilled paneer, rice and your choice of sauce.', img: '/brand_assets/menu/Veg Protein Burrito Bowl.webp' },
+  { id: 16, name: 'Veg Protein Burrito Wrap',           price: 349, cat: ['Lunch', 'High Protein'],      protein: 19,   diet: 'Veg',     desc: 'Build-your-own burrito wrap with grilled paneer and your choice of sauce.', img: '/brand_assets/menu/Veg Protein Burrito Wrap.webp' },
+  { id: 17, name: 'Chicken Burrito Bowl – Muscle Builder', price: 349, cat: ['Lunch', 'High Protein'],   protein: 28,   diet: 'Non-Veg', desc: 'Build-your-own burrito bowl with steamed chicken, rice and your choice of sauce.', img: '/brand_assets/menu/Chicken Burrito Bowl - Muscle Builder Full Meal.webp' },
+  { id: 18, name: 'Chicken Burrito Wrap – Muscle Builder', price: 349, cat: ['Lunch', 'High Protein'],   protein: 28,   diet: 'Non-Veg', desc: 'Build-your-own burrito wrap with steamed chicken and your choice of sauce.', img: '/brand_assets/menu/Chicken Burrito Wrap - Muscle Builder.webp' },
+  { id: 19, name: 'ABC Juice (Apple Beetroot Carrot)',  price: 249, cat: ['Snacks'],                     protein: 2,    diet: 'Veg',     desc: 'A refreshing cold-pressed juice of apple, beetroot and carrot.', img: '/brand_assets/menu/ABC Juice(Apple Beetroot Carrot).webp' },
+  { id: 20, name: 'Sattu Protein Shake',                price: 249, cat: ['Snacks'],                     protein: 18,   diet: 'Veg',     desc: 'A traditional sattu-based protein shake.', img: '/brand_assets/menu/Sattu Protein Shake.webp' },
+  { id: 21, name: 'Banana Walnut Shake',                price: 249, cat: ['Snacks'],                     protein: 10,   diet: 'Veg',     desc: 'A protein-rich shake blended with banana and walnuts.', img: '/brand_assets/menu/Banana Walnut Shake.webp' },
+  { id: 22, name: 'Avocado Smoothie',                   price: 349, cat: ['Snacks'],                     protein: 5,    diet: 'Veg',     desc: 'A creamy, nutrient-rich avocado smoothie.', img: '/brand_assets/menu/Avocado Smoothie.webp' },
 ]
 
 export default function Menu() {
@@ -98,6 +108,12 @@ export default function Menu() {
               <p>No meals in this category yet. Check back soon!</p>
             </div>
           )}
+
+          <div className="menu-explore">
+            <a href="/brand_assets/DR DIET MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg">
+              Explore Full Menu <i className="fas fa-arrow-right" />
+            </a>
+          </div>
 
           <div className="menu-note">
             <i className="fas fa-info-circle" />

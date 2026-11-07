@@ -80,53 +80,6 @@
   letter-spacing: 0.06em;
 }
 
-/* Press */
-.press-grid { }
-
-.press-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  border: 1.5px solid var(--dr-diet-stroke-color-2);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: all var(--transition);
-}
-
-.press-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-
-.press-card__logo {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--primary-dr-diet-color);
-  letter-spacing: 0.02em;
-}
-
-.press-card__headline {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary-dr-diet-color);
-  line-height: 1.5;
-  font-style: italic;
-  flex: 1;
-}
-
-.press-card__date { font-size: 0.8rem; color: var(--label); }
-
-.press-card__link {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--primary-dr-diet-color);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap var(--transition);
-}
-
-.press-card__link:hover { gap: 10px; }
-.press-card__link i { font-size: 0.75rem; }
-
 /* Lightbox */
 .lightbox {
   position: fixed;
@@ -184,7 +137,6 @@
 @media (max-width: 768px) {
   .media-grid { grid-template-columns: repeat(2, 1fr); }
   .media-grid .media-item:nth-child(5n+1) { grid-column: span 1; grid-row: span 1; }
-  .press-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {

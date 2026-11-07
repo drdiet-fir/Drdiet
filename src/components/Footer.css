@@ -6,7 +6,7 @@
 .footer__main {
   position: relative;
   padding-top: 82px;
-  padding-bottom: 82px;
+  padding-bottom: 8px;
 }
 
 .footer__top {
@@ -19,16 +19,30 @@
 
 /* Brand col */
 .footer__brand {
-  flex: 0 1 312px;
+  flex: 0 1 560px;
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .footer__logo {
-  height: 110px;
+  height: 90px;
   width: auto;
+  max-width: none;
+  flex-shrink: 0;
   filter: brightness(0) invert(1);
+}
+
+.footer__brand > a {
+  flex-shrink: 0;
+}
+
+.footer__brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 8px;
 }
 
 .footer__contact-list {
@@ -132,17 +146,14 @@
   opacity: 1;
 }
 
-/* Background watermark — deliberately overflows past footer__main's own
-   bottom edge so its descenders dip into the accent-yellow bar below;
-   footer__main has no overflow:hidden so this isn't clipped, and because
-   footer__main is position:relative with z-index:auto, it (and this
-   child) paint above the non-positioned .footer__bottom sibling. */
+/* Background watermark — full-bleed edge to edge, with generous margin
+   above (gap from the brand/menu row) and below (gap before the yellow
+   bottom bar). */
 .footer__watermark {
-  position: absolute;
-  left: 0;
-  bottom: clamp(-60px, -8vw, -24px);
-  width: clamp(500px, 95vw, 1434px);
+  display: block;
+  width: 100%;
   height: auto;
+  margin: 72px 0 0;
   pointer-events: none;
 }
 
@@ -203,6 +214,13 @@
 @media (max-width: 480px) {
   .footer__top {
     padding: 72px 0;
+  }
+  .footer__brand {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer__brand-info {
+    padding-top: 0;
   }
   .footer__bottom-inner {
     flex-direction: column;

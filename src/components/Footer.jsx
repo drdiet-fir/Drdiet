@@ -40,34 +40,36 @@ export default function Footer() {
               <img src="/logo-primary.png" alt="Dr Diet" className="footer__logo" />
             </Link>
 
-            <ul className="footer__contact-list">
-              <li>
-                <i className="fas fa-map-marker-alt" />
-                <span>Bengaluru | Delhi | Gurgaon | Noida | Mohali | Chandigarh</span>
-              </li>
-              <li>
-                <i className="fas fa-phone" />
-                <a href="tel:+917015732242">7015732242</a>
-              </li>
-              <li>
-                <i className="fas fa-envelope" />
-                <a href="mailto:drdietdelhi@gmail.com">drdietdelhi@gmail.com</a>
-              </li>
-            </ul>
+            <div className="footer__brand-info">
+              <ul className="footer__contact-list">
+                <li>
+                  <i className="fas fa-map-marker-alt" />
+                  <span>Bengaluru | Delhi | Gurgaon | Noida | Mohali | Chandigarh</span>
+                </li>
+                <li>
+                  <i className="fas fa-phone" />
+                  <a href="tel:+917015732242">7015732242</a>
+                </li>
+                <li>
+                  <i className="fas fa-envelope" />
+                  <a href="mailto:drdietdelhi@gmail.com">drdietdelhi@gmail.com</a>
+                </li>
+              </ul>
 
-            <div className="footer__socials">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  className="footer__social"
-                  aria-label={s.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className={s.icon} />
-                </a>
-              ))}
+              <div className="footer__socials">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    className="footer__social"
+                    aria-label={s.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className={s.icon} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

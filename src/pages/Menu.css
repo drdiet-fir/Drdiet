@@ -85,6 +85,12 @@
   opacity: 0.3;
 }
 
+.menu-explore {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 32px;
+}
+
 .menu-note {
   display: flex;
   align-items: flex-start;
