@@ -5,9 +5,8 @@
 
 .footer__main {
   position: relative;
-  overflow: hidden;
-  padding-top: 5.125rem;
-  padding-bottom: 5.125rem;
+  padding-top: 82px;
+  padding-bottom: 82px;
 }
 
 .footer__top {
@@ -42,13 +41,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.875rem;
+  font-size: 14px;
   letter-spacing: 0.01em;
   color: var(--dr-diet-bg-color);
 }
 
 .footer__contact-list i {
-  font-size: 0.9rem;
+  font-size: 14.4px;
   flex-shrink: 0;
   width: 18px;
   text-align: center;
@@ -76,7 +75,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 12.8px;
   color: var(--dr-diet-bg-color);
   transition: background var(--transition), color var(--transition);
 }
@@ -100,32 +99,32 @@
   max-width: 190px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 24px;
 }
 
 .footer__col-title {
   width: 100%;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.01em;
   color: var(--dr-diet-bg-color);
-  text-align: right;
+  text-align: left;
 }
 
 .footer__col-links {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 12px;
   width: 100%;
 }
 
 .footer__col-links a {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: var(--dr-diet-bg-color);
   opacity: 0.85;
-  text-align: right;
+  text-align: left;
   transition: opacity var(--transition);
 }
 
@@ -133,13 +132,16 @@
   opacity: 1;
 }
 
-/* Background watermark */
+/* Background watermark — deliberately overflows past footer__main's own
+   bottom edge so its descenders dip into the accent-yellow bar below;
+   footer__main has no overflow:hidden so this isn't clipped, and because
+   footer__main is position:relative with z-index:auto, it (and this
+   child) paint above the non-positioned .footer__bottom sibling. */
 .footer__watermark {
   position: absolute;
-  z-index: 0;
-  right: 0;
-  bottom: -30px;
-  width: clamp(260px, 44vw, 648px);
+  left: 0;
+  bottom: clamp(-60px, -8vw, -24px);
+  width: clamp(500px, 95vw, 1434px);
   height: auto;
   pointer-events: none;
 }
@@ -162,7 +164,7 @@
 .footer__bottom-inner p {
   flex: 1 1 320px;
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: var(--font-weight-medium);
   color: var(--primary-dr-diet-color);
 }
@@ -174,7 +176,7 @@
 }
 
 .footer__legal a {
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: var(--font-weight-medium);
   color: var(--primary-dr-diet-color);
   transition: opacity var(--transition);
@@ -196,21 +198,11 @@
   .footer__menu {
     justify-content: flex-start;
   }
-  .footer__col {
-    align-items: flex-start;
-  }
-  .footer__col-title,
-  .footer__col-links a {
-    text-align: left;
-  }
-  .footer__col-links {
-    align-items: flex-start;
-  }
 }
 
 @media (max-width: 480px) {
   .footer__top {
-    padding: 4.5rem 0;
+    padding: 72px 0;
   }
   .footer__bottom-inner {
     flex-direction: column;

@@ -17,8 +17,8 @@ const footerLinks = {
   ],
   'Join Us': [
     { label: 'Franchise', path: '/join-us#franchise' },
-    { label: 'Corporate Services', path: '/join-us#corporate' },
-    { label: 'Careers', path: '/join-us#careers' },
+    { label: 'Catering Service', path: '/join-us#corporate' },
+    { label: 'B2B Partnership', path: '/join-us#corporate' },
   ],
 }
 
@@ -47,7 +47,7 @@ export default function Footer() {
               </li>
               <li>
                 <i className="fas fa-phone" />
-                <a href="tel:+917015732242">+91 70157 32242</a>
+                <a href="tel:+917015732242">7015732242</a>
               </li>
               <li>
                 <i className="fas fa-envelope" />
@@ -92,14 +92,14 @@ export default function Footer() {
               </div>
             ))}
           </div>
-
-          <img className="footer__watermark" src="/brand_assets/Brand signature.svg" alt="" aria-hidden="true" />
         </div>
+
+        <img className="footer__watermark" src="/brand_assets/Dieting Made Delicious..svg" alt="" aria-hidden="true" />
       </div>
 
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
-          <p>&copy; {currentYear} - All rights reserved. Designed and Developed by Odd Lemon Design Studio</p>
+          <p>&copy; {currentYear} -  Dr Diet</p>
           <div className="footer__legal">
             <Link to="/terms">Terms &amp; Conditions</Link>
             <span className="footer__legal-divider" />
