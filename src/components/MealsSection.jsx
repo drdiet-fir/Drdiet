@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import MealCard from './MealCard'
 import './MealsSection.css'
 
+const ORDER_SITE = 'https://order.drdiet.fit'
+
 const MEALS = [
   {
     name: 'Juiciest Stuffed Chicken Breast',
@@ -42,7 +44,7 @@ export default function MealsSection() {
 
         <div className="meals-section-v2__grid">
           {MEALS.map((m) => (
-            <MealCard key={m.name} {...m} orderTo="/menu" />
+            <MealCard key={m.name} {...m} orderTo={ORDER_SITE} />
           ))}
         </div>
 

@@ -95,10 +95,12 @@
   }
   /* The wave scales shorter than the fixed -50px offset on small screens,
      which leaves a gap below the hero. Anchor its straight top edge to the
-     hero's bottom so the green stays continuous and it just hangs down. */
+     hero's bottom, span full width, and make the crests more pronounced. */
   .page-hero-v2__wave {
     bottom: auto;
     top: 100%;
-    transform: translateY(-1px);
+    width: 100%;
+    height: 34px;
+    transform: translateY(-16px);
   }
 }

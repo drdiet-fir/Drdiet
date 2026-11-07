@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './CitiesSection.css'
 
 const CITIES = [
@@ -11,6 +11,17 @@ const CITIES = [
 ]
 
 export default function CitiesSection() {
+  const navigate = useNavigate()
+
+  // On mobile, every city card goes to the Locations page instead of its
+  // individual city page (desktop keeps the real city hrefs for SEO).
+  const handleClick = (e) => {
+    if (window.matchMedia('(max-width: 640px)').matches) {
+      e.preventDefault()
+      navigate('/locations')
+    }
+  }
+
   return (
     <section className="cities-section">
       <div className="container cities-section__inner">
@@ -18,7 +29,7 @@ export default function CitiesSection() {
 
         <div className="cities-section__grid">
           {CITIES.map((c) => (
-            <Link to={c.path} className="city-card" key={c.name}>
+            <Link to={c.path} className="city-card" key={c.name} onClick={handleClick}>
               <div className="city-card__frame">
                 <div className="city-card__image">
                   <img src={c.img} alt={c.name} />
