@@ -9,8 +9,8 @@
 }
 
 .page-hero-v2 .page-hero-v2__inner {
-  padding-top: calc(var(--navbar-height) + 60px);
-  padding-bottom: 80px;
+  padding-top: calc(var(--navbar-height) + 3.75rem);
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@
   margin: 0;
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.38;
   color: var(--dr-diet-bg-color);
 }
@@ -29,7 +29,7 @@
 .page-hero-v2__inner p {
   margin: 0;
   max-width: 712px;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.5;
   color: var(--dr-diet-stroke-color);
 }
@@ -45,10 +45,10 @@
 
 @media (max-width: 640px) {
   .page-hero-v2 .page-hero-v2__inner {
-    padding-top: calc(var(--navbar-height) + 30px);
-    padding-bottom: 60px;
+    padding-top: calc(var(--navbar-height) + 1.875rem);
+    padding-bottom: 3.75rem;
   }
   .page-hero-v2__inner h1 {
-    font-size: 32px;
+    font-size: 2rem;
   }
 }

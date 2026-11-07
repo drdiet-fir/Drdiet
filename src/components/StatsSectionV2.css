@@ -3,7 +3,7 @@
    ============================================ */
 .stats-v2 {
   background: var(--accent);
-  padding: 32px 0;
+  padding: 2rem 0;
 }
 
 .stats-v2__inner {

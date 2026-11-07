@@ -17,8 +17,8 @@ const footerLinks = {
   ],
   'Join Us': [
     { label: 'Franchise', path: '/join-us#franchise' },
-    { label: 'Catering Service', path: '/join-us#catering' },
-    { label: 'B2B Partnership', path: '/join-us#b2b' },
+    { label: 'Corporate Services', path: '/join-us#corporate' },
+    { label: 'Careers', path: '/join-us#careers' },
   ],
 }
 
@@ -93,7 +93,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <p className="footer__watermark" aria-hidden="true">Dieting Made Delicious.</p>
+          <img className="footer__watermark" src="/brand_assets/Brand signature.svg" alt="" aria-hidden="true" />
         </div>
       </div>
 
@@ -101,9 +101,9 @@ export default function Footer() {
         <div className="container footer__bottom-inner">
           <p>&copy; {currentYear} - All rights reserved. Designed and Developed by Odd Lemon Design Studio</p>
           <div className="footer__legal">
-            <a href="#">Terms &amp; Conditions</a>
+            <Link to="/terms">Terms &amp; Conditions</Link>
             <span className="footer__legal-divider" />
-            <a href="#">Privacy Policy</a>
+            <Link to="/privacy">Privacy Policy</Link>
           </div>
         </div>
       </div>

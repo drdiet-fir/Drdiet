@@ -8,7 +8,6 @@ import TestimonialsSectionV2 from '../components/TestimonialsSectionV2'
 import StatsSectionV2 from '../components/StatsSectionV2'
 import CitiesSection from '../components/CitiesSection'
 import FaqSection from '../components/FaqSection'
-import './Home.css'
 
 /* ─────────────────── HOME PAGE ─────────────────── */
 export default function Home() {

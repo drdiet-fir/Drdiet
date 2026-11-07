@@ -30,7 +30,7 @@
 
 /* ── Shared section bits ── */
 .section.joinus-franchise {
-  padding-top: 160px;
+  padding-top: 10rem;
 }
 
 .joinus-franchise h2,
@@ -38,7 +38,7 @@
 .joinus-careers h2 {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 44px);
+  font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.25;
   margin-bottom: 16px;
 }
@@ -127,7 +127,7 @@
 .joinus-enquiry-band {
   background: var(--primary-dr-diet-color);
   border-radius: var(--radius-xl);
-  padding: 40px 48px;
+  padding: 2.5rem 3rem;
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 40px;
@@ -137,7 +137,7 @@
 .joinus-enquiry-band__head h3 {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(24px, 2.6vw, 32px);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
   color: var(--dr-diet-bg-color);
   margin-bottom: 8px;
 }
@@ -217,7 +217,7 @@
 .joinus-partner-band {
   background: var(--accent);
   border-radius: var(--radius-xl);
-  padding: 40px 48px;
+  padding: 2.5rem 3rem;
 }
 
 .joinus-partner-band__head {
@@ -232,7 +232,7 @@
 .joinus-partner-band__head h3 {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(26px, 2.8vw, 34px);
+  font-size: clamp(1.625rem, 2.8vw, 2.125rem);
   color: var(--primary-dr-diet-color);
   margin-bottom: 10px;
 }
@@ -290,13 +290,13 @@
 .joinus-careers-card {
   background: var(--white);
   border-radius: var(--radius-xl);
-  padding: 36px;
+  padding: 2.25rem;
 }
 
 .joinus-careers-card h3 {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(26px, 2.8vw, 32px);
+  font-size: clamp(1.625rem, 2.8vw, 2rem);
   color: var(--primary-dr-diet-color);
   margin-bottom: 6px;
 }
@@ -345,7 +345,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-  .section.joinus-franchise { padding-top: 100px; }
+  .section.joinus-franchise { padding-top: 6.25rem; }
   .joinus-quicknav__inner { grid-template-columns: 1fr; gap: 20px; }
 
   .joinus-franchise__grid,
@@ -355,14 +355,14 @@
   .joinus-corporate__media { order: -1; }
   .joinus-corporate__media img { min-height: 280px; }
 
-  .joinus-enquiry-band { grid-template-columns: 1fr; padding: 32px 24px; }
+  .joinus-enquiry-band { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
   .joinus-enquiry-form { grid-template-columns: 1fr; }
   .joinus-enquiry-band__success { grid-column: auto; }
 
   .joinus-pricing-row { grid-template-columns: 1fr; }
   .joinus-checklist--2col { grid-template-columns: 1fr; }
 
-  .joinus-partner-band { padding: 32px 24px; }
+  .joinus-partner-band { padding: 2rem 1.5rem; }
   .joinus-partner-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 

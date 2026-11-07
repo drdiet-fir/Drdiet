@@ -31,7 +31,7 @@
   text-align: center;
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(40px, 7.8vw, 112px);
+  font-size: clamp(2.5rem, 7.8vw, 7rem);
   line-height: 1;
   color: var(--primary-dr-diet-color, var(--primary-dr-diet-color));
   white-space: nowrap;
@@ -47,7 +47,7 @@
   max-width: 606px;
   margin: 0;
   text-align: center;
-  font-size: clamp(14px, 1.2vw, 17px);
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem);
   line-height: 1.5;
   color: var(--label);
   z-index: 3;

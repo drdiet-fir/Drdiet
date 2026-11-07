@@ -21,6 +21,7 @@
   --primary-dr-diet-color: #414C3C;  /* Primary DR Diet Color — brand green. Also the single "ink" color for all headings & body text */
   --primary-rgb:    65, 76, 60;      /* RGB triplet of the above, for rgba() tints */
   --dr-diet-bg-color: #F8F4EC;       /* Dr Diet BG Color — warm cream, all page/section/card backgrounds */
+  --bg-rgb:         248, 244, 236;   /* RGB triplet of the above, for rgba() tints */
   --dr-diet-stroke-color:   #EBE0C9; /* Dr Diet Stroke Color — muted cream TEXT on dark-green sections (not a border, despite the name) */
   --dr-diet-stroke-color-2: #DACAA9; /* Dr Diet Stroke Color 2 — the actual border/stroke color for cards, pills & inputs */
   --accent:         #E2E573;         /* Accent — lime-yellow, backgrounds only */
@@ -40,8 +41,8 @@
   --font-weight-black: 900;
 
   /* Spacing */
-  --section-padding: 96px 0;
-  --section-padding-sm: 64px 0;
+  --section-padding: 6rem 0;
+  --section-padding-sm: 4rem 0;
   --container-max: 1320px;
   --container-padding: 0 24px;
 
@@ -80,7 +81,10 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  /* Fluid base size: the design reads correctly around 16px on large
+     monitors, but on common ~1280-1600px laptop viewports the container
+     is nearly edge-to-edge, so rem-based sizing needs to shrink with it. */
+  font-size: clamp(14px, 0.4vw + 8.6px, 16px);
 }
 
 body {
@@ -226,7 +230,7 @@ p {
 
 .section-label--white {
   color: var(--dr-diet-bg-color);
-  background: rgba(245, 237, 225, 0.15);
+  background: rgba(var(--bg-rgb), 0.15);
 }
 
 .section-header {
@@ -470,7 +474,7 @@ textarea.form-control {
 }
 
 .badge--light {
-  background: rgba(245, 237, 225, 0.2);
+  background: rgba(var(--bg-rgb), 0.2);
   color: var(--dr-diet-bg-color);
 }
 
@@ -483,8 +487,8 @@ textarea.form-control {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 64px 0;
-    --section-padding-sm: 48px 0;
+    --section-padding: 4rem 0;
+    --section-padding-sm: 3rem 0;
   }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .section-header { margin-bottom: 40px; }

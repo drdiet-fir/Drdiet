@@ -3,7 +3,7 @@
    ============================================ */
 .cities-section {
   background: var(--primary-dr-diet-color);
-  padding: 82px 0 90px;
+  padding: 5.125rem 0 5.625rem;
 }
 
 .cities-section__inner {
@@ -17,7 +17,7 @@
   margin: 0;
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.38;
   color: var(--dr-diet-bg-color);
   text-align: center;
@@ -116,7 +116,7 @@
 
 @media (max-width: 640px) {
   .cities-section {
-    padding: 56px 0;
+    padding: 3.5rem 0;
   }
   .cities-section__grid {
     gap: 10px;

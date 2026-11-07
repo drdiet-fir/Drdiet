@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import './About.css'
 
@@ -155,24 +154,6 @@ export default function About() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="about-cta-v2">
-        <div className="container about-cta-v2__inner">
-          <div>
-            <h2>Ready to Eat What's Right?</h2>
-            <p>Join 10,000+ people who chose clean eating over compromise</p>
-          </div>
-          <div className="about-cta-v2__actions">
-            <Link to="/subscription#get-started" className="about-cta-v2__btn about-cta-v2__btn--primary">
-              Start Your Plan <i className="fas fa-arrow-right" />
-            </Link>
-            <Link to="/contact" className="about-cta-v2__btn about-cta-v2__btn--secondary">
-              Talk to Us <i className="fas fa-arrow-right" />
-            </Link>
           </div>
         </div>
       </section>

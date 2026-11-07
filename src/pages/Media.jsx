@@ -94,9 +94,6 @@ export default function Media() {
                 <div className="press-card__logo">{item.logo} {item.source}</div>
                 <h4 className="press-card__headline">"{item.headline}"</h4>
                 <span className="press-card__date">{item.date}</span>
-                <a href="#" className="press-card__link">
-                  Read Article <i className="fas fa-external-link-alt" />
-                </a>
               </div>
             ))}
           </div>

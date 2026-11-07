@@ -6,8 +6,8 @@ const CITIES = [
   { name: 'Gurgaon', img: '/brand_assets/cities/city-2.png', path: '/diet-food-gurgaon' },
   { name: 'Bengaluru', img: '/brand_assets/cities/city-3.png', path: '/weight-loss-meals-bangalore' },
   { name: 'Noida', img: '/brand_assets/cities/city-4.png', path: '/locations' },
-  { name: 'Mohali', img: '/brand_assets/cities/city-1.png', path: '/locations' },
-  { name: 'Chandigarh', img: '/brand_assets/cities/city-2.png', path: '/healthy-meals-chandigarh' },
+  { name: 'Mohali', img: '/brand_assets/Cafe Exterior 1.png', path: '/locations' },
+  { name: 'Chandigarh', img: '/brand_assets/Cafe Interior 1.png', path: '/healthy-meals-chandigarh' },
 ]
 
 export default function CitiesSection() {

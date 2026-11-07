@@ -4,7 +4,7 @@
 .why-section {
   position: relative;
   background: var(--primary-dr-diet-color);
-  padding: 96px 0 92px;
+  padding: 6rem 0 5.75rem;
 }
 
 .why-section__wave {
@@ -36,7 +36,7 @@
   margin: 0;
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.38;
   color: var(--dr-diet-bg-color);
 }
@@ -162,7 +162,7 @@
 
 @media (max-width: 640px) {
   .why-section {
-    padding: 64px 0 56px;
+    padding: 4rem 0 3.5rem;
   }
   .why-section__inner {
     gap: 40px;

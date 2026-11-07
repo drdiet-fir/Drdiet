@@ -22,6 +22,9 @@ import Delhi from './pages/cities/Delhi'
 import Gurgaon from './pages/cities/Gurgaon'
 import Bangalore from './pages/cities/Bangalore'
 import Chandigarh from './pages/cities/Chandigarh'
+import NotFound from './pages/NotFound'
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -55,6 +58,9 @@ function AppContent() {
           <Route path="/diet-food-gurgaon" element={<Gurgaon />} />
           <Route path="/weight-loss-meals-bangalore" element={<Bangalore />} />
           <Route path="/healthy-meals-chandigarh" element={<Chandigarh />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <CtaBand />

@@ -22,8 +22,8 @@
 }
 
 .sub-hero .sub-hero__inner {
-  padding-top: calc(var(--navbar-height) + 32px);
-  padding-bottom: 36px;
+  padding-top: calc(var(--navbar-height) + 2rem);
+  padding-bottom: 2.25rem;
 }
 
 .sub-hero__content { max-width: 640px; }
@@ -41,7 +41,7 @@
 .sub-hero__content h1 {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(28px, 4.2vw, 54px);
+  font-size: clamp(1.75rem, 4.2vw, 3.375rem);
   line-height: 1.25;
   color: var(--dr-diet-bg-color);
   margin-bottom: 18px;
@@ -79,178 +79,13 @@
   .sub-hero .sub-hero__inner {
     position: absolute;
     inset: 0;
-    padding-top: calc(var(--navbar-height) + 48px);
+    padding-top: calc(var(--navbar-height) + 3rem);
     padding-bottom: 0;
     display: flex;
     align-items: flex-start;
   }
   .sub-hero__line { white-space: nowrap; }
 }
-
-/* Billing Toggle */
-.sub-billing-toggle-section { padding: 56px 0 80px; }
-
-.sub-billing-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--dr-diet-bg-color);
-  border: 1.5px solid var(--dr-diet-stroke-color-2);
-  border-radius: var(--radius-full);
-  padding: 6px;
-  gap: 4px;
-  width: fit-content;
-  margin: 0 auto 56px;
-}
-
-.sub-billing-btn {
-  padding: 10px 28px;
-  border-radius: var(--radius-full);
-  font-size: 0.92rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--label);
-  transition: all var(--transition);
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.sub-billing-btn--active {
-  background: var(--primary-dr-diet-color);
-  color: var(--white);
-}
-
-.sub-billing-save {
-  background: var(--accent);
-  color: var(--primary-dr-diet-color);
-  font-size: 0.7rem;
-  font-weight: 800;
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-}
-
-/* Plans grid */
-.sub-plans-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  align-items: start;
-  margin-bottom: 40px;
-}
-
-.sub-plan-card {
-  background: var(--white);
-  border-radius: var(--radius-xl);
-  padding: 36px 28px;
-  border: 2px solid var(--dr-diet-stroke-color-2);
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: relative;
-  transition: all var(--transition);
-}
-
-.sub-plan-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-}
-
-.sub-plan-card--highlight {
-  border-color: var(--accent);
-  box-shadow: 0 12px 40px rgba(var(--accent-rgb), 0.2);
-  transform: scale(1.02);
-}
-
-.sub-plan-card--highlight:hover {
-  transform: scale(1.02) translateY(-6px);
-}
-
-.sub-plan-card__popular {
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent);
-  color: var(--primary-dr-diet-color);
-  font-size: 0.78rem;
-  font-weight: 800;
-  padding: 6px 20px;
-  border-radius: var(--radius-full);
-  white-space: nowrap;
-}
-
-.sub-plan-card__header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
-}
-
-.sub-plan-card__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.sub-plan-card__header h3 { font-size: 1.3rem; margin-bottom: 2px; color: var(--primary-dr-diet-color); }
-.sub-plan-card__tagline { font-size: 0.8rem; color: var(--label); }
-
-.sub-plan-card__price {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.sub-plan-card__currency { font-size: 0.95rem; font-weight: 600; color: var(--label); vertical-align: top; line-height: 1; }
-.sub-plan-card__amount { font-size: 2.8rem; font-weight: 900; color: var(--primary-dr-diet-color); line-height: 1; }
-.sub-plan-card__period { font-size: 0.85rem; color: var(--label); }
-.sub-plan-card__meals { font-size: 0.8rem; font-weight: 700; color: var(--primary-dr-diet-color); background: rgba(var(--accent-rgb), 0.15); padding: 4px 10px; border-radius: var(--radius-full); }
-
-.sub-plan-card__divider { height: 1px; background: var(--dr-diet-stroke-color-2); margin: 20px 0; }
-
-.sub-plan-card__features {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 28px;
-  flex: 1;
-}
-
-.sub-plan-card__feature {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.88rem;
-}
-
-.sub-plan-card__feature--yes { color: var(--primary-dr-diet-color); }
-.sub-plan-card__feature--yes i { color: var(--primary-dr-diet-color); }
-.sub-plan-card__feature--no { color: var(--label); text-decoration: line-through; }
-.sub-plan-card__feature--no i { color: var(--label); }
-
-.sub-plans-note {
-  text-align: center;
-  font-size: 0.88rem;
-  color: var(--label);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.sub-plans-note i { color: var(--primary-dr-diet-color); }
-.sub-plans-note a { color: var(--primary-dr-diet-color); font-weight: 600; }
 
 /* Steps */
 .sub-steps {
@@ -295,7 +130,7 @@
   color: var(--accent);
 }
 .sub-step h4 { color: var(--white); font-size: 1rem; margin-bottom: 10px; }
-.sub-step p { color: rgba(245,237,225,0.65); font-size: 0.88rem; line-height: 1.7; }
+.sub-step p { color: rgba(var(--bg-rgb), 0.65); font-size: 0.88rem; line-height: 1.7; }
 
 /* FAQ */
 .sub-faq-layout {
@@ -310,7 +145,7 @@
   margin-bottom: 20px;
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 44px);
+  font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.3;
 }
 .sub-faq-intro p { font-size: 1rem; margin-bottom: 24px; }
@@ -373,14 +208,14 @@
 
 /* ── Value Section ── */
 .sub-value-section {
-  padding: 80px 0;
+  padding: 5rem 0;
 }
 
 .sub-value-section .section-header h2,
 #how-it-works .section-header h2 {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 44px);
+  font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.3;
 }
 
@@ -433,7 +268,7 @@
   margin-bottom: 16px;
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 44px);
+  font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.3;
 }
 .sub-form-intro p { font-size: 1rem; max-width: 420px; margin-bottom: 28px; }

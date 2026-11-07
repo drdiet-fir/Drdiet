@@ -6,8 +6,8 @@
 .footer__main {
   position: relative;
   overflow: hidden;
-  padding-top: 82px;
-  padding-bottom: 82px;
+  padding-top: 5.125rem;
+  padding-bottom: 5.125rem;
 }
 
 .footer__top {
@@ -137,19 +137,10 @@
 .footer__watermark {
   position: absolute;
   z-index: 0;
-  left: clamp(24px, 29vw, 422px);
+  right: 0;
   bottom: -30px;
-  margin: 0;
-  font-family: var(--font-script);
-  font-weight: 400;
-  font-size: clamp(32px, 6vw, 74px);
-  line-height: 1;
-  background: linear-gradient(180deg, #51604a 0%, var(--primary-dr-diet-color) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  text-align: left;
-  white-space: nowrap;
+  width: clamp(260px, 44vw, 648px);
+  height: auto;
   pointer-events: none;
 }
 
@@ -219,7 +210,7 @@
 
 @media (max-width: 480px) {
   .footer__top {
-    padding: 72px 0;
+    padding: 4.5rem 0;
   }
   .footer__bottom-inner {
     flex-direction: column;

@@ -106,7 +106,7 @@ export default function Testimonials() {
           <h2 className="text-white" style={{ maxWidth: '600px', margin: '0 auto 20px' }}>
             Your Transformation Story Starts Today
           </h2>
-          <p style={{ color: 'rgba(245,237,225,0.7)', maxWidth: '500px', margin: '0 auto 40px' }}>
+          <p style={{ color: 'rgba(var(--bg-rgb), 0.7)', maxWidth: '500px', margin: '0 auto 40px' }}>
             Join thousands of people who are already living proof that proper nutrition changes everything.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>

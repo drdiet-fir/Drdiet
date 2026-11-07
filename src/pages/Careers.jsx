@@ -40,6 +40,7 @@ export default function Careers() {
   const [filter, setFilter] = useState('All')
   const s1 = useReveal()
   const s2 = useReveal()
+  const s3 = useReveal()
 
   const departments = ['All', ...new Set(openings.map((o) => o.dept))]
   const filtered = filter === 'All' ? openings : openings.filter((o) => o.dept === filter)
@@ -71,7 +72,7 @@ export default function Careers() {
       </section>
 
       {/* Perks */}
-      <section className="section section--cream">
+      <section className="section section--cream" ref={s3}>
         <div className="container">
           <div className="section-header">
             <span className="section-label section-label--dark">Benefits</span>

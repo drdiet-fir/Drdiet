@@ -1,0 +1,31 @@
+.legal-content {
+  max-width: 760px;
+}
+
+.legal-updated {
+  font-size: 0.85rem;
+  color: var(--label);
+  margin-bottom: 32px;
+}
+
+.legal-content h2 {
+  font-size: 1.15rem;
+  color: var(--primary-dr-diet-color);
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+
+.legal-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-content p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--label);
+}
+
+.legal-content a {
+  color: var(--primary-dr-diet-color);
+  text-decoration: underline;
+}
