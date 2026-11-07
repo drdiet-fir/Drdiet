@@ -22,6 +22,13 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.reels-section__track:active {
+  cursor: grabbing;
 }
 
 .reel-card {

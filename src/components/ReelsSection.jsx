@@ -69,6 +69,9 @@ export default function ReelsSection() {
   const sectionRef = useRef(null)
   const nodeRefs = useRef(new Map())
   const pending = useRef(null)
+  const lockRef = useRef(false)
+  const dragRef = useRef(null)
+  const suppressClickRef = useRef(false)
 
   const handleClick = (slotIndex) => {
     if (slotIndex === CENTER) return
@@ -89,6 +92,47 @@ export default function ReelsSection() {
     pending.current = { rects, wrappedIds, direction: n > 0 ? 'left' : 'right' }
     setOrder((prev) => recenter(prev, slotIndex))
     setMuted(true)
+  }
+
+  // One scroll notch or one drag = one step to the next/previous reel.
+  const goTo = (direction) => {
+    if (lockRef.current) return
+    lockRef.current = true
+    handleClick(CENTER + direction)
+    window.setTimeout(() => { lockRef.current = false }, DURATION + 60)
+  }
+
+  const handleWheel = (e) => {
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
+    if (Math.abs(delta) < 8) return
+    e.preventDefault()
+    goTo(delta > 0 ? 1 : -1)
+  }
+
+  const handlePointerDown = (e) => {
+    dragRef.current = { startX: e.clientX, dx: 0 }
+  }
+
+  const handlePointerMove = (e) => {
+    if (!dragRef.current) return
+    dragRef.current.dx = e.clientX - dragRef.current.startX
+  }
+
+  const endDrag = () => {
+    if (!dragRef.current) return
+    const { dx } = dragRef.current
+    dragRef.current = null
+    if (Math.abs(dx) > 40) {
+      suppressClickRef.current = true
+      goTo(dx < 0 ? 1 : -1)
+    }
+  }
+
+  const handleTrackClickCapture = (e) => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false
+      e.stopPropagation()
+    }
   }
 
   useLayoutEffect(() => {
@@ -143,7 +187,15 @@ export default function ReelsSection() {
     <section className="reels-section" ref={sectionRef}>
       <h2 className="reels-section__headline">Real People, Real Feeling</h2>
 
-      <div className="reels-section__track">
+      <div
+        className="reels-section__track"
+        onWheel={handleWheel}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endDrag}
+        onPointerLeave={endDrag}
+        onClickCapture={handleTrackClickCapture}
+      >
         {order.map((reelIndex, slotIndex) => {
           const reel = REELS[reelIndex]
           return (
