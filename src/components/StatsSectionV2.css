@@ -52,6 +52,15 @@
 }
 
 @media (max-width: 640px) {
+  .stats-v2__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 16px;
+  }
+  .stats-v2__item {
+    flex: none;
+    gap: 10px;
+  }
   .stats-v2__number {
     font-size: 32px;
   }

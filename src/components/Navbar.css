@@ -256,8 +256,36 @@
 @media (max-width: 960px) {
   .navbar__nav { display: none; }
   .navbar__burger { display: flex; }
+
+  /* Flex row: logo left, Order + hamburger right, 16px side gutters */
+  .navbar__row-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+  }
+  .navbar__logo {
+    justify-self: auto;
+    flex-shrink: 0;
+  }
+  .navbar__logo img {
+    height: 40px;
+    max-width: none;
+  }
+  .navbar__right {
+    justify-self: auto;
+    flex: 0 0 auto;
+    gap: 0;
+  }
+  .navbar__actions {
+    gap: 12px;
+  }
 }
 
 @media (max-width: 480px) {
-  .navbar__actions .btn { display: none; }
+  .btn.navbar__order {
+    height: 36px;
+    padding: 8px 16px;
+  }
 }

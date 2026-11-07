@@ -9,6 +9,7 @@ const footerLinks = {
     { label: 'Careers', path: '/careers' },
     { label: 'Media/Gallery', path: '/media' },
     { label: 'Contact Us', path: '/contact' },
+    { label: 'FAQs', path: '/faq' },
     { label: 'Menu', href: '/brand_assets/DR DIET MENU.pdf' },
   ],
   Plans: [

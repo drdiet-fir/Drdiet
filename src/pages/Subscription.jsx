@@ -81,7 +81,10 @@ export default function Subscription() {
       {/* Hero */}
       <section className="sub-hero">
         <div className="sub-hero__media">
-          <img className="sub-hero__bg" src="/brand_assets/Hero Section Subscription.png" alt="A Dr Diet meal spread" />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/brand_assets/Hero Section Subscription Mobile.png" />
+            <img className="sub-hero__bg" src="/brand_assets/Hero Section Subscription.png" alt="A Dr Diet meal spread" />
+          </picture>
         </div>
         <div className="container sub-hero__inner">
           <div className="sub-hero__content">
@@ -318,7 +321,7 @@ export default function Subscription() {
               href="https://wa.me/917015732242"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn--dark"
+              className="btn btn--dark sub-faq__cta-inline"
             >
               <i className="fab fa-whatsapp" /> Chat With Our Team
             </a>
@@ -344,6 +347,17 @@ export default function Subscription() {
                 )}
               </div>
             ))}
+          </div>
+          <div className="sub-faq__cta-mobile">
+            <p className="sub-faq__cta-mobile-text">Still have questions?</p>
+            <a
+              href="https://wa.me/917015732242"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--dark"
+            >
+              <i className="fab fa-whatsapp" /> Chat With Our Team
+            </a>
           </div>
         </div>
       </section>

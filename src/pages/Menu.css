@@ -114,17 +114,27 @@
     align-items: stretch;
   }
   .menu-pdf-btn {
+    width: 100%;
     justify-content: center;
   }
   .menu-filters {
     display: flex;
     flex-wrap: nowrap;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     overflow-x: auto;
     justify-content: flex-start;
     gap: 8px;
     padding-bottom: 8px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-x;
+  }
+  .menu-filters:active {
+    cursor: grabbing;
   }
   .menu-filters::-webkit-scrollbar { display: none; }
   .menu-filter-btn {

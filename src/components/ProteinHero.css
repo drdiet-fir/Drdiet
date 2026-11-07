@@ -6,6 +6,11 @@
   background: var(--dr-diet-bg-color, #f8f4ec);
 }
 
+/* Mobile static hero — hidden on desktop */
+.protein-hero__mobile {
+  display: none;
+}
+
 .protein-hero__track {
   position: relative;
   height: calc(100vh + 150vh);
@@ -169,4 +174,92 @@
     height: auto;
     min-height: 0;
   }
+}
+
+/* ============================================
+   MOBILE STATIC HERO (≤ 640px)
+   ============================================ */
+@media (max-width: 640px) {
+  .protein-hero__track {
+    display: none;
+  }
+
+  .protein-hero__mobile {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 170px 0 6px;
+  }
+
+  .protein-hero__m-pattern {
+    position: absolute;
+    left: 0;
+    top: -12%;
+    width: 100%;
+    height: 135%;
+    object-fit: cover;
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+  }
+
+  .protein-hero__m-copy {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .protein-hero__m-headline {
+    margin: 0;
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 8.2vw, 2.6rem);
+    line-height: 1.05;
+    white-space: nowrap;
+    color: var(--primary-dr-diet-color);
+  }
+
+  .protein-hero__m-sub {
+    margin: 12px auto 0;
+    max-width: 330px;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--label);
+  }
+
+  .protein-hero__m-stage {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    margin: 10px auto 0;
+    aspect-ratio: 1 / 0.8;
+  }
+
+  .protein-hero__m-plate {
+    position: absolute;
+    left: 50%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+    width: 174%;
+    height: auto;
+    max-width: none;
+    filter: drop-shadow(-6px 10px 12px rgba(0, 0, 0, 0.22));
+  }
+
+  .protein-hero__m-sticker {
+    position: absolute;
+    z-index: 2;
+    height: auto;
+    max-width: none;
+    pointer-events: none;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.18));
+  }
+
+  .protein-hero__m-sticker--tl { top: 5%; left: 6%; width: 37%; }
+  .protein-hero__m-sticker--tr { top: 11%; right: 6%; width: 25%; }
+  .protein-hero__m-sticker--bl { top: 45%; left: 4%; width: 25%; }
+  .protein-hero__m-sticker--br { top: 56%; right: 5%; width: 29%; }
 }

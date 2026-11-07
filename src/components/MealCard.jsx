@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './MealCard.css'
 
 export default function MealCard({ name, desc, img, protein, price, diet, orderTo }) {
+  const isExternal = /^https?:\/\//.test(orderTo)
   return (
     <div className="meal-card-v2">
       <div className="meal-card-v2__image">
@@ -10,9 +11,15 @@ export default function MealCard({ name, desc, img, protein, price, diet, orderT
       <div className="meal-card-v2__content">
         <div className="meal-card-v2__title-row">
           <h3>{name}</h3>
-          <Link to={orderTo} className="meal-card-v2__order">
-            Order <i className="fas fa-arrow-right" />
-          </Link>
+          {isExternal ? (
+            <a href={orderTo} target="_blank" rel="noopener noreferrer" className="meal-card-v2__order">
+              Order <i className="fas fa-arrow-right" />
+            </a>
+          ) : (
+            <Link to={orderTo} className="meal-card-v2__order">
+              Order <i className="fas fa-arrow-right" />
+            </Link>
+          )}
         </div>
         <p className="meal-card-v2__desc">{desc}</p>
         <img className="meal-card-v2__divider" src="/brand_assets/meals-section/divider.svg" alt="" />

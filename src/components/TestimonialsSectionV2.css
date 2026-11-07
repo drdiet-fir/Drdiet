@@ -122,8 +122,19 @@
   .testimonials-v2 {
     padding: 3.5rem 0;
   }
+  .testimonials-v2__headline {
+    margin-bottom: 32px;
+  }
   .testimonial-card-v2 {
-    flex-basis: 300px;
-    height: 240px;
+    flex-basis: 80vw;
+    max-width: 360px;
+    height: 270px;
+  }
+  .testimonial-card-v2__body {
+    padding: 20px 26px;
+  }
+  .testimonial-card-v2__text {
+    font-size: 16px;
+    line-height: 1.5;
   }
 }

@@ -18,6 +18,7 @@ import Careers from './pages/Careers'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
+import Faq from './pages/Faq'
 import Delhi from './pages/cities/Delhi'
 import Gurgaon from './pages/cities/Gurgaon'
 import Bangalore from './pages/cities/Bangalore'
@@ -54,6 +55,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/healthy-meal-plan-delhi" element={<Delhi />} />
           <Route path="/diet-food-gurgaon" element={<Gurgaon />} />
           <Route path="/weight-loss-meals-bangalore" element={<Bangalore />} />

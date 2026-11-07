@@ -9,6 +9,8 @@
 }
 
 .page-hero-v2 .page-hero-v2__inner {
+  position: relative;
+  z-index: 1;
   padding-top: calc(var(--navbar-height) + 3.75rem);
   padding-bottom: 5rem;
   display: flex;
@@ -41,14 +43,62 @@
   width: 100%;
   height: auto;
   pointer-events: none;
+  z-index: 2;
+}
+
+/* Optional hero image — a bowl that peeks up from the bottom of the hero and
+   is cut by the wavy edge so only its upper half shows. The media wrapper
+   clips the lower half; the wave (z-index 2) sits in front of it. */
+.page-hero-v2--with-media .page-hero-v2__inner {
+  padding-bottom: 9.5rem;
+}
+
+.page-hero-v2__media {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-hero-v2__media img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 44%);
+  width: clamp(300px, 42vw, 520px);
+  max-width: 92%;
+  height: auto;
+  filter: drop-shadow(-8px 10px 14px rgba(0, 0, 0, 0.25));
 }
 
 @media (max-width: 640px) {
   .page-hero-v2 .page-hero-v2__inner {
     padding-top: calc(var(--navbar-height) + 1.875rem);
-    padding-bottom: 3.75rem;
+    padding-bottom: 2.25rem;
+  }
+  .page-hero-v2--with-media .page-hero-v2__inner {
+    padding-bottom: 7rem;
+  }
+  /* Hide the hero bowl on mobile (and drop the extra space it reserved) */
+  .page-hero-v2--hide-media-mobile .page-hero-v2__media {
+    display: none;
+  }
+  .page-hero-v2--hide-media-mobile .page-hero-v2__inner {
+    padding-bottom: 2.25rem;
   }
   .page-hero-v2__inner h1 {
     font-size: 2rem;
+  }
+  /* The wave scales shorter than the fixed -50px offset on small screens,
+     which leaves a gap below the hero. Anchor its straight top edge to the
+     hero's bottom so the green stays continuous and it just hangs down. */
+  .page-hero-v2__wave {
+    bottom: auto;
+    top: 100%;
+    transform: translateY(-1px);
   }
 }

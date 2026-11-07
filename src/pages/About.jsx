@@ -77,6 +77,8 @@ export default function About() {
       <PageHero
         title="From a 10x8 Room to 18 Outlets"
         subtitle="What started as a humble 10×8 kitchen has grown into 18 outlets across cities, bringing delicious, wholesome food closer to more people every day."
+        heroImage="/brand_assets/hero/plates/plate-7.png"
+        hideImageOnMobile
       />
 
       {/* Mission */}

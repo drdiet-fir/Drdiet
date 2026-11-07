@@ -350,15 +350,27 @@
   .section.joinus-franchise { padding-top: 6.25rem; }
   .joinus-quicknav__inner { grid-template-columns: 1fr; gap: 20px; }
 
-  .joinus-franchise__grid,
-  .joinus-corporate__grid,
+  .joinus-franchise__grid.container,
+  .joinus-corporate__grid.container,
   .joinus-careers__grid { grid-template-columns: 1fr; gap: 40px; }
-  .joinus-corporate__grid { grid-template-columns: 1fr; }
   .joinus-corporate__media { order: -1; }
   .joinus-corporate__media img { min-height: 280px; }
 
-  .joinus-enquiry-band { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
-  .joinus-enquiry-form { grid-template-columns: 1fr; }
+  .joinus-enquiry-band { grid-template-columns: 1fr; gap: 24px; padding: 2rem 1.5rem; }
+  .joinus-enquiry-form { grid-template-columns: 1fr; gap: 14px; align-items: stretch; }
+  /* Labels are redundant with the placeholders here; hide them visually but
+     keep them for screen readers so the field spacing stays even. */
+  .joinus-enquiry-form label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
   .joinus-enquiry-band__success { grid-column: auto; }
 
   .joinus-pricing-row { grid-template-columns: 1fr; }

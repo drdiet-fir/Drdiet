@@ -108,9 +108,42 @@ function useScrollProgress(trackRef) {
   return progress
 }
 
+/* Mobile only: a gentle background parallax on the grid pattern while the
+   plate and stickers stay put. Runs only when the mobile layout is active
+   and motion isn't reduced. */
+function useMobileParallax(patternRef) {
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const mq = window.matchMedia('(max-width: 640px)')
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduce) return
+    let raf = null
+    const update = () => {
+      raf = null
+      const el = patternRef.current
+      if (!el || !mq.matches) return
+      const host = el.parentElement
+      if (!host) return
+      const top = host.getBoundingClientRect().top
+      el.style.transform = `translateY(${(-top * 0.14).toFixed(1)}px)`
+    }
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [patternRef])
+}
+
 export default function ProteinHero() {
   const trackRef = useRef(null)
+  const patternRef = useRef(null)
   const progress = useScrollProgress(trackRef)
+  useMobileParallax(patternRef)
 
   const plateIndex = Math.min(PLATE_COUNT - 1, Math.round(progress * (PLATE_COUNT - 1)))
   const hintOpacity = Math.max(0, 1 - progress / 0.2)
@@ -118,6 +151,24 @@ export default function ProteinHero() {
 
   return (
     <section className="protein-hero" aria-label="Your Protein Corner">
+      {/* Mobile static composition (desktop scroll animation is hidden on mobile) */}
+      <div className="protein-hero__mobile">
+        <img className="protein-hero__m-pattern" src="/brand_assets/hero/pattern.png" alt="" ref={patternRef} />
+        <div className="protein-hero__m-copy">
+          <h1 className="protein-hero__m-headline">Your Protein Corner</h1>
+          <p className="protein-hero__m-sub">
+            Enjoy protein-packed meals that fuel your fitness goals without compromising on taste.
+          </p>
+        </div>
+        <div className="protein-hero__m-stage">
+          <img className="protein-hero__m-plate" src="/brand_assets/hero/plates/plate-7.png" alt="Protein bowl, fully assembled" />
+          <img className="protein-hero__m-sticker protein-hero__m-sticker--tl" src="/brand_assets/hero/sticker-5.png" alt="" />
+          <img className="protein-hero__m-sticker protein-hero__m-sticker--tr" src="/brand_assets/hero/sticker-6.png" alt="" />
+          <img className="protein-hero__m-sticker protein-hero__m-sticker--bl" src="/brand_assets/hero/sticker-8.png" alt="" />
+          <img className="protein-hero__m-sticker protein-hero__m-sticker--br" src="/brand_assets/hero/sticker-7.png" alt="" />
+        </div>
+      </div>
+
       <div className="protein-hero__track" ref={trackRef}>
         <div className="protein-hero__stage-wrap">
 

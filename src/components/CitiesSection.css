@@ -118,7 +118,47 @@
   .cities-section {
     padding: 3.5rem 0;
   }
+  .cities-section__inner {
+    gap: 40px;
+  }
   .cities-section__grid {
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+  .city-card,
+  .city-card__frame {
+    height: 150px;
+  }
+  .city-card:hover .city-card__frame {
+    height: 150px;
+  }
+  .city-card__frame {
+    border-width: 2px;
+    border-radius: 22px;
+  }
+  .city-card__image {
+    height: 108px;
+  }
+  .city-card__footer {
+    flex: 1;
+    justify-content: center;
+    padding: 4px 4px 6px;
+  }
+  .city-card__label {
+    font-size: 13px;
+  }
+  .city-card__directions {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .cities-section__grid {
+    gap: 8px;
+  }
+  .city-card__label {
+    font-size: 12px;
   }
 }

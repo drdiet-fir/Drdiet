@@ -73,6 +73,9 @@ export default function Locations() {
   const [activeCity, setActiveCity] = useState(locations[0].city)
   const s1 = useReveal()
   const gridRef = useRef(null)
+  const pillsRef = useRef(null)
+  const dragRef = useRef(null)
+  const draggedRef = useRef(false)
 
   const activeBranches = locations.find((l) => l.city === activeCity)?.branches ?? []
 
@@ -80,6 +83,39 @@ export default function Locations() {
     if (!gridRef.current) return
     gridRef.current.querySelectorAll('.fade-up').forEach((el) => el.classList.add('visible'))
   }, [activeCity])
+
+  // Click-and-drag to scroll the city pills (touch uses native scrolling).
+  const onPillsPointerDown = (e) => {
+    if (e.pointerType === 'touch') return
+    const el = pillsRef.current
+    if (!el) return
+    dragRef.current = { startX: e.clientX, scrollLeft: el.scrollLeft }
+    draggedRef.current = false
+    el.setPointerCapture?.(e.pointerId)
+  }
+
+  const onPillsPointerMove = (e) => {
+    const st = dragRef.current
+    const el = pillsRef.current
+    if (!st || !el) return
+    const dx = e.clientX - st.startX
+    if (Math.abs(dx) > 4) draggedRef.current = true
+    el.scrollLeft = st.scrollLeft - dx
+  }
+
+  const endPillsDrag = (e) => {
+    const el = pillsRef.current
+    if (el && e?.pointerId != null) el.releasePointerCapture?.(e.pointerId)
+    dragRef.current = null
+  }
+
+  const onPillsClickCapture = (e) => {
+    if (draggedRef.current) {
+      e.stopPropagation()
+      e.preventDefault()
+      draggedRef.current = false
+    }
+  }
 
   return (
     <>
@@ -100,7 +136,15 @@ export default function Locations() {
       {/* City filter + branches */}
       <section className="section locations-section" ref={s1}>
         <div className="container">
-          <div className="locations-city-pills">
+          <div
+            className="locations-city-pills"
+            ref={pillsRef}
+            onPointerDown={onPillsPointerDown}
+            onPointerMove={onPillsPointerMove}
+            onPointerUp={endPillsDrag}
+            onPointerLeave={endPillsDrag}
+            onClickCapture={onPillsClickCapture}
+          >
             {locations.map((loc) => (
               <button
                 key={loc.city}

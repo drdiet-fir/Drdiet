@@ -121,7 +121,8 @@
 
 @media (max-width: 640px) {
   .locations-branch-grid { grid-template-columns: 1fr; }
-  .locations-city-pills { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .locations-city-pills { flex-wrap: nowrap; width: 100%; min-width: 0; max-width: 100%; overflow-x: auto; justify-content: flex-start; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; user-select: none; touch-action: pan-x; }
+  .locations-city-pills:active { cursor: grabbing; }
   .locations-city-pills::-webkit-scrollbar { display: none; }
   .locations-city-pill { flex-shrink: 0; white-space: nowrap; }
 }

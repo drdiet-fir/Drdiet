@@ -214,6 +214,19 @@ export default function ReelsSection() {
           )
         })}
       </div>
+
+      <div className="reels-section__dots" role="tablist" aria-label="Choose a reel">
+        {REELS.map((reel, i) => (
+          <button
+            key={reel.id}
+            type="button"
+            className={`reels-section__dot ${order[CENTER] === i ? 'reels-section__dot--active' : ''}`}
+            onClick={() => handleClick(order.indexOf(i))}
+            aria-label={`Go to reel ${i + 1}`}
+            aria-selected={order[CENTER] === i}
+          />
+        ))}
+      </div>
     </section>
   )
 }

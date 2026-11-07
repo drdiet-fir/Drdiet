@@ -9,9 +9,9 @@ export default function StatsSectionV2() {
 
   const stats = [
     { ref: outlets, label: 'Outlet Across India', icon: '/brand_assets/stats/icon-outlets.svg' },
-    { ref: meals, label: 'Meals Per Day', icon: '/brand_assets/stats/icon-meals.svg' },
-    { ref: customers, label: 'Happy Customers', icon: '/brand_assets/stats/icon-customers.svg' },
     { ref: cities, label: 'Cities', icon: '/brand_assets/stats/icon-cities.svg' },
+    { ref: customers, label: 'Happy Customers', icon: '/brand_assets/stats/icon-customers.svg' },
+    { ref: meals, label: 'Meals Per Day', icon: '/brand_assets/stats/icon-meals.svg' },
   ]
 
   return (

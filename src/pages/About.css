@@ -94,6 +94,40 @@
   }
 }
 
+@media (max-width: 640px) {
+  .about-mission-v2 .about-mission-v2__grid {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2.75rem 16px 0;
+    gap: 28px;
+  }
+  .about-mission-v2__content {
+    max-width: none;
+    padding-left: 0;
+    gap: 18px;
+  }
+  .about-mission-v2__content h2 {
+    font-size: 32px;
+    line-height: 1.22;
+  }
+  .about-mission-v2__image {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    /* Let the lower portion slide behind the Core Values section below */
+    margin-bottom: -30%;
+  }
+  /* Core Values sits on top of the image's lower part */
+  .about-values-v2 {
+    position: relative;
+    z-index: 1;
+  }
+  .about-values-v2 .about-values-v2__inner {
+    padding: 3rem 16px;
+  }
+}
+
 
 /* Core Values */
 .about-values-v2 {
@@ -167,7 +201,7 @@
 
 @media (max-width: 1024px) {
   .about-values-v2 .about-values-v2__inner {
-    padding: 2.5rem 0;
+    padding: 2.5rem 16px;
   }
   .about-values-v2__grid {
     flex-wrap: wrap;
