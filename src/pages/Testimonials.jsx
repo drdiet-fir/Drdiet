@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import PageHero from '../components/PageHero'
 import './Testimonials.css'
 
 function useReveal() {
@@ -39,13 +40,10 @@ export default function Testimonials() {
 
   return (
     <>
-      <section className="page-hero testimonials-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Success Stories</span>
-          <h1>Real People.<br />Real Results.</h1>
-          <p>These aren't influencers. These are real Dr Diet customers who decided to eat what's right and changed their lives.</p>
-        </div>
-      </section>
+      <PageHero
+        title="Real People. Real Results."
+        subtitle="These aren't influencers. These are real Dr Diet customers who decided to eat what's right and changed their lives."
+      />
 
       {/* Stats bar */}
       <div className="testimonials-stats-bar">

@@ -10,16 +10,8 @@ const navLinksLeft = [
 ]
 
 const navLinksRight = [
-  { label: 'Subscriptions', path: '/subscription' },
-  {
-    label: 'Join Us',
-    path: '/join-us',
-    children: [
-      { label: 'Franchise', path: '/join-us#franchise' },
-      { label: 'Catering', path: '/join-us#catering' },
-      { label: 'B2B', path: '/join-us#b2b' },
-    ],
-  },
+  { label: 'Subscription', path: '/subscription' },
+  { label: 'Join Us', path: '/join-us' },
   { label: 'Contact', path: '/contact' },
 ]
 
@@ -31,7 +23,6 @@ const promoItems = Array.from({ length: 8 })
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -42,7 +33,6 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false)
-    setDropdownOpen(false)
   }, [location.pathname])
 
   useEffect(() => {
@@ -50,40 +40,18 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const renderLink = (link) =>
-    link.children ? (
-      <div
-        key={link.path}
-        className="navbar__dropdown-wrapper"
-        onMouseEnter={() => setDropdownOpen(true)}
-        onMouseLeave={() => setDropdownOpen(false)}
-      >
-        <NavLink to={link.path} className="navbar__link">
-          {link.label}
-          <i className="fas fa-chevron-down navbar__chevron" />
-        </NavLink>
-        {dropdownOpen && (
-          <div className="navbar__dropdown">
-            {link.children.map((child) => (
-              <Link key={child.path} to={child.path} className="navbar__dropdown-item">
-                {child.label}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    ) : (
-      <NavLink
-        key={link.path}
-        to={link.path}
-        className={({ isActive }) =>
-          `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-        }
-        end={link.path === '/'}
-      >
-        {link.label}
-      </NavLink>
-    )
+  const renderLink = (link) => (
+    <NavLink
+      key={link.path}
+      to={link.path}
+      className={({ isActive }) =>
+        `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+      }
+      end={link.path === '/'}
+    >
+      {link.label}
+    </NavLink>
+  )
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
@@ -153,15 +121,6 @@ export default function Navbar() {
               >
                 {link.label}
               </NavLink>
-              {link.children && (
-                <div className="navbar__mobile-sub">
-                  {link.children.map((child) => (
-                    <Link key={child.path} to={child.path} className="navbar__mobile-sublink">
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
           <Link to="/subscription" className="btn btn--primary" style={{ marginTop: '24px' }}>

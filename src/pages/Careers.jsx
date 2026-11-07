@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import PageHero from '../components/PageHero'
 import './Careers.css'
 
 function useReveal() {
@@ -45,13 +46,10 @@ export default function Careers() {
 
   return (
     <>
-      <section className="page-hero careers-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Join the Team</span>
-          <h1>Build a Career<br />That Transforms Lives</h1>
-          <p>At Dr Diet, we're not just delivering meals. We're changing how India eats. Join us and be part of something meaningful.</p>
-        </div>
-      </section>
+      <PageHero
+        title="Build a Career That Transforms Lives"
+        subtitle="At Dr Diet, we're not just delivering meals. We're changing how India eats. Join us and be part of something meaningful."
+      />
 
       {/* Culture */}
       <section className="section careers-culture" ref={s1}>

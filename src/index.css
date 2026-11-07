@@ -12,34 +12,25 @@
 }
 
 :root {
-  /* Brand Colors */
-  --primary:        #414C3C;   /* Dark Forest Green (matches --primary-dr-diet-color) */
-  --primary-dark:   #2A3226;   /* Deeper green for depth */
-  --primary-light:  #F5EDE1;   /* Warm Cream */
-  --neutral:        #A5AF9B;   /* Sage Grey-Green */
-  --accent:         #D5D058;   /* Lime Yellow – use for backgrounds only */
-  --accent-dark:    #b8b43a;   /* Darker accent for hover */
-  --accent-text:    #6B6700;   /* Dark olive – passes WCAG AA on white (7.1:1) */
-  --white:          #FFFFFF;
-  --off-white:      #FAFAF7;
-  --dark:           #1C1C1C;
-  --text:           #2D2D2D;
-  --text-muted:     #6B7060;
+  /* ============================================
+     BRAND COLORS — the 7-color Dr Diet design system.
+     Nothing outside this list. See comments for each
+     color's role; several legacy tokens were merged
+     into these during cleanup (Nov 2026).
+     ============================================ */
+  --primary-dr-diet-color: #414C3C;  /* Primary DR Diet Color — brand green. Also the single "ink" color for all headings & body text */
+  --primary-rgb:    65, 76, 60;      /* RGB triplet of the above, for rgba() tints */
+  --dr-diet-bg-color: #F8F4EC;       /* Dr Diet BG Color — warm cream, all page/section/card backgrounds */
+  --dr-diet-stroke-color:   #EBE0C9; /* Dr Diet Stroke Color — muted cream TEXT on dark-green sections (not a border, despite the name) */
+  --dr-diet-stroke-color-2: #DACAA9; /* Dr Diet Stroke Color 2 — the actual border/stroke color for cards, pills & inputs */
+  --accent:         #E2E573;         /* Accent — lime-yellow, backgrounds only */
+  --accent-rgb:     226, 229, 115;   /* RGB triplet of the above, for rgba() tints */
+  --label:          #7B7B7B;         /* Label — muted secondary/meta text */
+  --white:          #FFFFFF;         /* Light */
 
-  /* Figma design-system tokens (new palette, used by newer sections) */
-  --primary-dr-diet-color: #414C3C;
-  --dr-diet-bg-color:      #F8F4EC;
-  --dr-diet-stroke-color:  #EBE0C9;
-  --dr-diet-stroke-color-2: #DACAA9;
-  --label:                 #7B7B7B;
-  --card-peach:            #FBE3C8;
-  --accent-dr-diet-color:  #E2E573;
-  --border:         #E0DDD5;
-
-  /* Typography */
+  /* Typography — the two-font pairing */
   --font-primary: 'Inter', sans-serif;
   --font-script: 'Bethany Elingston', cursive;
-  --font-watermark: 'Beth Ellen', cursive;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -51,7 +42,7 @@
   /* Spacing */
   --section-padding: 96px 0;
   --section-padding-sm: 64px 0;
-  --container-max: 1200px;
+  --container-max: 1320px;
   --container-padding: 0 24px;
 
   /* Radii */
@@ -65,8 +56,8 @@
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
   --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
   --shadow-lg: 0 20px 60px rgba(0,0,0,0.14);
-  --shadow-green: 0 8px 32px rgba(65, 76, 60,0.25);
-  --shadow-accent: 0 8px 32px rgba(213,208,88,0.35);
+  --shadow-green: 0 8px 32px rgba(var(--primary-rgb), 0.25);
+  --shadow-accent: 0 8px 32px rgba(var(--accent-rgb), 0.35);
 
   /* Transitions */
   --transition: 0.3s ease;
@@ -95,7 +86,7 @@ html {
 body {
   font-family: var(--font-primary);
   font-weight: var(--font-weight-regular);
-  color: var(--text);
+  color: var(--primary-dr-diet-color);
   background-color: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -133,7 +124,7 @@ button {
   left: 16px;
   z-index: 10000;
   padding: 10px 20px;
-  background: var(--primary);
+  background: var(--primary-dr-diet-color);
   color: var(--white);
   font-weight: var(--font-weight-bold);
   border-radius: var(--radius-md);
@@ -148,7 +139,7 @@ button {
    FOCUS VISIBLE – Keyboard Navigation
    ============================================ */
 :focus-visible {
-  outline: 3px solid var(--accent-text);
+  outline: 3px solid var(--primary-dr-diet-color);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -169,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
   line-height: 1.15;
   font-weight: var(--font-weight-bold);
-  color: var(--dark);
+  color: var(--primary-dr-diet-color);
 }
 
 h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: var(--font-weight-black); }
@@ -179,7 +170,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: var(--font-weight-semib
 
 p {
   line-height: 1.7;
-  color: var(--text-muted);
+  color: var(--label);
 }
 
 /* ============================================
@@ -200,11 +191,11 @@ p {
 }
 
 .section--dark {
-  background-color: var(--primary);
+  background-color: var(--primary-dr-diet-color);
 }
 
 .section--cream {
-  background-color: var(--primary-light);
+  background-color: var(--dr-diet-bg-color);
 }
 
 .section--accent {
@@ -212,7 +203,7 @@ p {
 }
 
 .section--off-white {
-  background-color: var(--off-white);
+  background-color: var(--dr-diet-bg-color);
 }
 
 .section-label {
@@ -221,20 +212,20 @@ p {
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent-text);
-  background: rgba(213, 208, 88, 0.18);
+  color: var(--primary-dr-diet-color);
+  background: rgba(var(--accent-rgb), 0.18);
   padding: 6px 16px;
   border-radius: var(--radius-full);
   margin-bottom: 16px;
 }
 
 .section-label--dark {
-  color: var(--primary);
-  background: rgba(65, 76, 60, 0.1);
+  color: var(--primary-dr-diet-color);
+  background: rgba(var(--primary-rgb), 0.1);
 }
 
 .section-label--white {
-  color: var(--primary-light);
+  color: var(--dr-diet-bg-color);
   background: rgba(245, 237, 225, 0.15);
 }
 
@@ -253,10 +244,10 @@ p {
 }
 
 .text-white { color: var(--white) !important; }
-.text-cream { color: var(--primary-light) !important; }
-.text-accent { color: var(--accent-text) !important; }
-.text-primary { color: var(--primary) !important; }
-.text-muted { color: var(--text-muted) !important; }
+.text-cream { color: var(--dr-diet-bg-color) !important; }
+.text-accent { color: var(--primary-dr-diet-color) !important; }
+.text-primary { color: var(--primary-dr-diet-color) !important; }
+.text-muted { color: var(--label) !important; }
 .text-center { text-align: center; }
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -290,26 +281,24 @@ p {
 
 .btn--primary {
   background: var(--accent);
-  color: var(--primary-dark);
+  color: var(--primary-dr-diet-color);
   border-color: var(--accent);
 }
 
 .btn--primary:hover {
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
+  filter: brightness(0.92);
   transform: translateY(-2px);
   box-shadow: var(--shadow-accent);
 }
 
 .btn--dark {
-  background: var(--primary);
+  background: var(--primary-dr-diet-color);
   color: var(--white);
-  border-color: var(--primary);
+  border-color: var(--primary-dr-diet-color);
 }
 
 .btn--dark:hover {
-  background: var(--primary-dark);
-  border-color: var(--primary-dark);
+  filter: brightness(0.85);
   transform: translateY(-2px);
   box-shadow: var(--shadow-green);
 }
@@ -328,12 +317,12 @@ p {
 
 .btn--outline-dark {
   background: transparent;
-  color: var(--primary);
-  border-color: var(--primary);
+  color: var(--primary-dr-diet-color);
+  border-color: var(--primary-dr-diet-color);
 }
 
 .btn--outline-dark:hover {
-  background: var(--primary);
+  background: var(--primary-dr-diet-color);
   color: var(--white);
   transform: translateY(-2px);
 }
@@ -365,11 +354,11 @@ p {
 }
 
 .card--dark {
-  background: var(--primary-dark);
+  background: var(--primary-dr-diet-color);
 }
 
 .card--cream {
-  background: var(--primary-light);
+  background: var(--dr-diet-bg-color);
 }
 
 /* ============================================
@@ -403,37 +392,6 @@ p {
 .stagger-6 { transition-delay: 0.6s; }
 
 /* ============================================
-   PAGE HERO (inner pages)
-   ============================================ */
-.page-hero {
-  background: var(--primary);
-  padding: 120px 0 80px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.page-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(213, 208, 88, 0.12) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.page-hero h1 {
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.page-hero p {
-  color: rgba(245, 237, 225, 0.8);
-  font-size: 1.15rem;
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-/* ============================================
    FORMS
    ============================================ */
 .form-group {
@@ -446,26 +404,26 @@ p {
 .form-group label {
   font-weight: var(--font-weight-semibold);
   font-size: 0.9rem;
-  color: var(--text);
+  color: var(--primary-dr-diet-color);
 }
 
 .form-control {
   padding: 14px 18px;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--dr-diet-stroke-color-2);
   border-radius: var(--radius-md);
   font-size: 0.95rem;
-  color: var(--text);
+  color: var(--primary-dr-diet-color);
   background: var(--white);
   transition: border-color var(--transition);
   outline: none;
 }
 
 .form-control:focus {
-  border-color: var(--primary);
+  border-color: var(--primary-dr-diet-color);
 }
 
 .form-control::placeholder {
-  color: var(--neutral);
+  color: var(--label);
 }
 
 textarea.form-control {
@@ -503,17 +461,17 @@ textarea.form-control {
 
 .badge--accent {
   background: var(--accent);
-  color: var(--primary-dark);
+  color: var(--primary-dr-diet-color);
 }
 
 .badge--primary {
-  background: var(--primary);
+  background: var(--primary-dr-diet-color);
   color: var(--white);
 }
 
 .badge--light {
   background: rgba(245, 237, 225, 0.2);
-  color: var(--primary-light);
+  color: var(--dr-diet-bg-color);
 }
 
 /* ============================================

@@ -5,7 +5,6 @@ const CARDS = [
     title: '38+ Delicious Meal Options',
     desc: "From everyday favourites to global flavours, there's always something exciting to eat.",
     img: '/brand_assets/why-section/card-1-main.png',
-    overlay: '/brand_assets/why-section/card-1-overlay.png',
   },
   {
     title: 'Nutrition That Fits Your Goals',
@@ -41,16 +40,19 @@ export default function WhySection() {
 
         <div className="why-section__grid">
           {CARDS.map((c) => (
-            <div className="why-card" key={c.title}>
-              <div className="why-card__copy">
-                <h3>{c.title}</h3>
-                <p>{c.desc}</p>
+            <div className="why-card-wrap" key={c.title}>
+              <img className="why-card__wave" src="/brand_assets/why-section/card-wave.svg" alt="" />
+              <div className="why-card">
+                <div className="why-card__content">
+                  <div className="why-card__copy">
+                    <h3>{c.title}</h3>
+                    <p>{c.desc}</p>
+                  </div>
+                  <div className="why-card__image">
+                    <img src={c.img} alt="" />
+                  </div>
+                </div>
               </div>
-              <div className="why-card__image">
-                <img src={c.img} alt="" />
-                {c.overlay && <img className="why-card__image-overlay" src={c.overlay} alt="" />}
-              </div>
-              <img className="why-card__wave" src="/brand_assets/why-section/wave-divider.svg" alt="" />
             </div>
           ))}
         </div>

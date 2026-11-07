@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageMeta from '../../components/PageMeta'
+import PageHero from '../../components/PageHero'
 import './CityPage.css'
 
 const benefits = [
@@ -34,19 +35,17 @@ export default function Chandigarh() {
         ogImage="/brand_assets/Double panner tikka sandwich.webp"
       />
 
-      <section className="page-hero city-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Chandigarh</span>
-          <h1>Healthy Meal Plans in Chandigarh<br />& Mohali for Every Goal</h1>
-          <p>Fresh, calorie-counted, high-protein meals delivered daily across the Tricity. Starting at ₹199/day.</p>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
-            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
-            <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Chandigarh" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg" style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}>
-              <i className="fab fa-whatsapp" /> Chat With Us
-            </a>
-          </div>
+      <PageHero
+        title="Healthy Meal Plans in Chandigarh & Mohali for Every Goal"
+        subtitle="Fresh, calorie-counted, high-protein meals delivered daily across the Tricity. Starting at ₹199/day."
+      >
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '24px' }}>
+          <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
+          <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Chandigarh" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg" style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}>
+            <i className="fab fa-whatsapp" /> Chat With Us
+          </a>
         </div>
-      </section>
+      </PageHero>
 
       <section className="section city-intro-section">
         <div className="container">

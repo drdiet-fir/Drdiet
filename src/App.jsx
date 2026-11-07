@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import CtaBand from './components/CtaBand'
 import WhatsAppButton from './components/WhatsAppButton'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -56,6 +57,7 @@ function AppContent() {
           <Route path="/healthy-meals-chandigarh" element={<Chandigarh />} />
         </Routes>
       </main>
+      <CtaBand />
       <Footer />
       <WhatsAppButton />
     </>

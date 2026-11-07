@@ -2,7 +2,7 @@
    STATS V2
    ============================================ */
 .stats-v2 {
-  background: var(--accent-dr-diet-color);
+  background: var(--accent);
   padding: 32px 0;
 }
 

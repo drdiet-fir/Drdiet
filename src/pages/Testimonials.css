@@ -1,10 +1,3 @@
-.testimonials-hero {
-  background-image: linear-gradient(135deg, rgba(42, 50, 38,0.93) 0%, rgba(65, 76, 60,0.87) 100%),
-    url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80');
-  background-size: cover;
-  background-position: center;
-}
-
 .testimonials-stats-bar {
   background: var(--accent);
   padding: 32px 0;
@@ -17,8 +10,8 @@
 }
 
 .testimonials-stat { text-align: center; }
-.testimonials-stat strong { display: block; font-size: 2rem; font-weight: 900; color: var(--primary-dark); }
-.testimonials-stat span { font-size: 0.85rem; font-weight: 600; color: rgba(42, 50, 38,0.7); text-transform: uppercase; letter-spacing: 0.05em; }
+.testimonials-stat strong { display: block; font-size: 2rem; font-weight: 900; color: var(--primary-dr-diet-color); }
+.testimonials-stat span { font-size: 0.85rem; font-weight: 600; color: rgba(var(--primary-rgb), 0.7); text-transform: uppercase; letter-spacing: 0.05em; }
 
 .testimonials-full-grid {
   display: grid;
@@ -27,17 +20,17 @@
 }
 
 .testimonials-full-card {
-  background: var(--off-white);
+  background: var(--dr-diet-bg-color);
   border-radius: var(--radius-xl);
   padding: 28px;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--dr-diet-stroke-color-2);
   display: flex;
   flex-direction: column;
   gap: 16px;
   transition: all var(--transition);
 }
 
-.testimonials-full-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(213,208,88,0.5); }
+.testimonials-full-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(var(--accent-rgb), 0.5); }
 
 .testimonials-full-card__header {
   display: flex;
@@ -51,15 +44,15 @@
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  border: 2px solid var(--primary-light);
+  border: 2px solid var(--dr-diet-bg-color);
 }
 
 .testimonials-full-card__header > div:nth-child(2) { flex: 1; }
-.testimonials-full-card__header strong { display: block; font-size: 0.95rem; color: var(--primary); margin-bottom: 2px; }
-.testimonials-full-card__header span { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
+.testimonials-full-card__header strong { display: block; font-size: 0.95rem; color: var(--primary-dr-diet-color); margin-bottom: 2px; }
+.testimonials-full-card__header span { display: block; font-size: 0.8rem; color: var(--label); margin-bottom: 6px; }
 
 .testimonials-full-card__stars { display: flex; gap: 2px; }
-.testimonials-full-card__stars i { color: var(--accent-text); font-size: 0.78rem; }
+.testimonials-full-card__stars i { color: var(--primary-dr-diet-color); font-size: 0.78rem; }
 
 .testimonials-full-card__result {
   text-align: right;
@@ -70,19 +63,19 @@
   display: block;
   font-size: 1.4rem;
   font-weight: 900;
-  color: var(--primary);
+  color: var(--primary-dr-diet-color);
   line-height: 1;
 }
 
 .testimonials-full-card__duration {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--label);
 }
 
 .testimonials-full-card__text {
   font-size: 0.92rem;
   line-height: 1.8;
-  color: var(--text);
+  color: var(--primary-dr-diet-color);
   font-style: italic;
 }
 
@@ -93,7 +86,7 @@
   background: var(--white);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--dr-diet-stroke-color-2);
   transition: all var(--transition);
 }
 
@@ -115,7 +108,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(42, 50, 38,0.45);
+  background: rgba(var(--primary-rgb), 0.45);
 }
 
 .video-card__play i {
@@ -127,7 +120,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  color: var(--primary-dark);
+  color: var(--primary-dr-diet-color);
   padding-left: 4px;
   transition: transform var(--transition);
 }
@@ -147,7 +140,7 @@
 }
 
 .video-card__info { padding: 20px; }
-.video-card__info strong { display: block; font-size: 1rem; color: var(--primary); margin-bottom: 4px; }
+.video-card__info strong { display: block; font-size: 1rem; color: var(--primary-dr-diet-color); margin-bottom: 4px; }
 .video-card__info p { font-size: 0.85rem; }
 
 @media (max-width: 960px) {

@@ -31,7 +31,7 @@
   height: 480px;
   border-radius: 12px;
   overflow: hidden;
-  background: var(--card-peach);
+  background: var(--dr-diet-stroke-color);
   cursor: pointer;
   transform-origin: top left;
   will-change: transform;

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageMeta from '../components/PageMeta'
+import PageHero from '../components/PageHero'
 import { blogPosts } from '../data/blogData'
 import './Blog.css'
 
@@ -21,13 +22,10 @@ export default function Blog() {
         ogImage="/brand_assets/Chicken Brown rice Landscape.webp"
       />
 
-      <section className="page-hero blog-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Nutrition Insights</span>
-          <h1>The Dr Diet Blog</h1>
-          <p>Science-backed nutrition advice, meal planning guides, and health tips for every goal.</p>
-        </div>
-      </section>
+      <PageHero
+        title="The Dr Diet Blog"
+        subtitle="Science-backed nutrition advice, meal planning guides, and health tips for every goal."
+      />
 
       <section className="section blog-listing-section">
         <div className="container">

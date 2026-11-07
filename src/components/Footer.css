@@ -140,7 +140,7 @@
   left: clamp(24px, 29vw, 422px);
   bottom: -30px;
   margin: 0;
-  font-family: var(--font-watermark);
+  font-family: var(--font-script);
   font-weight: 400;
   font-size: clamp(32px, 6vw, 74px);
   line-height: 1;
@@ -155,7 +155,7 @@
 
 /* Bottom bar */
 .footer__bottom {
-  background: var(--accent-dr-diet-color);
+  background: var(--accent);
   padding-top: 12px;
   padding-bottom: 12px;
 }

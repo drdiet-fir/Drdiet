@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import PageMeta from '../components/PageMeta'
+import PageHero from '../components/PageHero'
 import { blogPosts } from '../data/blogData'
 import './Blog.css'
 
@@ -21,21 +22,21 @@ export default function BlogPost() {
         ogImage={post.image}
       />
 
-      <section className="page-hero blog-post-hero" style={{ backgroundImage: `linear-gradient(135deg, rgba(42, 50, 38,0.92) 0%, rgba(65, 76, 60,0.85) 100%), url(${post.image})` }}>
-        <div className="container">
+      <PageHero
+        title={post.title}
+        eyebrow={
           <div className="blog-post-hero__breadcrumb">
             <Link to="/blog">Blog</Link>
             <i className="fas fa-chevron-right" />
             <span>{post.category}</span>
           </div>
-          <span className="section-label section-label--white">{post.category}</span>
-          <h1>{post.title}</h1>
-          <div className="blog-post-hero__meta">
-            <span><i className="fas fa-clock" /> {post.readTime} read</span>
-            <span><i className="fas fa-calendar" /> {new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-          </div>
+        }
+      >
+        <div className="blog-post-hero__meta">
+          <span><i className="fas fa-clock" /> {post.readTime} read</span>
+          <span><i className="fas fa-calendar" /> {new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
         </div>
-      </section>
+      </PageHero>
 
       <section className="section blog-post-section">
         <div className="container blog-post-container">
@@ -75,7 +76,7 @@ export default function BlogPost() {
       <section className="section section--cream">
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ marginBottom: '16px' }}>Ready to put this into practice?</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '32px', maxWidth: '500px', margin: '0 auto 32px' }}>
+          <p style={{ color: 'var(--label)', marginBottom: '32px', maxWidth: '500px', margin: '0 auto 32px' }}>
             Dr Diet delivers fresh, calorie-counted, high-protein meals across Delhi, Gurgaon, Chandigarh & Bangalore. Starting at ₹199/day.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>

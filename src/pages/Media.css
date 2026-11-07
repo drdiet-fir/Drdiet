@@ -1,10 +1,3 @@
-.media-hero {
-  background-image: linear-gradient(135deg, rgba(42, 50, 38,0.93) 0%, rgba(65, 76, 60,0.87) 100%),
-    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80');
-  background-size: cover;
-  background-position: center;
-}
-
 .media-gallery-section { }
 
 .media-filters {
@@ -33,7 +26,7 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
-  background: var(--off-white);
+  background: var(--dr-diet-bg-color);
 }
 
 .media-item img {
@@ -48,7 +41,7 @@
 .media-item__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(42, 50, 38,0.65);
+  background: rgba(var(--primary-rgb), 0.65);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +87,7 @@
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 32px 28px;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--dr-diet-stroke-color-2);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -106,25 +99,25 @@
 .press-card__logo {
   font-size: 1rem;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--primary-dr-diet-color);
   letter-spacing: 0.02em;
 }
 
 .press-card__headline {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--primary-dr-diet-color);
   line-height: 1.5;
   font-style: italic;
   flex: 1;
 }
 
-.press-card__date { font-size: 0.8rem; color: var(--text-muted); }
+.press-card__date { font-size: 0.8rem; color: var(--label); }
 
 .press-card__link {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-dr-diet-color);
   display: flex;
   align-items: center;
   gap: 6px;

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PageHero from '../components/PageHero'
 import './Media.css'
 
 const galleryItems = [
@@ -34,13 +35,10 @@ export default function Media() {
 
   return (
     <>
-      <section className="page-hero media-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Gallery & Media</span>
-          <h1>Behind the Scenes<br />at Dr Diet</h1>
-          <p>A look into our kitchen, our team, our deliveries, and our customers' transformations.</p>
-        </div>
-      </section>
+      <PageHero
+        title="Behind the Scenes at Dr Diet"
+        subtitle="A look into our kitchen, our team, our deliveries, and our customers' transformations."
+      />
 
       {/* Gallery */}
       <section className="section media-gallery-section">

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageMeta from '../../components/PageMeta'
+import PageHero from '../../components/PageHero'
 import './CityPage.css'
 
 const benefits = [
@@ -34,19 +35,17 @@ export default function Delhi() {
         ogImage="/brand_assets/Chicken Brown rice Landscape.webp"
       />
 
-      <section className="page-hero city-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Delhi</span>
-          <h1>Healthy Meal Plans in Delhi<br />for Weight Loss & Fitness</h1>
-          <p>Calorie-counted, high-protein meals delivered fresh daily across Delhi. Starting at ₹199/day.</p>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
-            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
-            <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Delhi" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg" style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}>
-              <i className="fab fa-whatsapp" /> Chat With Us
-            </a>
-          </div>
+      <PageHero
+        title="Healthy Meal Plans in Delhi for Weight Loss & Fitness"
+        subtitle="Calorie-counted, high-protein meals delivered fresh daily across Delhi. Starting at ₹199/day."
+      >
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '24px' }}>
+          <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start My Plan</Link>
+          <a href="https://wa.me/917015732242?text=I want a healthy meal plan in Delhi" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--lg" style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}>
+            <i className="fab fa-whatsapp" /> Chat With Us
+          </a>
         </div>
-      </section>
+      </PageHero>
 
       <section className="section city-intro-section">
         <div className="container">
@@ -87,7 +86,7 @@ export default function Delhi() {
             <span className="section-label section-label--dark">Delivery Areas</span>
             <h2>We Deliver Across Delhi</h2>
             <div className="divider" />
-            <p style={{ color: 'var(--text-muted)' }}>Healthy meal delivery available in these areas of Delhi and surrounding neighbourhoods.</p>
+            <p style={{ color: 'var(--label)' }}>Healthy meal delivery available in these areas of Delhi and surrounding neighbourhoods.</p>
           </div>
           <div className="city-areas-grid">
             {areas.map((a) => <div key={a} className="city-area-pill">{a}</div>)}

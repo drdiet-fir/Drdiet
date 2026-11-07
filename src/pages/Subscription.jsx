@@ -18,12 +18,12 @@ function useReveal() {
 }
 
 const values = [
-  { icon: 'fas fa-dumbbell',    title: 'High-Protein Meals',       desc: 'Up to 55g of protein per meal. Built for muscle, fat loss, and staying full.' },
-  { icon: 'fas fa-calculator',  title: 'Calorie-Counted',           desc: 'Every meal is weighed, portioned, and macro-tracked so you always hit your targets.' },
-  { icon: 'fas fa-leaf',        title: 'No Maida. No Shortcuts.',   desc: 'Clean whole ingredients only. Zero refined flour, zero empty calories, zero compromise.' },
-  { icon: 'fas fa-tag',         title: 'Starting at ₹200',          desc: 'Healthy food that doesn\'t cost a fortune. Plans for every budget and every goal.' },
-  { icon: 'fas fa-truck',       title: 'Delivered Fresh Daily',     desc: 'Cooked in our kitchen every morning and at your doorstep while it\'s still fresh.' },
-  { icon: 'fas fa-bullseye',    title: 'Customised for Your Goal',  desc: 'Weight loss, muscle gain, or clean eating. Your meals are built around your goal.' },
+  { title: 'High-Protein Meals',       desc: 'Up to 55g of protein per meal. Built for muscle, fat loss, and staying full.' },
+  { title: 'Calorie-Counted',           desc: 'Every meal is weighed, portioned, and macro-tracked so you always hit your targets.' },
+  { title: 'No Maida. No Shortcuts.',   desc: 'Clean whole ingredients only. Zero refined flour, zero empty calories, zero compromise.' },
+  { title: 'Starting at ₹200',          desc: 'Healthy food that doesn\'t cost a fortune. Plans for every budget and every goal.' },
+  { title: 'Delivered Fresh Daily',     desc: 'Cooked in our kitchen every morning and at your doorstep while it\'s still fresh.' },
+  { title: 'Customised for Your Goal',  desc: 'Weight loss, muscle gain, or clean eating. Your meals are built around your goal.' },
 ]
 
 const faqs = [
@@ -79,11 +79,22 @@ export default function Subscription() {
   return (
     <>
       {/* Hero */}
-      <section className="page-hero sub-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Meal Plans</span>
-          <h1>Start Your Personalised<br />Diet Plan</h1>
-          <p>Healthy, high-protein meals tailored to your goal, delivered fresh every day.</p>
+      <section className="sub-hero">
+        <div className="sub-hero__media">
+          <img className="sub-hero__bg" src="/brand_assets/Hero Section Subscription.png" alt="A Dr Diet meal spread" />
+        </div>
+        <div className="container sub-hero__inner">
+          <div className="sub-hero__content">
+            <span className="sub-hero__eyebrow">Eat What's Right</span>
+            <h1><span className="sub-hero__line">Start Your Personalised</span><br />Diet Plan</h1>
+            <p>Healthy, high-protein meals tailored to your goal, delivered fresh every day.</p>
+            <div className="sub-hero__actions">
+              <a href="#get-started" className="btn btn--primary">
+                Start My Plan <i className="fas fa-arrow-right" />
+              </a>
+              <a href="#how-it-works" className="sub-hero__link">How it works</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -91,16 +102,11 @@ export default function Subscription() {
       <section className="sub-value-section" ref={s1}>
         <div className="container">
           <div className="section-header">
-            <span className="section-label section-label--dark">Why Dr Diet</span>
             <h2>What You Get With Every Plan</h2>
-            <div className="divider" />
           </div>
           <div className="sub-value-grid">
             {values.map((v, i) => (
               <div key={v.title} className={`sub-value-card fade-up stagger-${(i % 3) + 1}`}>
-                <div className="sub-value-card__icon">
-                  <i className={v.icon} />
-                </div>
                 <h4>{v.title}</h4>
                 <p>{v.desc}</p>
               </div>
@@ -111,15 +117,19 @@ export default function Subscription() {
 
       {/* Subscription Form */}
       <section id="get-started" className="section sub-form-section" ref={sForm}>
-        <div className="container">
-          <div className="sub-form-wrap fade-up">
-            <div className="section-header">
-              <span className="section-label section-label--dark">Get Started</span>
-              <h2>Start My Plan</h2>
-              <div className="divider" />
-              <p>Tell us about yourself. Our team will reach out on WhatsApp within minutes.</p>
-            </div>
+        <div className="container sub-form-layout">
+          <div className="sub-form-intro fade-up">
+            <span className="section-label section-label--dark">Get Started</span>
+            <h2>Start My Plan</h2>
+            <p>Tell us about yourself. Our team will reach out on WhatsApp within minutes.</p>
+            <ul className="sub-form-checklist">
+              <li><i className="fas fa-check-circle" /> Share your goal and preferences</li>
+              <li><i className="fas fa-check-circle" /> Get your personalised plan</li>
+              <li><i className="fas fa-check-circle" /> Enjoy fresh meals, every day</li>
+            </ul>
+          </div>
 
+          <div className="sub-form-card fade-up stagger-2">
             {submitted ? (
               <div className="sub-form-success">
                 <div className="sub-form-success__icon"><i className="fas fa-check" /></div>
@@ -135,6 +145,11 @@ export default function Subscription() {
                 </a>
               </div>
             ) : (
+              <>
+              <div className="sub-form-card__head">
+                <h3>Let's make it personal</h3>
+                <span>* Required fields</span>
+              </div>
               <form className="sub-form" onSubmit={handleSubmit}>
                 <div className="sub-form__row">
                   <div className="form-group">
@@ -255,22 +270,21 @@ export default function Subscription() {
                   }
                 </button>
               </form>
+              <p className="sub-form-trust">
+                <i className="fab fa-whatsapp" /> Our team will contact you on WhatsApp to personalise your diet plan.
+              </p>
+              </>
             )}
-
-            <p className="sub-form-trust">
-              <i className="fab fa-whatsapp" /> Our team will contact you on WhatsApp to personalise your diet plan.
-            </p>
           </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="section section--dark" ref={s2}>
+      <section id="how-it-works" className="section section--dark" ref={s2}>
         <div className="container">
           <div className="section-header">
             <span className="section-label section-label--white">How It Works</span>
             <h2 className="text-white">Get Started in 4 Simple Steps</h2>
-            <div className="divider" />
           </div>
           <div className="sub-steps">
             {[
@@ -280,8 +294,11 @@ export default function Subscription() {
               { step: '04', icon: 'fas fa-truck',          title: 'Delivered to Your Doorstep',   desc: 'Your meals arrive fresh every day, portioned, labelled, and ready to eat.' },
             ].map((s, i) => (
               <div key={s.step} className={`sub-step fade-up stagger-${i + 1}`}>
-                <div className="sub-step__number">{s.step}</div>
-                <div className="sub-step__icon"><i className={s.icon} /></div>
+                <div className="sub-step__top">
+                  <div className="sub-step__icon"><i className={s.icon} /></div>
+                  <span className="sub-step__number">{s.step}</span>
+                </div>
+                <div className="sub-step__divider" />
                 <h4>{s.title}</h4>
                 <p>{s.desc}</p>
               </div>
@@ -292,13 +309,21 @@ export default function Subscription() {
 
       {/* FAQ */}
       <section className="section section--cream" ref={s3}>
-        <div className="container">
-          <div className="section-header">
+        <div className="container sub-faq-layout">
+          <div className="sub-faq-intro fade-up">
             <span className="section-label section-label--dark">Got Questions?</span>
             <h2>Frequently Asked Questions</h2>
-            <div className="divider" />
+            <p>Still have questions?</p>
+            <a
+              href="https://wa.me/917015732242"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--dark"
+            >
+              <i className="fab fa-whatsapp" /> Chat With Our Team
+            </a>
           </div>
-          <div className="sub-faq">
+          <div className="sub-faq fade-up stagger-2">
             {faqs.map((faq, i) => (
               <div
                 key={i}
@@ -319,17 +344,6 @@ export default function Subscription() {
                 )}
               </div>
             ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <p style={{ marginBottom: '20px', fontSize: '1rem' }}>Still have questions?</p>
-            <a
-              href="https://wa.me/917015732242"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--dark btn--lg"
-            >
-              <i className="fab fa-whatsapp" /> Chat With Our Team
-            </a>
           </div>
         </div>
       </section>

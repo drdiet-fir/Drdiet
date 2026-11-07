@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import MealCard from './MealCard'
 import './MealsSection.css'
 
 const MEALS = [
@@ -33,7 +34,7 @@ export default function MealsSection() {
     <section className="meals-section-v2">
       <div className="container meals-section-v2__inner">
         <div className="meals-section-v2__head">
-          <h2 className="meals-section-v2__headline">No Nonsense Meals</h2>
+          <h2 className="meals-section-v2__headline">A Menu Full of Goodness</h2>
           <p className="meals-section-v2__sub">
             Delicious, wholesome meals made with real ingredients, balanced nutrition, and zero boring bites.
           </p>
@@ -41,26 +42,7 @@ export default function MealsSection() {
 
         <div className="meals-section-v2__grid">
           {MEALS.map((m) => (
-            <div className="meal-card-v2" key={m.name}>
-              <div className="meal-card-v2__image">
-                <img src={m.img} alt={m.name} />
-              </div>
-              <div className="meal-card-v2__content">
-                <div className="meal-card-v2__title-row">
-                  <h3>{m.name}</h3>
-                  <Link to="/menu" className="meal-card-v2__order">
-                    Order <i className="fas fa-arrow-right" />
-                  </Link>
-                </div>
-                <p className="meal-card-v2__desc">{m.desc}</p>
-                <img className="meal-card-v2__divider" src="/brand_assets/meals-section/divider.svg" alt="" />
-                <div className="meal-card-v2__meta">
-                  <span>{m.protein}</span>
-                  <span>{m.price}</span>
-                  <span>{m.diet}</span>
-                </div>
-              </div>
-            </div>
+            <MealCard key={m.name} {...m} orderTo="/menu" />
           ))}
         </div>
 

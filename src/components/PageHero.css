@@ -1,0 +1,54 @@
+/* ============================================
+   PAGE HERO — shared top section for every page except the homepage
+   ============================================ */
+.page-hero-v2 {
+  position: relative;
+  z-index: 1;
+  background: var(--primary-dr-diet-color);
+  text-align: center;
+}
+
+.page-hero-v2 .page-hero-v2__inner {
+  padding-top: calc(var(--navbar-height) + 60px);
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-hero-v2__inner h1 {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.38;
+  color: var(--dr-diet-bg-color);
+}
+
+.page-hero-v2__inner p {
+  margin: 0;
+  max-width: 712px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--dr-diet-stroke-color);
+}
+
+.page-hero-v2__wave {
+  position: absolute;
+  left: 0;
+  bottom: -50px;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .page-hero-v2 .page-hero-v2__inner {
+    padding-top: calc(var(--navbar-height) + 30px);
+    padding-bottom: 60px;
+  }
+  .page-hero-v2__inner h1 {
+    font-size: 32px;
+  }
+}

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import PageHero from '../components/PageHero'
 import './Contact.css'
 
 function useReveal() {
@@ -51,13 +52,10 @@ export default function Contact() {
 
   return (
     <>
-      <section className="page-hero contact-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Get In Touch</span>
-          <h1>Let's Talk.<br />We're Here for You.</h1>
-          <p>Questions, feedback, partnership enquiries, or just want to say hi, we'd love to hear from you.</p>
-        </div>
-      </section>
+      <PageHero
+        title="Let's Talk. We're Here for You."
+        subtitle="Questions, feedback, partnership enquiries, or just want to say hi, we'd love to hear from you."
+      />
 
       {/* Contact main */}
       <section className="section contact-section" ref={s1}>
@@ -66,6 +64,7 @@ export default function Contact() {
             {/* Info column */}
             <div className="contact-info fade-up">
               <h3>Reach Us Directly</h3>
+              <p className="contact-info__subtitle">Choose the way that works best for you.</p>
               <div className="contact-channels">
                 <a href="https://wa.me/917015732242" target="_blank" rel="noopener noreferrer" className="contact-channel contact-channel--wa">
                   <div className="contact-channel__icon"><i className="fab fa-whatsapp" /></div>
@@ -74,6 +73,7 @@ export default function Contact() {
                     <span>+91 70157 32242</span>
                     <span className="contact-channel__note">Typically replies within 15 minutes</span>
                   </div>
+                  <i className="fas fa-arrow-up-right-from-square contact-channel__external" />
                 </a>
                 <a href="tel:+917015732242" className="contact-channel">
                   <div className="contact-channel__icon"><i className="fas fa-phone" /></div>
@@ -137,7 +137,13 @@ export default function Contact() {
                 </div>
               ) : (
                 <>
-                  <h3>Send Us a Message</h3>
+                  <div className="contact-form-wrapper__head">
+                    <div>
+                      <h3>Send Us a Message</h3>
+                      <p className="contact-info__subtitle">Tell us what's on your mind.</p>
+                    </div>
+                    <span className="contact-form-wrapper__required">* Required fields</span>
+                  </div>
                   <form className="contact-form" onSubmit={handleSubmit}>
                     <div className="contact-form__row">
                       <div className="form-group">
@@ -170,8 +176,8 @@ export default function Contact() {
                       <label htmlFor="message">Message *</label>
                       <textarea className="form-control" id="message" name="message" value={form.message} onChange={handleChange} placeholder="How can we help you?" required aria-required="true" />
                     </div>
-                    <button type="submit" className="btn btn--primary btn--lg" style={{ width: '100%', justifyContent: 'center' }}>
-                      <i className="fas fa-paper-plane" /> Send Message
+                    <button type="submit" className="btn btn--dark btn--lg" style={{ width: '100%', justifyContent: 'center' }}>
+                      Send Message <i className="fas fa-arrow-right" />
                     </button>
                   </form>
                 </>

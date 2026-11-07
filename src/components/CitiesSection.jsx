@@ -19,14 +19,16 @@ export default function CitiesSection() {
         <div className="cities-section__grid">
           {CITIES.map((c) => (
             <Link to={c.path} className="city-card" key={c.name}>
-              <div className="city-card__image">
-                <img src={c.img} alt={c.name} />
-              </div>
-              <div className="city-card__footer">
-                <div className="city-card__label">{c.name}</div>
-                <span className="city-card__directions">
-                  Directions <i className="fas fa-location-arrow" />
-                </span>
+              <div className="city-card__frame">
+                <div className="city-card__image">
+                  <img src={c.img} alt={c.name} />
+                </div>
+                <div className="city-card__footer">
+                  <div className="city-card__label">{c.name}</div>
+                  <span className="city-card__directions">
+                    Directions <i className="fas fa-location-arrow" />
+                  </span>
+                </div>
               </div>
             </Link>
           ))}

@@ -33,7 +33,7 @@
   font-weight: 400;
   font-size: clamp(40px, 7.8vw, 112px);
   line-height: 1;
-  color: var(--primary-dr-diet-color, var(--primary));
+  color: var(--primary-dr-diet-color, var(--primary-dr-diet-color));
   white-space: nowrap;
   z-index: 3;
 }
@@ -49,7 +49,7 @@
   text-align: center;
   font-size: clamp(14px, 1.2vw, 17px);
   line-height: 1.5;
-  color: var(--text-muted);
+  color: var(--label);
   z-index: 3;
   transition: opacity 0.2s linear;
 }
@@ -72,7 +72,7 @@
   font-size: 14px;
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.1px;
-  color: var(--primary-dr-diet-color, var(--primary));
+  color: var(--primary-dr-diet-color, var(--primary-dr-diet-color));
   white-space: nowrap;
 }
 
@@ -108,7 +108,7 @@
   transform: translateX(-50%);
   background: var(--dr-diet-bg-color, #f8f4ec);
   border-style: solid;
-  border-color: var(--primary-dr-diet-color, var(--primary));
+  border-color: var(--primary-dr-diet-color, var(--primary-dr-diet-color));
   z-index: 1;
 }
 

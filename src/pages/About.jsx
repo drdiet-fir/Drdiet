@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import PageHero from '../components/PageHero'
 import './About.css'
 
 function useReveal() {
@@ -39,20 +40,20 @@ const team = [
 ]
 
 const values = [
-  { icon: 'fas fa-flask', title: 'Real Nutrition', desc: 'Transparent macros, honest ingredients, no shortcuts.' },
-  { icon: 'fas fa-leaf', title: 'Desi at Heart', desc: 'Indian flavours you grew up with, made the way your body actually needs.' },
-  { icon: 'fas fa-fire', title: 'Taste First', desc: 'Healthy food should taste good. Always.' },
-  { icon: 'fas fa-map-marker-alt', title: 'Accessible Health', desc: '12 outlets, 5 cities, health on your doorstep.' },
+  { icon: '/brand_assets/about/value-icon-1.svg', title: 'Real Nutrition', desc: 'Transparent macros, honest ingredients, no shortcuts.' },
+  { icon: '/brand_assets/about/value-icon-2.svg', title: 'Desi at Heart', desc: 'Indian flavours you love, made for your body.' },
+  { icon: '/brand_assets/about/value-icon-3.svg', title: 'Taste First', desc: 'Healthy food should taste good. Always.' },
+  { icon: '/brand_assets/about/value-icon-4.svg', title: 'Accessible Health', desc: '12 outlets, 5 cities, health on your doorstep.' },
 ]
 
 const milestones = [
-  { year: '2020', event: 'Started in a 10x8 room in Chandigarh. First meals at ₹99.' },
-  { year: '2020', event: 'COVID shutdown. Lost entire investment. Restarted with landlord\'s support.' },
-  { year: '2021', event: 'Official relaunch. New kitchen, team of 5 chefs, listed on Swiggy & Zomato.' },
-  { year: '2022–23', event: 'Expanded to Delhi, Noida, Gurgaon and Mohali via partner model.' },
-  { year: '2024', event: 'Crossed 14 outlets. Launched in Bengaluru. Cloud kitchens + QSR + Dine-in.' },
-  { year: '2025', event: '₹10 Cr+ annual revenue. Startup Pedia feature. Went viral nationally.' },
-  { year: '2026', event: 'Targeting ₹15–16 Cr. Expanding to Hyderabad, Pune & Mumbai.' },
+  { year: '2019', event: 'Started in a 10×8 room in Chandigarh. First meals at ₹99.', img: '/brand_assets/about/timeline-2019.png' },
+  { year: '2020', event: "COVID shutdown. Lost entire investment. Restarted with landlord's support.", img: '/brand_assets/about/timeline-2020.png' },
+  { year: '2021', event: 'Official relaunch. New kitchen, team of 5 chefs, listed on Swiggy & Zomato.', img: '/brand_assets/about/timeline-2021.png' },
+  { year: '2022–23', event: 'Expanded to Delhi, Noida, Gurgaon and Mohali via partner model.', img: '/brand_assets/about/timeline-2022.png' },
+  { year: '2024', event: 'Crossed 14 outlets. Launched in Bengaluru. Cloud kitchens + QSR + Dine-in.', img: '/brand_assets/about/timeline-2024.png' },
+  { year: '2025', event: '₹10 Cr+ annual revenue. Startup Pedia feature. Went viral nationally.', img: '/brand_assets/about/timeline-2025.png' },
+  { year: '2026', event: 'Targeting ₹15–16 Cr. Expanding to Hyderabad, Pune & Mumbai.', img: '/brand_assets/about/timeline-2026.png' },
 ]
 
 export default function About() {
@@ -63,52 +64,38 @@ export default function About() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero about-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Our Story</span>
-          <h1>From a 10x8 Room<br />to 14+ Outlets</h1>
-          <p>Eat What's Right. Built to make genuinely healthy, calorie-conscious food accessible for students and working professionals.</p>
-        </div>
-      </section>
+      <PageHero
+        title="From a 10x8 Room to 18 Outlets"
+        subtitle="What started as a humble 10×8 kitchen has grown into 18 outlets across cities, bringing delicious, wholesome food closer to more people every day."
+      />
 
       {/* Mission */}
-      <section className="section about-mission" ref={s1}>
-        <div className="container">
-          <div className="about-mission__grid">
-            <div className="about-mission__image fade-up">
-              <img src="/brand_assets/IMG_2241.PNG.webp" alt="Dr Diet founder Mirnal Sethi" />
-              <div className="about-mission__badge">
-                <span className="about-mission__badge-num">14+</span>
-                <span>Outlets Across India</span>
+      <section className="about-mission-v2" ref={s1}>
+        <div className="about-mission-v2__bg">
+          <div className="container about-mission-v2__grid">
+            <div className="about-mission-v2__content fade-up">
+              <span className="about-mission-v2__badge">Our Mission</span>
+              <h2>To bring genuinely healthy, calorie-conscious Indian food to your doorstep.</h2>
+              <div className="about-mission-v2__desc">
+                <p>Because eating right should feel like a choice you're proud of, not a sacrifice. We started Dr Diet because we saw too many students and working professionals eating the wrong food: watery dal, maida chapatis, zero protein. Not because they lacked willpower, but because they lacked access.</p>
+                <p>Today, we serve 2,000–2,500 people every day across Delhi, Chandigarh, and Bengaluru, with meals that are calorie-counted, macro-balanced, and genuinely delicious.</p>
               </div>
             </div>
-            <div className="about-mission__content fade-up stagger-2">
-              <span className="section-label section-label--dark">Our Mission</span>
-              <h2>To bring genuinely healthy, calorie-conscious Indian food to your doorstep.</h2>
-              <div className="divider divider--left" />
-              <p>Because eating right should feel like a choice you're proud of, not a sacrifice. We started Dr Diet because we saw too many students and working professionals eating the wrong food: watery dal, maida chapatis, zero protein. Not because they lacked willpower, but because they lacked access.</p>
-              <p style={{marginTop:'16px'}}>Today, we serve 2,000–2,500 people every day across Delhi, Chandigarh, and Bengaluru, with meals that are calorie-counted, macro-balanced, and genuinely delicious.</p>
-              <Link to="/subscription#get-started" className="btn btn--dark" style={{marginTop:'32px'}}>
-                Start Your Plan <i className="fas fa-arrow-right" />
-              </Link>
+            <div className="about-mission-v2__image fade-up stagger-2">
+              <img className="about-mission-v2__composite" src="/brand_assets/about/mission-composite.png" alt="Dr Diet founder Mirnal Sethi" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section section--cream" ref={s2}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label--dark">What We Stand For</span>
-            <h2>Our Core Values</h2>
-            <div className="divider" />
-          </div>
-          <div className="grid-4">
+      {/* Core Values */}
+      <section className="about-values-v2" ref={s2}>
+        <div className="container about-values-v2__inner">
+          <h2>Our Core Values</h2>
+          <div className="about-values-v2__grid">
             {values.map((v, i) => (
-              <div key={v.title} className={`about-value-card fade-up stagger-${i + 1}`}>
-                <div className="about-value-card__icon"><i className={v.icon} /></div>
+              <div key={v.title} className={`about-value-card-v2 fade-up stagger-${i + 1}`}>
+                <div className="about-value-card-v2__icon"><img src={v.icon} alt="" /></div>
                 <h4>{v.title}</h4>
                 <p>{v.desc}</p>
               </div>
@@ -117,21 +104,30 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="section section--dark" ref={s3}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label--white">Our Journey</span>
-            <h2 className="text-white">From One Room<br />to a Nationwide Movement</h2>
-            <div className="divider" />
+      {/* Journey / Timeline */}
+      <section className="about-journey-v2" ref={s3}>
+        <div className="container about-journey-v2__inner">
+          <div className="about-journey-v2__header">
+            <h2>From One Room<br />to a Nationwide Movement</h2>
+            <div className="about-journey-v2__accent" />
           </div>
-          <div className="timeline">
+
+          <div className="about-timeline-v2">
+            <div className="about-timeline-v2__line" />
             {milestones.map((m, i) => (
-              <div key={m.year} className={`timeline-item fade-up stagger-${(i % 4) + 1} ${i % 2 === 0 ? 'timeline-item--left' : 'timeline-item--right'}`}>
-                <div className="timeline-item__dot" />
-                <div className="timeline-item__content">
-                  <span className="timeline-item__year">{m.year}</span>
-                  <p>{m.event}</p>
+              <div className={`about-timeline-v2__row fade-up stagger-${(i % 4) + 1} ${i % 2 === 1 ? 'about-timeline-v2__row--reverse' : ''}`} key={m.year}>
+                <div className="about-timeline-v2__col about-timeline-v2__col--image">
+                  <img src={m.img} alt={m.year} />
+                </div>
+                <div className="about-timeline-v2__connector">
+                  <span className="about-timeline-v2__branch" />
+                  <img className="about-timeline-v2__marker" src="/brand_assets/about/timeline-marker.svg" alt="" />
+                </div>
+                <div className="about-timeline-v2__col about-timeline-v2__col--text">
+                  <div className="about-timeline-v2__card">
+                    <span className="about-timeline-v2__year">{m.year}</span>
+                    <p>{m.event}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -140,22 +136,21 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="section" ref={s4}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">The Team</span>
-            <h2>The People Behind Every Meal</h2>
-            <div className="divider" />
-          </div>
-          <div className="grid-3">
+      <section className="about-team-v2" ref={s4}>
+        <div className="container about-team-v2__inner">
+          <h2>The People Behind Every Meal</h2>
+          <div className="about-team-v2__grid">
             {team.map((member, i) => (
-              <div key={member.name} className={`team-card fade-up stagger-${i + 1}`}>
-                <div className="team-card__image">
+              <div key={member.name} className={`about-team-card-v2 fade-up stagger-${i + 1}`}>
+                <div className="about-team-card-v2__image">
                   <img src={member.img} alt={member.name} />
                 </div>
-                <div className="team-card__info">
-                  <h4>{member.name}</h4>
-                  <span className="team-card__role">{member.role}</span>
+                <div className="about-team-card-v2__content">
+                  <div className="about-team-card-v2__identity">
+                    <h3>{member.name}</h3>
+                    <span className="about-team-card-v2__role">{member.role.toUpperCase()}</span>
+                  </div>
+                  <img className="about-team-card-v2__divider" src="/brand_assets/about/team-divider.svg" alt="" />
                   <p>{member.bio}</p>
                 </div>
               </div>
@@ -165,15 +160,19 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="about-cta-bar">
-        <div className="container about-cta-bar__content">
+      <section className="about-cta-v2">
+        <div className="container about-cta-v2__inner">
           <div>
-            <h3>Ready to Eat What's Right?</h3>
-            <p>Join 10,000+ people who chose clean eating over compromise.</p>
+            <h2>Ready to Eat What's Right?</h2>
+            <p>Join 10,000+ people who chose clean eating over compromise</p>
           </div>
-          <div className="about-cta-bar__actions">
-            <Link to="/subscription#get-started" className="btn btn--primary btn--lg">Start Your Plan</Link>
-            <Link to="/contact" className="btn btn--outline btn--lg">Talk to Us</Link>
+          <div className="about-cta-v2__actions">
+            <Link to="/subscription#get-started" className="about-cta-v2__btn about-cta-v2__btn--primary">
+              Start Your Plan <i className="fas fa-arrow-right" />
+            </Link>
+            <Link to="/contact" className="about-cta-v2__btn about-cta-v2__btn--secondary">
+              Talk to Us <i className="fas fa-arrow-right" />
+            </Link>
           </div>
         </div>
       </section>

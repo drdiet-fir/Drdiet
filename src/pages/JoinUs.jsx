@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import PageHero from '../components/PageHero'
 import './JoinUs.css'
 
 function useReveal() {
@@ -11,172 +11,397 @@ function useReveal() {
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
       { threshold: 0.08 }
     )
-    root.querySelectorAll('.fade-up, .fade-in').forEach((el) => obs.observe(el))
+    root.querySelectorAll('.fade-up').forEach((el) => obs.observe(el))
     return () => obs.disconnect()
   }, [])
   return ref
 }
+
+const quickNav = [
+  { icon: 'fas fa-store', title: 'Own a franchise', desc: 'Build a business with purpose', href: '#franchise' },
+  { icon: 'fas fa-utensils', title: 'Feed your team', desc: 'Healthy catering & partnerships', href: '#corporate' },
+  { icon: 'fas fa-users', title: 'Join our team', desc: 'Bring your skills to the table', href: '#careers' },
+]
+
+const franchisePerks = [
+  'Full franchise training program (4 weeks)',
+  'Kitchen setup & equipment support',
+  'Ongoing operational support & quality audits',
+  'Marketing materials & digital support',
+  'Exclusive territory rights',
+  'Access to proprietary meal planning system',
+  'Dedicated franchise account manager',
+]
+
+const pricingTiers = [
+  { name: 'Small Team', size: '10–50 employees', price: 'From ₹150/person/day' },
+  { name: 'Enterprise', size: '50–500 employees', price: 'Custom Pricing' },
+  { name: 'Events', size: 'One-time catering', price: 'Quote on Request' },
+]
+
+const corporatePerks = [
+  'Flexible delivery schedules',
+  'Customized to dietary needs & preferences',
+  'Branded packaging available',
+  'Dedicated account manager',
+  'Monthly invoicing',
+  'Nutritional reporting available',
+]
+
+const partnerTypes = [
+  { icon: 'fas fa-dumbbell', title: 'Gyms & Fitness Centers', desc: 'Offer your members customized meal plans. Rev-share or white-label available.' },
+  { icon: 'fas fa-hospital', title: 'Medical Clinics', desc: 'Therapeutic nutrition programs for your patients. Certified and medically aligned.' },
+  { icon: 'fas fa-hotel', title: 'Hotels & Resorts', desc: 'In-room healthy meal delivery for health-conscious guests.' },
+  { icon: 'fas fa-spa', title: 'Wellness Centers', desc: 'Complete the wellness experience with science-backed nutrition programs.' },
+]
+
+const careerTags = ['Kitchen & culinary', 'Operations', 'Marketing & branding']
 
 export default function JoinUs() {
   const s1 = useReveal()
   const s2 = useReveal()
   const s3 = useReveal()
 
+  const [franchiseForm, setFranchiseForm] = useState({ name: '', phone: '', city: '' })
+  const [franchiseSent, setFranchiseSent] = useState(false)
+  const [franchiseLoading, setFranchiseLoading] = useState(false)
+
+  const [careersForm, setCareersForm] = useState({ name: '', email: '', phone: '', area: '', about: '' })
+  const [cvFile, setCvFile] = useState(null)
+  const [careersSent, setCareersSent] = useState(false)
+  const [careersLoading, setCareersLoading] = useState(false)
+
+  const submitLead = async (payload) => {
+    const res = await fetch('https://drdiet.onrender.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    const data = await res.json()
+    if (!data.success) throw new Error(data.error)
+  }
+
+  const handleFranchiseSubmit = async (e) => {
+    e.preventDefault()
+    setFranchiseLoading(true)
+    try {
+      await submitLead({
+        name: franchiseForm.name,
+        phone: franchiseForm.phone,
+        city: franchiseForm.city,
+        goal: 'Franchise Enquiry',
+        diet: '',
+        source: 'Join Us – Franchise',
+      })
+      setFranchiseSent(true)
+    } catch (err) {
+      console.error('Franchise enquiry failed:', err)
+      alert('Something went wrong. Please WhatsApp us directly.')
+    } finally {
+      setFranchiseLoading(false)
+    }
+  }
+
+  const handleCareersSubmit = async (e) => {
+    e.preventDefault()
+    setCareersLoading(true)
+    try {
+      await submitLead({
+        name: careersForm.name,
+        phone: careersForm.phone,
+        city: careersForm.email,
+        goal: careersForm.area || 'Careers Application',
+        diet: cvFile ? cvFile.name : '',
+        source: careersForm.about,
+      })
+      setCareersSent(true)
+    } catch (err) {
+      console.error('Careers application failed:', err)
+      alert('Something went wrong. Please email your CV to drdietdelhi@gmail.com instead.')
+    } finally {
+      setCareersLoading(false)
+    }
+  }
+
   return (
     <>
-      <section className="page-hero joinus-hero">
-        <div className="container">
-          <span className="section-label section-label--white">Partner With Us</span>
-          <h1>Grow With<br />Dr Diet</h1>
-          <p>Franchise opportunities, corporate catering, and B2B partnerships. There's a seat at our table for every ambition.</p>
+      <PageHero
+        title="Grow with Dr Diet. Make a difference."
+        subtitle="Good food brings people together. Build a franchise, nourish your workplace, or help us make healthy eating an everyday choice."
+      >
+        <div className="joinus-quicknav__inner">
+          {quickNav.map((item) => (
+            <a key={item.title} href={item.href} className="joinus-quicknav-item">
+              <i className={item.icon} />
+              <span className="joinus-quicknav-item__text">
+                <strong>{item.title}</strong>
+                <small>{item.desc}</small>
+              </span>
+              <i className="fas fa-arrow-right joinus-quicknav-item__arrow" />
+            </a>
+          ))}
         </div>
-      </section>
-
-      {/* Quick nav */}
-      <div className="joinus-nav-bar">
-        <div className="container joinus-nav-links">
-          <a href="#franchise"><i className="fas fa-store" /> Franchise</a>
-          <a href="#catering"><i className="fas fa-building" /> Catering</a>
-          <a href="#b2b"><i className="fas fa-handshake" /> B2B</a>
-        </div>
-      </div>
+      </PageHero>
 
       {/* Franchise */}
-      <section className="section joinus-section" id="franchise" ref={s1}>
-        <div className="container">
-          <div className="joinus-block">
-            <div className="joinus-block__image fade-up">
-              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Dr Diet Franchise" />
-              <div className="joinus-block__tag">
-                <i className="fas fa-store" /> Franchise
+      <section id="franchise" className="section joinus-franchise" ref={s1}>
+        <div className="container joinus-franchise__grid">
+          <div className="joinus-franchise__media fade-up">
+            <img src="/brand_assets/Cafe Interior 1.png" alt="Dr Diet franchise outlet interior" />
+            <div className="joinus-stats-row">
+              <div className="joinus-stat-card">
+                <strong>6</strong>
+                <span>Years of operations</span>
+              </div>
+              <div className="joinus-stat-card">
+                <strong>12+</strong>
+                <span>Successful branches</span>
+              </div>
+              <div className="joinus-stat-card">
+                <strong>18mo</strong>
+                <span>Avg. payback period</span>
               </div>
             </div>
-            <div className="joinus-block__content fade-up stagger-2">
-              <span className="section-label section-label--dark">Own a Branch</span>
-              <h2>Become a Dr Diet Franchise Partner</h2>
-              <div className="divider divider--left" />
-              <p>Join the fastest-growing nutrition brand in India. Our proven business model, full operational support, and powerful brand make Dr Diet one of the most attractive franchise opportunities in the country today.</p>
+          </div>
 
-              <div className="joinus-stats">
-                <div className="joinus-stat">
-                  <strong>6</strong>
-                  <span>Years of Operations</span>
+          <div className="joinus-franchise__content fade-up stagger-2">
+            <span className="section-label section-label--dark">Franchise Partnership</span>
+            <h2>Your ambition. Our next chapter.</h2>
+            <p>Become a Dr Diet franchise partner. Our proven business model, full operational support and brand give you a way to bring wholesome food to your city.</p>
+
+            <h4>What you get</h4>
+            <ul className="joinus-checklist">
+              {franchisePerks.map((item) => (
+                <li key={item}><i className="fas fa-check" /> {item}</li>
+              ))}
+            </ul>
+
+            <div className="joinus-franchise__actions">
+              <a href="/brand_assets/Pitch Deck Dr Diet.pdf" target="_blank" rel="noopener noreferrer" className="btn btn--dark">
+                View Franchise Deck <i className="fas fa-file-arrow-down" />
+              </a>
+              <a href="https://wa.me/917015732242?text=I'm interested in a Dr Diet franchise" target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark">
+                Inquire About Franchise <i className="fas fa-arrow-right" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="joinus-enquiry-band">
+            <div className="joinus-enquiry-band__head">
+              <h3>Let's bring Dr Diet to your city.</h3>
+              <p>Tell us a little about yourself to start the conversation.</p>
+            </div>
+
+            {franchiseSent ? (
+              <p className="joinus-enquiry-band__success">
+                <i className="fas fa-check-circle" /> Thanks! Our franchise team will reach out on WhatsApp shortly.
+              </p>
+            ) : (
+              <form className="joinus-enquiry-form" onSubmit={handleFranchiseSubmit}>
+                <div className="form-group">
+                  <label htmlFor="franchise-name">Full name *</label>
+                  <input
+                    className="form-control" id="franchise-name" type="text" placeholder="Your full name"
+                    value={franchiseForm.name}
+                    onChange={(e) => setFranchiseForm({ ...franchiseForm, name: e.target.value })}
+                    required aria-required="true"
+                  />
                 </div>
-                <div className="joinus-stat">
-                  <strong>12+</strong>
-                  <span>Successful Branches</span>
+                <div className="form-group">
+                  <label htmlFor="franchise-phone">Phone number *</label>
+                  <input
+                    className="form-control" id="franchise-phone" type="tel" placeholder="Your phone number"
+                    value={franchiseForm.phone}
+                    onChange={(e) => setFranchiseForm({ ...franchiseForm, phone: e.target.value })}
+                    required aria-required="true"
+                  />
                 </div>
-                <div className="joinus-stat">
-                  <strong>18mo</strong>
-                  <span>Avg. Payback Period</span>
+                <div className="form-group">
+                  <label htmlFor="franchise-city">Preferred city *</label>
+                  <input
+                    className="form-control" id="franchise-city" type="text" placeholder="City of interest"
+                    value={franchiseForm.city}
+                    onChange={(e) => setFranchiseForm({ ...franchiseForm, city: e.target.value })}
+                    required aria-required="true"
+                  />
                 </div>
+                <button type="submit" className="btn btn--primary joinus-enquiry-form__submit" disabled={franchiseLoading}>
+                  {franchiseLoading ? 'Sending…' : <>Send Enquiry <i className="fas fa-arrow-right" /></>}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Corporate services */}
+      <section id="corporate" className="section section--cream joinus-corporate" ref={s2}>
+        <div className="container joinus-corporate__grid">
+          <div className="joinus-corporate__content fade-up">
+            <span className="section-label section-label--dark">Corporate Services</span>
+            <h2>A healthier team starts at the table.</h2>
+            <p>Fuel your team's performance with daily catered healthy meals. Dr Diet makes corporate wellness effortless, with food that fits your workplace.</p>
+
+            <div className="joinus-quote">
+              Studies show employees who eat well are 25% more productive and 35% less absent.
+            </div>
+
+            <div className="joinus-pricing-row">
+              {pricingTiers.map((p) => (
+                <div key={p.name} className="joinus-pricing-card">
+                  <strong>{p.name}</strong>
+                  <span>{p.size}</span>
+                  <span className="joinus-pricing-card__price">{p.price}</span>
+                </div>
+              ))}
+            </div>
+
+            <h4>Why companies choose Dr Diet</h4>
+            <ul className="joinus-checklist joinus-checklist--2col">
+              {corporatePerks.map((item) => (
+                <li key={item}><i className="fas fa-check" /> {item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="joinus-corporate__media fade-up stagger-2">
+            <img src="/brand_assets/achari paneer bowl.jpg" alt="Healthy corporate meal bowl" />
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="joinus-partner-band">
+            <div className="joinus-partner-band__head">
+              <div>
+                <h3>Let's build something together.</h3>
+                <p>Run a gym, clinic, hotel or wellness center? Give your clients the missing piece of their health journey: expert nutrition. We grow together.</p>
               </div>
-
-              <h4 style={{marginTop:'32px', marginBottom:'16px'}}>What You Get:</h4>
-              <ul className="joinus-list">
-                {['Full franchise training program (4 weeks)', 'Kitchen setup & equipment support', 'Ongoing operational support & quality audits', 'Marketing materials & digital support', 'Exclusive territory rights', 'Access to proprietary meal planning system', 'Dedicated franchise account manager'].map((item) => (
-                  <li key={item}><i className="fas fa-check" /> {item}</li>
-                ))}
-              </ul>
-
-              <div style={{display:'flex', flexDirection:'row', gap:'12px', flexWrap:'wrap', marginTop:'32px'}}>
-                <a href="/brand_assets/Pitch Deck Dr Diet.pdf" target="_blank" rel="noopener noreferrer" className="btn btn--dark" style={{flex:'1', minWidth:'160px', justifyContent:'center'}}>
-                  <i className="fas fa-file-pdf" /> View Franchise Deck
-                </a>
-                <a href="https://wa.me/917015732242?text=I'm interested in a Dr Diet franchise" target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark" style={{flex:'1', minWidth:'160px', justifyContent:'center'}}>
-                  <i className="fab fa-whatsapp" /> Inquire About Franchise
-                </a>
-              </div>
+              <a href="https://wa.me/917015732242?text=I'm interested in a B2B partnership with Dr Diet" target="_blank" rel="noopener noreferrer" className="btn btn--dark joinus-partner-band__cta">
+                Start a Partnership Conversation <i className="fas fa-arrow-right" />
+              </a>
+            </div>
+            <div className="joinus-partner-grid">
+              {partnerTypes.map((t) => (
+                <div key={t.title} className="joinus-partner-item">
+                  <i className={t.icon} />
+                  <strong>{t.title}</strong>
+                  <p>{t.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Catering */}
-      <section className="section section--cream joinus-section" id="catering" ref={s2}>
-        <div className="container">
-          <div className="joinus-block joinus-block--reverse">
-            <div className="joinus-block__content fade-up">
-              <span className="section-label section-label--dark">Corporate Services</span>
-              <h2>Healthy Catering for Your Team</h2>
-              <div className="divider divider--left" />
-              <p>Fuel your team's performance with daily catered healthy meals. Studies show employees who eat well are 25% more productive and 35% less absent. Dr Diet makes corporate wellness effortless.</p>
+      {/* Careers */}
+      <section id="careers" className="section joinus-careers" ref={s3}>
+        <div className="container joinus-careers__grid">
+          <div className="joinus-careers__content fade-up">
+            <span className="section-label section-label--white">Careers</span>
+            <h2 className="text-white">Bring your talent<br />to the table.</h2>
+            <p>Behind every meal are people who care. If you're passionate about food, nutrition and making healthy eating easier, we'd love to hear from you.</p>
 
-              <div className="catering-packages">
-                {[
-                  { name: 'Small Team', size: '10–50 employees', price: 'From ₹150/person/day', icon: 'fas fa-users' },
-                  { name: 'Enterprise', size: '50–500 employees', price: 'Custom Pricing', icon: 'fas fa-building' },
-                  { name: 'Events', size: 'One-time catering', price: 'Quote on Request', icon: 'fas fa-calendar-alt' },
-                ].map((pkg) => (
-                  <div key={pkg.name} className="catering-package">
-                    <i className={pkg.icon} />
-                    <div>
-                      <strong>{pkg.name}</strong>
-                      <span>{pkg.size}</span>
-                      <span className="catering-package__price">{pkg.price}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <h4 style={{marginBottom:'16px'}}>Why Companies Choose Dr Diet:</h4>
-              <ul className="joinus-list">
-                {['Flexible delivery schedules', 'Customized to dietary needs & preferences', 'Branded packaging available', 'Dedicated account manager', 'Monthly invoicing', 'Nutritional reporting available'].map((item) => (
-                  <li key={item}><i className="fas fa-check" /> {item}</li>
-                ))}
-              </ul>
-
-              <a href="https://wa.me/917015732242?text=I'd like to inquire about corporate catering" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg" style={{marginTop:'32px'}}>
-                <i className="fab fa-whatsapp" /> Get a Catering Quote
-              </a>
+            <div className="joinus-tags">
+              {careerTags.map((t) => <span key={t} className="joinus-tag">{t}</span>)}
             </div>
-            <div className="joinus-block__image fade-up stagger-2">
-              <img src="/brand_assets/Chicken Brown rice Landscape.webp" alt="Corporate Catering" />
-              <div className="joinus-block__tag joinus-block__tag--right">
-                <i className="fas fa-building" /> Catering
-              </div>
+
+            <div className="joinus-careers__image">
+              <img
+                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=900&q=80"
+                alt="Dr Diet kitchen team preparing food"
+              />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* B2B */}
-      <section className="section joinus-section" id="b2b" ref={s3}>
-        <div className="container">
-          <div className="joinus-block">
-            <div className="joinus-block__image fade-up">
-              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" alt="B2B Partnership" />
-              <div className="joinus-block__tag">
-                <i className="fas fa-handshake" /> B2B
+          <div className="joinus-careers-card fade-up stagger-2">
+            {careersSent ? (
+              <div className="joinus-careers-card__success">
+                <div className="joinus-careers-card__success-icon"><i className="fas fa-check" /></div>
+                <h3>Application Sent!</h3>
+                <p>Thanks for reaching out — our team will review your application and get back to you soon.</p>
               </div>
-            </div>
-            <div className="joinus-block__content fade-up stagger-2">
-              <span className="section-label section-label--dark">Strategic Partnerships</span>
-              <h2>Let's Build Something Together</h2>
-              <div className="divider divider--left" />
-              <p>If you run a gym, clinic, hotel, or wellness center, partnering with Dr Diet means offering your clients the missing piece of their health journey: expert nutrition. We grow together.</p>
-
-              <div className="b2b-types">
-                {[
-                  { icon: 'fas fa-dumbbell', title: 'Gyms & Fitness Centers', desc: 'Offer your members customized meal plans. Rev-share or white-label available.' },
-                  { icon: 'fas fa-hospital', title: 'Medical Clinics', desc: 'Therapeutic nutrition programs for your patients. Certified and medically aligned.' },
-                  { icon: 'fas fa-hotel', title: 'Hotels & Resorts', desc: 'In-room healthy meal delivery for health-conscious guests.' },
-                  { icon: 'fas fa-spa', title: 'Wellness Centers', desc: 'Complete the wellness experience with science-backed nutrition programs.' },
-                ].map((type) => (
-                  <div key={type.title} className="b2b-type fade-up">
-                    <div className="b2b-type__icon"><i className={type.icon} /></div>
-                    <div>
-                      <strong>{type.title}</strong>
-                      <p>{type.desc}</p>
+            ) : (
+              <>
+                <h3>Introduce yourself.</h3>
+                <p>Share your interests and experience with the Dr Diet team.</p>
+                <form className="joinus-careers-form" onSubmit={handleCareersSubmit}>
+                  <div className="sub-form__row">
+                    <div className="form-group">
+                      <label htmlFor="careers-name">Full name *</label>
+                      <input
+                        className="form-control" id="careers-name" type="text" placeholder="Your full name"
+                        value={careersForm.name}
+                        onChange={(e) => setCareersForm({ ...careersForm, name: e.target.value })}
+                        required aria-required="true"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="careers-email">Email address *</label>
+                      <input
+                        className="form-control" id="careers-email" type="email" placeholder="you@email.com"
+                        value={careersForm.email}
+                        onChange={(e) => setCareersForm({ ...careersForm, email: e.target.value })}
+                        required aria-required="true"
+                      />
                     </div>
                   </div>
-                ))}
-              </div>
-
-              <a href="https://wa.me/917015732242?text=I'm interested in a B2B partnership with Dr Diet" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg" style={{marginTop:'32px'}}>
-                <i className="fab fa-whatsapp" /> Start a Partnership Conversation
-              </a>
-            </div>
+                  <div className="sub-form__row">
+                    <div className="form-group">
+                      <label htmlFor="careers-phone">Phone number</label>
+                      <input
+                        className="form-control" id="careers-phone" type="tel" placeholder="Your phone number"
+                        value={careersForm.phone}
+                        onChange={(e) => setCareersForm({ ...careersForm, phone: e.target.value })}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="careers-area">Area of interest *</label>
+                      <select
+                        className="form-control" id="careers-area"
+                        value={careersForm.area}
+                        onChange={(e) => setCareersForm({ ...careersForm, area: e.target.value })}
+                        required aria-required="true"
+                      >
+                        <option value="">Select an area</option>
+                        <option>Kitchen & Culinary</option>
+                        <option>Operations</option>
+                        <option>Marketing & Branding</option>
+                        <option>Delivery</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="careers-about">A little about you</label>
+                    <textarea
+                      className="form-control" id="careers-about" placeholder="Tell us about your experience and what you'd like to do."
+                      value={careersForm.about}
+                      onChange={(e) => setCareersForm({ ...careersForm, about: e.target.value })}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="careers-cv">Your CV *</label>
+                    <label className="joinus-file-upload" htmlFor="careers-cv">
+                      <input
+                        id="careers-cv" type="file" accept=".pdf,.doc,.docx" hidden
+                        onChange={(e) => setCvFile(e.target.files?.[0] ?? null)}
+                        required
+                      />
+                      <i className="fas fa-arrow-up-from-bracket" />
+                      <span>
+                        <strong>{cvFile ? cvFile.name : 'Choose a file or drag it here'}</strong>
+                        <small>PDF or DOCX</small>
+                      </span>
+                    </label>
+                  </div>
+                  <button type="submit" className="btn btn--dark btn--lg joinus-careers-form__submit" disabled={careersLoading}>
+                    {careersLoading ? 'Sending…' : <>Send My Application <i className="fas fa-arrow-right" /></>}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </section>

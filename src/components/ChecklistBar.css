@@ -2,7 +2,7 @@
    CHECKLIST BAR
    ============================================ */
 .checklist-bar {
-  background: var(--accent-dr-diet-color);
+  background: var(--accent);
   padding: 32px 24px;
 }
 

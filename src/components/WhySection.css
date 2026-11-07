@@ -5,7 +5,6 @@
   position: relative;
   background: var(--primary-dr-diet-color);
   padding: 96px 0 92px;
-  overflow: hidden;
 }
 
 .why-section__wave {
@@ -14,7 +13,7 @@
   left: 0;
   width: 100%;
   height: auto;
-  transform: translateY(-99%);
+  transform: translateY(-15%);
   pointer-events: none;
 }
 
@@ -57,29 +56,47 @@
   width: 100%;
 }
 
+.why-card-wrap {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+}
+
 .why-card {
+  position: relative;
+  z-index: 1;
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  background: var(--card-peach);
+  background: var(--dr-diet-stroke-color);
   border-radius: 12px;
   padding-top: 12px;
-  overflow: hidden;
 }
 
+.why-card__content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wave sits behind the card and pokes out below its bottom edge — the
+   card's own opaque background covers the rest of it. */
 .why-card__wave {
-  display: block;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: calc(100% - 14px);
   width: 100%;
-  height: 0;
+  aspect-ratio: 300 / 38;
   object-fit: cover;
-  object-position: top;
-  transform: scaleY(-1);
   filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.12));
-  transition: height 0.25s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 
-.why-card:hover .why-card__wave {
-  height: 22px;
+.why-card-wrap:hover .why-card__wave {
+  opacity: 1;
 }
 
 .why-card__copy {
@@ -107,6 +124,7 @@
 
 .why-card__image {
   position: relative;
+  margin-top: auto;
   width: 100%;
   aspect-ratio: 252 / 203;
   border-radius: 12px;
@@ -115,7 +133,7 @@
   transition: box-shadow 0.25s ease;
 }
 
-.why-card:hover .why-card__image {
+.why-card-wrap:hover .why-card__image {
   box-shadow: 0 5px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -128,24 +146,15 @@
   transition: transform 0.35s ease;
 }
 
-.why-card:hover .why-card__image img {
+.why-card-wrap:hover .why-card__image img {
   transform: scale(1.13);
-}
-
-.why-card__image-overlay {
-  inset: auto !important;
-  left: -10.4% !important;
-  top: 68.54% !important;
-  width: 120.82% !important;
-  height: 31.36% !important;
-  object-fit: contain !important;
 }
 
 @media (max-width: 960px) {
   .why-section__grid {
     flex-wrap: wrap;
   }
-  .why-card {
+  .why-card-wrap {
     flex: 1 1 calc(50% - 12px);
     min-width: 240px;
   }
@@ -158,7 +167,7 @@
   .why-section__inner {
     gap: 40px;
   }
-  .why-card {
+  .why-card-wrap {
     flex: 1 1 100%;
   }
 }
