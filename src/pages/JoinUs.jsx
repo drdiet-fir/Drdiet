@@ -147,7 +147,7 @@ export default function JoinUs() {
       <section id="franchise" className="section joinus-franchise" ref={s1}>
         <div className="container joinus-franchise__grid">
           <div className="joinus-franchise__media fade-up">
-            <img src="/brand_assets/Cafe Interior 1.png" alt="Dr Diet franchise outlet interior" />
+            <img src="/brand_assets/Cafe Interior 1.png" alt="Dr Diet franchise outlet interior" loading="lazy" />
             <div className="joinus-stats-row">
               <div className="joinus-stat-card">
                 <strong>6</strong>
@@ -267,7 +267,7 @@ export default function JoinUs() {
           </div>
 
           <div className="joinus-corporate__media fade-up stagger-2">
-            <img src="/brand_assets/achari paneer bowl.jpg" alt="Healthy corporate meal bowl" />
+            <img src="/brand_assets/achari paneer bowl.jpg" alt="Healthy corporate meal bowl" loading="lazy" />
           </div>
         </div>
 
@@ -311,6 +311,7 @@ export default function JoinUs() {
               <img
                 src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=900&q=80"
                 alt="Dr Diet kitchen team preparing food"
+                loading="lazy"
               />
             </div>
           </div>

@@ -92,7 +92,7 @@ export default function About() {
               </div>
             </div>
             <div className="about-mission-v2__image fade-up stagger-2">
-              <img className="about-mission-v2__composite" src="/brand_assets/about/mission-composite.png" alt="Dr Diet founder Mirnal Sethi" />
+              <img className="about-mission-v2__composite" src="/brand_assets/about/mission-composite.png" alt="Dr Diet founder Mirnal Sethi" loading="lazy" />
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function About() {
             {milestones.map((m, i) => (
               <div className={`about-timeline-v2__row fade-up stagger-${(i % 4) + 1} ${i % 2 === 1 ? 'about-timeline-v2__row--reverse' : ''}`} key={m.year}>
                 <div className="about-timeline-v2__col about-timeline-v2__col--image">
-                  <img src={m.img} alt={m.year} />
+                  <img src={m.img} alt={m.year} loading="lazy" />
                 </div>
                 <div className="about-timeline-v2__connector">
                   <span className="about-timeline-v2__branch" />
@@ -153,7 +153,7 @@ export default function About() {
             {team.map((member, i) => (
               <div key={member.name} className={`about-team-card-v2 fade-up stagger-${i + 1}`}>
                 <div className="about-team-card-v2__image">
-                  <img src={member.img} alt={member.name} />
+                  <img src={member.img} alt={member.name} loading="lazy" />
                 </div>
                 <div className="about-team-card-v2__content">
                   <div className="about-team-card-v2__identity">

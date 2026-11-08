@@ -83,7 +83,7 @@ export default function Subscription() {
         <div className="sub-hero__media">
           <picture>
             <source media="(max-width: 640px)" srcSet="/brand_assets/Hero Section Subscription Mobile.png" />
-            <img className="sub-hero__bg" src="/brand_assets/Hero Section Subscription.png" alt="A Dr Diet meal spread" />
+            <img className="sub-hero__bg" src="/brand_assets/Hero Section Subscription.png" alt="A Dr Diet meal spread" fetchPriority="high" />
           </picture>
         </div>
         <div className="container sub-hero__inner">

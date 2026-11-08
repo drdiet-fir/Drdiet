@@ -161,7 +161,7 @@ export default function ProteinHero() {
           </p>
         </div>
         <div className="protein-hero__m-stage">
-          <img className="protein-hero__m-plate" src="/brand_assets/hero/plates/plate-7.png" alt="Protein bowl, fully assembled" />
+          <img className="protein-hero__m-plate" src="/brand_assets/hero/plates/plate-7.png" alt="Protein bowl, fully assembled" fetchPriority="high" />
           <img className="protein-hero__m-sticker protein-hero__m-sticker--tl" src="/brand_assets/hero/sticker-5.png" alt="" />
           <img className="protein-hero__m-sticker protein-hero__m-sticker--tr" src="/brand_assets/hero/sticker-6.png" alt="" />
           <img className="protein-hero__m-sticker protein-hero__m-sticker--bl" src="/brand_assets/hero/sticker-8.png" alt="" />

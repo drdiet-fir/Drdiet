@@ -32,7 +32,7 @@ export default function CitiesSection() {
             <Link to={c.path} className="city-card" key={c.name} onClick={handleClick}>
               <div className="city-card__frame">
                 <div className="city-card__image">
-                  <img src={c.img} alt={c.name} />
+                  <img src={c.img} alt={c.name} loading="lazy" />
                 </div>
                 <div className="city-card__footer">
                   <div className="city-card__label">{c.name}</div>

@@ -62,7 +62,7 @@ export default function BlogPost() {
               <h3>More Articles</h3>
               {relatedPosts.map((p) => (
                 <Link to={`/blog/${p.slug}`} key={p.slug} className="blog-sidebar-related">
-                  <img src={p.image} alt={p.title} />
+                  <img src={p.image} alt={p.title} loading="lazy" />
                   <div>
                     <span className="blog-sidebar-related__cat">{p.category}</span>
                     <p>{p.title}</p>

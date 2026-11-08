@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="footer__brand">
             <Link to="/">
-              <img src="/logo-primary.png" alt="Dr Diet" className="footer__logo" />
+              <img src="/logo-primary.png" alt="Dr Diet" className="footer__logo" loading="lazy" />
             </Link>
 
             <div className="footer__brand-info">
@@ -97,7 +97,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <img className="footer__watermark" src="/brand_assets/Dieting Made Delicious..svg" alt="" aria-hidden="true" />
+        <img className="footer__watermark" src="/brand_assets/Dieting Made Delicious..svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
 
       <div className="footer__bottom">

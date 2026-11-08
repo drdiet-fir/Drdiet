@@ -64,8 +64,8 @@ export default function Careers() {
               <p style={{marginTop:'16px'}}>If you're driven, care about your craft, and want your work to genuinely matter, you'll fit right in.</p>
             </div>
             <div className="careers-culture__images fade-up stagger-2">
-              <img src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=500&q=80" alt="Dr Diet team" className="careers-culture__img1" />
-              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Kitchen team" className="careers-culture__img2" />
+              <img src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=500&q=80" alt="Dr Diet team" className="careers-culture__img1" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Kitchen team" className="careers-culture__img2" loading="lazy" />
             </div>
           </div>
         </div>

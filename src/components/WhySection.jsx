@@ -49,7 +49,7 @@ export default function WhySection() {
                     <p>{c.desc}</p>
                   </div>
                   <div className="why-card__image">
-                    <img src={c.img} alt="" />
+                    <img src={c.img} alt="" loading="lazy" />
                   </div>
                 </div>
               </div>

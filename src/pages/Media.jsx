@@ -81,7 +81,7 @@ export default function Media() {
             <i className="fas fa-times" />
           </button>
           <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.caption} />
+            <img src={lightbox.src} alt={lightbox.caption} loading="lazy" />
             <p className="lightbox__caption">{lightbox.caption}</p>
           </div>
         </div>

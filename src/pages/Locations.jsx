@@ -129,7 +129,7 @@ export default function Locations() {
       <section className="locations-gallery">
         <div className="locations-gallery__track">
           {[...galleryImages, ...galleryImages].map((src, i) => (
-            <img key={i} src={src} alt="Dr Diet outlet" />
+            <img key={i} src={src} alt="Dr Diet outlet" loading="lazy" />
           ))}
         </div>
       </section>
