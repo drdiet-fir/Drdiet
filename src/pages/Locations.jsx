@@ -52,6 +52,7 @@ const locations = [
     city: 'Noida',
     branches: [
       { name: 'Sector 73', address: 'Royal Avenue St, Sector 73, Noida, Uttar Pradesh 201316' },
+      { name: 'Sector 4 – Kitchen Plus', address: 'Kitchen Plus, Block B, Sector 4, Noida, Uttar Pradesh 201301 (near Film City, Noida)' },
       { name: 'Greater Noida – Golden I', address: 'Shop C-11, Ground Floor, Golden I, Tech Zone IV, Sector 4, Greater Noida, Uttar Pradesh 201318' },
     ],
   },
