@@ -2,7 +2,7 @@ import { useCounter, useLiveTicker } from '../hooks/useCounters'
 import './StatsSectionV2.css'
 
 export default function StatsSectionV2() {
-  const outlets = useCounter(18, '+')
+  const outlets = useCounter(17, '+')
   const meals = useLiveTicker(2489, 2470, 2545, '+')
   const customers = useLiveTicker(10054, 10054, 10230, '+')
   const cities = useCounter(5, '')

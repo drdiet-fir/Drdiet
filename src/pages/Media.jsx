@@ -17,7 +17,7 @@ const galleryItems = [
   { id: 12, type: 'photo', category: 'Team', src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80', caption: 'The Dr Diet Team' },
 ]
 
-const mediaCategories = ['All', 'Food', 'Kitchen', 'Transformations', 'Team', 'Delivery']
+const mediaCategories = ['All', 'Food', 'Kitchen', 'Team', 'Delivery']
 
 export default function Media() {
   const [activeCategory, setActiveCategory] = useState('All')

@@ -22,7 +22,7 @@ const team = [
     name: 'Mirnal Sethi',
     role: 'Founder',
     img: '/brand_assets/IMG_2241.PNG.webp',
-    bio: 'Started Dr Diet to solve the problem of unhealthy, inaccessible food for students and working professionals. Built from a small 10x8 room in Chandigarh to 12 outlets across 5 cities in India. Still actively involved in the kitchen every day.',
+    bio: 'Started Dr Diet to solve the problem of unhealthy, inaccessible food for students and working professionals. Built from a small 10x8 room in Chandigarh to 17 outlets across 5 cities in India. Still actively involved in the kitchen every day.',
   },
   {
     name: 'Our Kitchen Team',
@@ -42,7 +42,7 @@ const values = [
   { icon: '/brand_assets/about/value-icon-1.svg', title: 'Real Nutrition', desc: 'Transparent macros, honest ingredients, no shortcuts.' },
   { icon: '/brand_assets/about/value-icon-2.svg', title: 'Desi at Heart', desc: 'Indian flavours you love, made for your body.' },
   { icon: '/brand_assets/about/value-icon-3.svg', title: 'Taste First', desc: 'Healthy food should taste good. Always.' },
-  { icon: '/brand_assets/about/value-icon-4.svg', title: 'Accessible Health', desc: '12 outlets, 5 cities, health on your doorstep.' },
+  { icon: '/brand_assets/about/value-icon-4.svg', title: 'Accessible Health', desc: '17 outlets, 5 cities, health on your doorstep.' },
 ]
 
 const pressItems = [
@@ -75,8 +75,8 @@ export default function About() {
   return (
     <>
       <PageHero
-        title="From a 10x8 Room to 18 Outlets"
-        subtitle="What started as a humble 10×8 kitchen has grown into 18 outlets across cities, bringing delicious, wholesome food closer to more people every day."
+        title="From a 10x8 Room to 17 Outlets"
+        subtitle="What started as a humble 10×8 kitchen has grown into 17 outlets across cities, bringing delicious, wholesome food closer to more people every day."
       />
 
       {/* Mission */}

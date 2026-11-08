@@ -70,7 +70,6 @@ export default function Menu() {
     if (!el) return
     dragRef.current = { startX: e.clientX, scrollLeft: el.scrollLeft }
     draggedRef.current = false
-    el.setPointerCapture?.(e.pointerId)
   }
 
   const onFiltersPointerMove = (e) => {
@@ -82,9 +81,7 @@ export default function Menu() {
     el.scrollLeft = st.scrollLeft - dx
   }
 
-  const endFiltersDrag = (e) => {
-    const el = filtersRef.current
-    if (el && e?.pointerId != null) el.releasePointerCapture?.(e.pointerId)
+  const endFiltersDrag = () => {
     dragRef.current = null
   }
 

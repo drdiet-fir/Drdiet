@@ -45,12 +45,14 @@ const locations = [
     branches: [
       { name: 'Sector 28, DLF City IV', address: 'F3CP+286, Sector 28, DLF City IV, Gurugram, Haryana 122009' },
       { name: 'Sapphire Mall, Sohna Road', address: 'Sapphire Mall, Sohna Road, Gurugram, Haryana' },
+      { name: 'Palam Vihar – Global Foyer Mall', address: 'Commercial Shop No. FF-63, First Floor, Global Foyer Mall, Block H, Pocket H, Sector 1, Palam Vihar, Gurugram, Haryana 122017' },
     ],
   },
   {
     city: 'Noida',
     branches: [
       { name: 'Sector 73', address: 'Royal Avenue St, Sector 73, Noida, Uttar Pradesh 201316' },
+      { name: 'Greater Noida – Golden I', address: 'Shop C-11, Ground Floor, Golden I, Tech Zone IV, Sector 4, Greater Noida, Uttar Pradesh 201318' },
     ],
   },
   {
@@ -61,10 +63,11 @@ const locations = [
     ],
   },
   {
-    city: 'Mohali',
+    city: 'Punjab',
     branches: [
       { name: 'Mohali – Sector 70', address: 'Dr Diet, Plot 201, Modern Market, Sector 70, Mohali, 160070' },
       { name: 'Kharar',             address: 'Kharar, SAS Nagar, Punjab' },
+      { name: 'Zirakpur – VIP Road', address: 'SCO 14, Upper Ground Floor, VIP Central, VIP Road, Zirakpur, Punjab 140603' },
     ],
   },
 ]
@@ -91,7 +94,6 @@ export default function Locations() {
     if (!el) return
     dragRef.current = { startX: e.clientX, scrollLeft: el.scrollLeft }
     draggedRef.current = false
-    el.setPointerCapture?.(e.pointerId)
   }
 
   const onPillsPointerMove = (e) => {
@@ -103,9 +105,7 @@ export default function Locations() {
     el.scrollLeft = st.scrollLeft - dx
   }
 
-  const endPillsDrag = (e) => {
-    const el = pillsRef.current
-    if (el && e?.pointerId != null) el.releasePointerCapture?.(e.pointerId)
+  const endPillsDrag = () => {
     dragRef.current = null
   }
 
@@ -121,7 +121,7 @@ export default function Locations() {
     <>
       <PageHero
         title="Dr Diet Across India"
-        subtitle="12 outlets across 5 cities. Fresh, healthy meals delivered daily."
+        subtitle="17 outlets across 5 cities. Fresh, healthy meals delivered daily."
       />
 
       {/* Photo strip */}
