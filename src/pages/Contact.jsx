@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import PageHero from '../components/PageHero'
+import { API_URL } from '../config'
 import './Contact.css'
 
 function useReveal() {
@@ -25,7 +26,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await fetch('https://drdiet.onrender.com/submit', {
+      const res = await fetch(`${API_URL}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

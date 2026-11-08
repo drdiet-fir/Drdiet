@@ -38,7 +38,7 @@ function sheetSafe(value) {
   return /^[=+\-@]/.test(str) ? `'${str}` : str
 }
 
-// ── Google Sheets Auth ────────────────────────────────────────
+// ── Google Sheets Auth (service account) ──────────────────────
 function getSheetsClient() {
   const auth = new google.auth.JWT({
     email:  process.env.GOOGLE_CLIENT_EMAIL,
@@ -87,12 +87,17 @@ async function notifyUser(phone) {
 }
 
 // ── POST /submit ──────────────────────────────────────────────
-app.post('/submit', submitLimiter, async (req, res) => {
-  const { name, phone, city, goal, diet, source } = req.body
+// Allowed destination tabs (prevents injecting arbitrary ranges).
+const SHEET_TABS = { 'Sheet1': 'Sheet1', 'Career Leads': 'Career Leads' }
 
-  if (!name || !phone || !city || !goal || !diet) {
+app.post('/submit', submitLimiter, async (req, res) => {
+  const { name, phone, city, goal, diet, source, sheet, cvUrl } = req.body
+
+  if (!name || (!phone && !city)) {
     return res.status(400).json({ success: false, error: 'Missing required fields.' })
   }
+
+  const tab = SHEET_TABS[sheet] || 'Sheet1'
 
   const timestamp = new Date().toLocaleString('en-IN', {
     timeZone: 'Asia/Kolkata',
@@ -100,14 +105,17 @@ app.post('/submit', submitLimiter, async (req, res) => {
     hour: '2-digit', minute: '2-digit', hour12: true,
   })
 
-  const row = [name, phone, city, goal, diet, source, timestamp].map(sheetSafe)
+  // The CV is uploaded client-side (Cloudinary); we just store its link.
+  const values = [name, phone, city, goal, diet, source, timestamp]
+  if (cvUrl) values.push(cvUrl)
+  const row = values.map(sheetSafe)
 
   // 1. Save to Google Sheets
   try {
     const sheets = getSheetsClient()
     await sheets.spreadsheets.values.append({
       spreadsheetId:    process.env.GOOGLE_SHEET_ID,
-      range:            'Sheet1!A:G',
+      range:            `'${tab}'!A:${cvUrl ? 'H' : 'G'}`,
       valueInputOption: 'USER_ENTERED',
       insertDataOption: 'INSERT_ROWS',
       requestBody: { values: [row] },

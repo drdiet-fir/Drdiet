@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import PageHero from '../components/PageHero'
+import { API_URL } from '../config'
 import './JoinUs.css'
 
 function useReveal() {
@@ -66,13 +67,12 @@ export default function JoinUs() {
   const [franchiseSent, setFranchiseSent] = useState(false)
   const [franchiseLoading, setFranchiseLoading] = useState(false)
 
-  const [careersForm, setCareersForm] = useState({ name: '', email: '', phone: '', area: '', about: '' })
-  const [cvFile, setCvFile] = useState(null)
+  const [careersForm, setCareersForm] = useState({ name: '', email: '', phone: '', area: '', about: '', cvLink: '' })
   const [careersSent, setCareersSent] = useState(false)
   const [careersLoading, setCareersLoading] = useState(false)
 
   const submitLead = async (payload) => {
-    const res = await fetch('https://drdiet.onrender.com/submit', {
+    const res = await fetch(`${API_URL}/submit`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -81,25 +81,26 @@ export default function JoinUs() {
     if (!data.success) throw new Error(data.error)
   }
 
-  const handleFranchiseSubmit = async (e) => {
+  const handleFranchiseSubmit = (e) => {
     e.preventDefault()
-    setFranchiseLoading(true)
-    try {
-      await submitLead({
-        name: franchiseForm.name,
-        phone: franchiseForm.phone,
-        city: franchiseForm.city,
-        goal: 'Franchise Enquiry',
-        diet: '',
-        source: 'Join Us – Franchise',
-      })
-      setFranchiseSent(true)
-    } catch (err) {
-      console.error('Franchise enquiry failed:', err)
-      alert('Something went wrong. Please WhatsApp us directly.')
-    } finally {
-      setFranchiseLoading(false)
-    }
+    const { name, phone, city } = franchiseForm
+
+    // Open a pre-filled WhatsApp chat with Dr Diet (must happen synchronously
+    // in the click handler so the browser doesn't block the new tab).
+    const message =
+      `Hi Dr Diet! I'm interested in a franchise.\n\n` +
+      `Name: ${name}\nPhone: ${phone}\nPreferred city: ${city}`
+    window.open(
+      `https://wa.me/917015732242?text=${encodeURIComponent(message)}`,
+      '_blank',
+      'noopener,noreferrer'
+    )
+
+    // Still record the lead in the background (don't block the chat on it).
+    submitLead({ name, phone, city, goal: 'Franchise Enquiry', diet: '', source: 'Join Us – Franchise' })
+      .catch((err) => console.error('Franchise enquiry save failed:', err))
+
+    setFranchiseSent(true)
   }
 
   const handleCareersSubmit = async (e) => {
@@ -111,8 +112,10 @@ export default function JoinUs() {
         phone: careersForm.phone,
         city: careersForm.email,
         goal: careersForm.area || 'Careers Application',
-        diet: cvFile ? cvFile.name : '',
+        diet: '',
         source: careersForm.about,
+        sheet: 'Career Leads',
+        cvUrl: careersForm.cvLink,
       })
       setCareersSent(true)
     } catch (err) {
@@ -383,19 +386,17 @@ export default function JoinUs() {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="careers-cv">Your CV *</label>
-                    <label className="joinus-file-upload" htmlFor="careers-cv">
-                      <input
-                        id="careers-cv" type="file" accept=".pdf,.doc,.docx" hidden
-                        onChange={(e) => setCvFile(e.target.files?.[0] ?? null)}
-                        required
-                      />
-                      <i className="fas fa-arrow-up-from-bracket" />
-                      <span>
-                        <strong>{cvFile ? cvFile.name : 'Choose a file or drag it here'}</strong>
-                        <small>PDF or DOCX</small>
-                      </span>
-                    </label>
+                    <label htmlFor="careers-cv">CV / Resume link *</label>
+                    <input
+                      className="form-control"
+                      id="careers-cv"
+                      type="url"
+                      placeholder="Paste a link to your CV (Google Drive, Dropbox, etc.)"
+                      value={careersForm.cvLink}
+                      onChange={(e) => setCareersForm({ ...careersForm, cvLink: e.target.value })}
+                      required
+                      aria-required="true"
+                    />
                   </div>
                   <button type="submit" className="btn btn--dark btn--lg joinus-careers-form__submit" disabled={careersLoading}>
                     {careersLoading ? 'Sending…' : <>Send My Application <i className="fas fa-arrow-right" /></>}

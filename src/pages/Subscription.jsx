@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
+import { API_URL } from '../config'
 import './Subscription.css'
 
 function useReveal() {
@@ -33,7 +34,7 @@ const faqs = [
   { q: 'How does delivery work?',      a: 'We cook fresh every morning and deliver to your doorstep daily. No frozen meals, no reheating. Just freshly prepared, ready-to-eat food.' },
 ]
 
-const initialForm = { name: '', phone: '', city: '', goal: '', diet: '', source: '' }
+const initialForm = { name: '', phone: '', city: '', otherCity: '', goal: '', diet: '', source: '' }
 
 export default function Subscription() {
   const [openFaq, setOpenFaq]     = useState(null)
@@ -60,10 +61,12 @@ export default function Subscription() {
     e.preventDefault()
     setLoading(true)
     try {
-      const res = await fetch('https://drdiet.onrender.com/submit', {
+      const { otherCity, ...rest } = form
+      const payload = { ...rest, city: form.city === 'Other' ? otherCity : form.city }
+      const res = await fetch(`${API_URL}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       })
       const data = await res.json()
       if (data.success) setSubmitted(true)
@@ -199,7 +202,11 @@ export default function Subscription() {
                     >
                       <option value="">Select your city</option>
                       <option>Delhi</option>
+                      <option>Gurgaon</option>
+                      <option>Noida</option>
                       <option>Chandigarh</option>
+                      <option>Mohali</option>
+                      <option>Zirakpur</option>
                       <option>Bengaluru</option>
                       <option>Other</option>
                     </select>
@@ -223,6 +230,23 @@ export default function Subscription() {
                     </select>
                   </div>
                 </div>
+
+                {form.city === 'Other' && (
+                  <div className="form-group">
+                    <label htmlFor="sub-other-city">Which city? *</label>
+                    <input
+                      className="form-control"
+                      id="sub-other-city"
+                      name="otherCity"
+                      type="text"
+                      value={form.otherCity}
+                      onChange={handleChange}
+                      placeholder="Enter your city"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                )}
 
                 <div className="sub-form__row">
                   <div className="form-group">
