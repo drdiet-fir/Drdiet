@@ -6,28 +6,28 @@ const ORDER_SITE = 'https://order.drdiet.fit'
 
 const MEALS = [
   {
-    name: 'Juiciest Stuffed Chicken Breast',
+    name: 'Artisan Stuffed Chicken Breast',
     desc: 'Tender chicken breast stuffed and oven-baked, finished with a rich, savoury sauce.',
-    protein: '55g Protein',
-    price: '₹280',
+    protein: '65g Protein',
+    price: '₹299',
     diet: 'Non-Veg',
-    img: '/brand_assets/meals-section/meal-1.png',
+    img: '/brand_assets/menu/Artisan Stuffed Chicken Breast.webp',
   },
   {
-    name: 'Guilt Free Paneer Makhani Bowl',
-    desc: 'Creamy makhani paneer over fibre-rich grains — all the comfort, none of the guilt.',
-    protein: '32g Protein',
-    price: '₹249',
+    name: 'Healthy Stuffed Paneer',
+    desc: 'Paneer stuffed and baked for a wholesome, protein-rich meal.',
+    protein: '34g Protein',
+    price: '₹299',
     diet: 'Veg',
-    img: '/brand_assets/meals-section/meal-2.png',
+    img: '/brand_assets/menu/Healthy Stuffed Paneer.webp',
   },
   {
-    name: 'Quinoa Patty Protein Burger',
-    desc: 'A multigrain protein patty loaded between fresh buns with crisp veggies.',
-    protein: '28g Protein',
+    name: 'Chicken Tikka Wrap',
+    desc: 'Smoky chicken tikka rolled in a soft multigrain wrap.',
+    protein: '25.5g Protein',
     price: '₹249',
-    diet: 'Veg',
-    img: '/brand_assets/meals-section/meal-3.png',
+    diet: 'Non-Veg',
+    img: '/brand_assets/menu/Chicken Tikka Wrap.webp',
   },
 ]
 
