@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import PageHero from '../components/PageHero'
+import PageMeta from '../components/PageMeta'
 import './Locations.css'
 
 function useReveal() {
@@ -120,9 +121,14 @@ export default function Locations() {
 
   return (
     <>
+      <PageMeta
+        title="Dr Diet Outlets & Locations | Delhi, Gurgaon, Noida, Chandigarh, Mohali & Bengaluru"
+        description="Find your nearest Dr Diet outlet. 17 outlets across 6 cities serving fresh, healthy, high-protein meals daily."
+        canonical="/locations"
+      />
       <PageHero
         title="Dr Diet Across India"
-        subtitle="17 outlets across 5 cities. Fresh, healthy meals delivered daily."
+        subtitle="17 outlets across 6 cities. Fresh, healthy meals delivered daily."
       />
 
       {/* Photo strip */}

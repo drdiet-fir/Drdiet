@@ -1,23 +1,20 @@
 import { useState } from 'react'
 import PageHero from '../components/PageHero'
+import PageMeta from '../components/PageMeta'
 import './Media.css'
 
 const galleryItems = [
-  { id: 1, type: 'photo', category: 'Food', src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80', caption: 'Grilled Salmon Power Bowl' },
+  { id: 1, type: 'photo', category: 'Food', src: '/brand_assets/menu/Artisan Stuffed Chicken Breast.webp', caption: 'Artisan Stuffed Chicken Breast' },
   { id: 2, type: 'photo', category: 'Kitchen', src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80', caption: 'Our HACCP-Certified Kitchen' },
-  { id: 3, type: 'photo', category: 'Transformations', src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80', caption: 'Real Customer Transformation' },
-  { id: 4, type: 'photo', category: 'Food', src: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80', caption: 'Quinoa Power Salad' },
-  { id: 5, type: 'photo', category: 'Team', src: 'https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=600&q=80', caption: 'Our Head Chef at Work' },
-  { id: 6, type: 'photo', category: 'Food', src: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80', caption: 'Fresh Ingredients Daily' },
-  { id: 7, type: 'photo', category: 'Delivery', src: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80', caption: 'Morning Delivery Ready' },
-  { id: 8, type: 'photo', category: 'Food', src: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80', caption: 'Chicken Shawarma Wrap' },
+  { id: 4, type: 'photo', category: 'Food', src: '/brand_assets/menu/Steamed Chicken Hummus Salad.webp', caption: 'Steamed Chicken Hummus Salad' },
+  { id: 6, type: 'photo', category: 'Food', src: '/brand_assets/menu/Healthy Stuffed Paneer.webp', caption: 'Healthy Stuffed Paneer' },
+  { id: 8, type: 'photo', category: 'Food', src: '/brand_assets/menu/Chicken Tikka Wrap.webp', caption: 'Chicken Tikka Wrap' },
   { id: 9, type: 'photo', category: 'Kitchen', src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', caption: 'Premium Food Preparation' },
-  { id: 10, type: 'photo', category: 'Transformations', src: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80', caption: 'Customer Success Story' },
-  { id: 11, type: 'photo', category: 'Food', src: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=80', caption: 'Beef Kofta Platter' },
-  { id: 12, type: 'photo', category: 'Team', src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80', caption: 'The Dr Diet Team' },
+  { id: 11, type: 'photo', category: 'Food', src: '/brand_assets/menu/Nutella Protein Pancakes.webp', caption: 'Nutella Protein Pancakes' },
+  { id: 12, type: 'photo', category: 'Team', src: '/brand_assets/dr-diet-team.webp', caption: 'The Dr Diet Team' },
 ]
 
-const mediaCategories = ['All', 'Food', 'Kitchen', 'Team', 'Delivery']
+const mediaCategories = ['All', 'Food', 'Kitchen', 'Team']
 
 export default function Media() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -29,6 +26,11 @@ export default function Media() {
 
   return (
     <>
+      <PageMeta
+        title="Gallery & Media | Dr Diet"
+        description="Go behind the scenes at Dr Diet — our kitchen, team, food and daily deliveries. A visual look at how we make healthy eating happen."
+        canonical="/media"
+      />
       <PageHero
         title="Behind the Scenes at Dr Diet"
         subtitle="A look into our kitchen, our team, our deliveries, and our customers' transformations."

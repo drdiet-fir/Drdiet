@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import PageHero from '../components/PageHero'
+import PageMeta from '../components/PageMeta'
 import { API_URL } from '../config'
+import { isBlank, isValidIndianPhone, clean } from '../validators'
 import './JoinUs.css'
 
 function useReveal() {
@@ -62,6 +65,18 @@ export default function JoinUs() {
   const s1 = useReveal()
   const s2 = useReveal()
   const s3 = useReveal()
+  const location = useLocation()
+
+  // Scroll to the targeted section (#franchise / #corporate / #careers) when
+  // arriving with a hash, e.g. the /careers redirect → /join-us#careers.
+  useEffect(() => {
+    if (!location.hash) return
+    const el = document.getElementById(location.hash.slice(1))
+    if (el) {
+      const t = setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120)
+      return () => clearTimeout(t)
+    }
+  }, [location.hash, location.pathname])
 
   const [franchiseForm, setFranchiseForm] = useState({ name: '', phone: '', city: '' })
   const [franchiseSent, setFranchiseSent] = useState(false)
@@ -83,7 +98,18 @@ export default function JoinUs() {
 
   const handleFranchiseSubmit = (e) => {
     e.preventDefault()
-    const { name, phone, city } = franchiseForm
+    const name = clean(franchiseForm.name)
+    const phone = clean(franchiseForm.phone)
+    const city = clean(franchiseForm.city)
+
+    if (isBlank(name) || isBlank(city)) {
+      alert('Please enter your name and preferred city.')
+      return
+    }
+    if (!isValidIndianPhone(phone)) {
+      alert('Please enter a valid 10-digit mobile number.')
+      return
+    }
 
     // Open a pre-filled WhatsApp chat with Dr Diet (must happen synchronously
     // in the click handler so the browser doesn't block the new tab).
@@ -128,6 +154,11 @@ export default function JoinUs() {
 
   return (
     <>
+      <PageMeta
+        title="Franchise, Catering & Careers | Join Dr Diet"
+        description="Partner with Dr Diet — own a franchise, cater healthy meals for your team or workplace, or join our team. Explore opportunities and apply."
+        canonical="/join-us"
+      />
       <PageHero
         title="Grow with Dr Diet. Make a difference."
         subtitle="Good food brings people together. Build a franchise, nourish your workplace, or help us make healthy eating an everyday choice."
@@ -157,7 +188,7 @@ export default function JoinUs() {
                 <span>Years of operations</span>
               </div>
               <div className="joinus-stat-card">
-                <strong>12+</strong>
+                <strong>17</strong>
                 <span>Successful branches</span>
               </div>
               <div className="joinus-stat-card">

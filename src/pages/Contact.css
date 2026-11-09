@@ -166,3 +166,10 @@
   .contact-form__row { grid-template-columns: 1fr; }
   .contact-form-wrapper { padding: 24px; }
 }
+
+.contact-form__error {
+  margin: 0 0 4px;
+  color: #c0392b;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+}

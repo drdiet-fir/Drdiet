@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
@@ -14,7 +14,6 @@ import Media from './pages/Media'
 import Testimonials from './pages/Testimonials'
 import Locations from './pages/Locations'
 import JoinUs from './pages/JoinUs'
-import Careers from './pages/Careers'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
@@ -51,7 +50,7 @@ function AppContent() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/join-us" element={<JoinUs />} />
-          <Route path="/careers" element={<Careers />} />
+          <Route path="/careers" element={<Navigate to="/join-us#careers" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

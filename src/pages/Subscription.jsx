@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
+import PageMeta from '../components/PageMeta'
 import { API_URL } from '../config'
+import { isBlank, isValidIndianPhone, clean } from '../validators'
 import './Subscription.css'
 
 function useReveal() {
@@ -59,10 +61,26 @@ export default function Subscription() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    const city = form.city === 'Other' ? form.otherCity : form.city
+    if (isBlank(form.name) || isBlank(city)) {
+      alert('Please enter your name and city.')
+      return
+    }
+    if (!isValidIndianPhone(form.phone)) {
+      alert('Please enter a valid 10-digit mobile number.')
+      return
+    }
+
     setLoading(true)
     try {
       const { otherCity, ...rest } = form
-      const payload = { ...rest, city: form.city === 'Other' ? otherCity : form.city }
+      const payload = {
+        ...rest,
+        name: clean(form.name),
+        phone: clean(form.phone),
+        city: clean(city),
+      }
       const res = await fetch(`${API_URL}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -81,6 +99,11 @@ export default function Subscription() {
 
   return (
     <>
+      <PageMeta
+        title="Meal Plans & Subscriptions | Dr Diet"
+        description="Personalised high-protein, calorie-counted meal plans delivered fresh daily. Plans for weight loss, muscle gain and clean eating, starting ₹200/meal."
+        canonical="/subscription"
+      />
       {/* Hero */}
       <section className="sub-hero">
         <div className="sub-hero__media">

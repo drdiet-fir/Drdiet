@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import PageHero from '../components/PageHero'
+import PageMeta from '../components/PageMeta'
 import { API_URL } from '../config'
+import { isBlank, isValidIndianPhone, clean } from '../validators'
 import './Contact.css'
 
 function useReveal() {
@@ -20,22 +22,37 @@ function useReveal() {
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' })
   const s1 = useReveal()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError('')
+
+    if (isBlank(form.name) || isBlank(form.email) || isBlank(form.message)) {
+      setError('Please fill in your name, email and message.')
+      return
+    }
+    if (form.phone && !isValidIndianPhone(form.phone)) {
+      setError('Please enter a valid 10-digit mobile number.')
+      return
+    }
+
+    setLoading(true)
     try {
       const res = await fetch(`${API_URL}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: form.name,
-          phone: form.phone,
+          name: clean(form.name),
+          email: clean(form.email),
+          phone: clean(form.phone),
           city: '',
-          goal: form.subject,
+          goal: clean(form.subject),
           diet: '',
-          source: form.message,
+          source: clean(form.message),
         }),
       })
       const data = await res.json()
@@ -43,7 +60,9 @@ export default function Contact() {
       else throw new Error(data.error)
     } catch (err) {
       console.error('Contact form failed:', err)
-      alert('Something went wrong. Please WhatsApp us directly.')
+      setError('Something went wrong. Please WhatsApp us directly.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -53,6 +72,11 @@ export default function Contact() {
 
   return (
     <>
+      <PageMeta
+        title="Contact Dr Diet | WhatsApp, Call or Email Us"
+        description="Get in touch with Dr Diet for orders, subscriptions, catering, franchise or feedback. Reach us on WhatsApp, phone or email — we reply fast."
+        canonical="/contact"
+      />
       <PageHero
         title="Let's Talk. We're Here for You."
         subtitle="Questions, feedback, partnership enquiries, or just want to say hi, we'd love to hear from you."
@@ -177,8 +201,9 @@ export default function Contact() {
                       <label htmlFor="message">Message *</label>
                       <textarea className="form-control" id="message" name="message" value={form.message} onChange={handleChange} placeholder="How can we help you?" required aria-required="true" />
                     </div>
-                    <button type="submit" className="btn btn--dark btn--lg" style={{ width: '100%', justifyContent: 'center' }}>
-                      Send Message <i className="fas fa-arrow-right" />
+                    {error && <p className="contact-form__error" role="alert">{error}</p>}
+                    <button type="submit" className="btn btn--dark btn--lg" style={{ width: '100%', justifyContent: 'center' }} disabled={loading}>
+                      {loading ? 'Sending…' : <>Send Message <i className="fas fa-arrow-right" /></>}
                     </button>
                   </form>
                 </>

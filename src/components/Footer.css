@@ -248,7 +248,14 @@
     font-size: 15px;
   }
   .footer__col-links {
-    gap: 14px;
+    gap: 6px;
+  }
+  /* Bigger tap targets on mobile */
+  .footer__col-links a,
+  .footer__contact-list a,
+  .footer__legal a {
+    display: inline-block;
+    padding: 6px 0;
   }
 
   .footer__watermark {

@@ -6,7 +6,7 @@ const currentYear = new Date().getFullYear()
 const footerLinks = {
   Company: [
     { label: 'About Us', path: '/about' },
-    { label: 'Careers', path: '/careers' },
+    { label: 'Careers', path: '/join-us#careers' },
     { label: 'Media/Gallery', path: '/media' },
     { label: 'Contact Us', path: '/contact' },
     { label: 'FAQs', path: '/faq' },
@@ -24,8 +24,6 @@ const footerLinks = {
 }
 
 const socials = [
-  { icon: 'fab fa-linkedin-in', href: '#', label: 'LinkedIn' },
-  { icon: 'fab fa-facebook-f', href: '#', label: 'Facebook' },
   { icon: 'fab fa-instagram', href: 'https://instagram.com/drdiet.fit', label: 'Instagram' },
   { icon: 'fab fa-whatsapp', href: 'https://wa.me/917015732242', label: 'WhatsApp' },
 ]

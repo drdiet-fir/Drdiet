@@ -155,7 +155,7 @@ export default function ProteinHero() {
       <div className="protein-hero__mobile">
         <img className="protein-hero__m-pattern" src="/brand_assets/hero/pattern.png" alt="" ref={patternRef} />
         <div className="protein-hero__m-copy">
-          <h1 className="protein-hero__m-headline">Your Protein Corner</h1>
+          <p className="protein-hero__m-headline">Your Protein Corner</p>
           <p className="protein-hero__m-sub">
             Enjoy protein-packed meals that fuel your fitness goals without compromising on taste.
           </p>

@@ -124,12 +124,14 @@
 }
 
 .reels-section__dot {
+  box-sizing: content-box;
   width: 9px;
   height: 9px;
-  padding: 0;
+  padding: 8px;
   border: none;
   border-radius: 999px;
   background: var(--dr-diet-bg-color);
+  background-clip: content-box;
   opacity: 0.4;
   cursor: pointer;
   transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
@@ -146,8 +148,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 28px;
+    gap: 0;
+    margin-top: 20px;
   }
 }
 

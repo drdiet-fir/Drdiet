@@ -1,6 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import MealCard from '../components/MealCard'
 import PageHero from '../components/PageHero'
+import PageMeta from '../components/PageMeta'
 import './Menu.css'
 
 function useReveal() {
@@ -28,12 +29,12 @@ const meals = [
   { id: 3,  name: 'Chicken Tikka Wrap',                 price: 249, cat: ['Lunch', 'High Protein'],      protein: 25.5, diet: 'Non-Veg', desc: 'Smoky chicken tikka rolled in a soft multigrain wrap.', img: '/brand_assets/menu/Chicken Tikka Wrap.webp', slug: 'premium-healthy-whole-wheat-chicken-tikka-wrap' },
   { id: 4,  name: 'Tofu Tikka Wrap',                    price: 199, cat: ['Lunch', 'Vegan'],             protein: 14,   diet: 'Veg',     desc: 'Smoky tofu tikka rolled in a soft multigrain wrap.', img: '/brand_assets/menu/Tofu Tikka Wrap.webp', slug: 'premium-healthy-whole-wheat-tofu-grilled-wrap' },
   { id: 5,  name: 'Baked Falafel Wrap',                 price: 249, cat: ['Lunch', 'High Protein'],      protein: 13,   diet: 'Veg',     desc: 'Crisp baked falafel rolled in a soft wrap with fresh veggies.', img: '/brand_assets/menu/Baked Falafel Wrap.webp', slug: 'baked-falafel-hummus' },
-  { id: 6,  name: 'Artisan Stuffed Chicken Breast',     price: 299, cat: ['Dinner', 'High Protein'],     protein: 65,   diet: 'Non-Veg', desc: 'Tender chicken breast stuffed and oven-baked, finished with a rich, savoury sauce.', img: '/brand_assets/menu/Artisan Stuffed Chicken Breast.webp', slug: 'artisan-stuffed-chicken-breast' },
-  { id: 7,  name: 'Half Pound Chicken Breast Meal',     price: 299, cat: ['Dinner', 'High Protein'],     protein: 55,   diet: 'Non-Veg', desc: 'A hearty half-pound portion of seasoned, grilled chicken breast.', img: '/brand_assets/menu/Half Pound Chicken Breast Meal.webp', slug: 'half-pound-chicken-breast-meal' },
-  { id: 8,  name: 'Steamed Chicken Hummus Salad',       price: 299, cat: ['Lunch', 'High Protein'],      protein: 53,   diet: 'Non-Veg', desc: 'Steamed chicken served over a fresh hummus salad.', img: '/brand_assets/menu/Steamed Chicken Hummus Salad.webp', slug: 'steamed-chicken-hummus-salad' },
-  { id: 9,  name: 'Baked Creamy Chicken with Mushroom & Paprika', price: 299, cat: ['Dinner', 'High Protein'], protein: 54, diet: 'Non-Veg', desc: 'Oven-baked chicken in a creamy mushroom and paprika sauce.', img: '/brand_assets/menu/Baked Creamy Chicken with Mushroom & Paprika.webp', slug: 'baked-creamy-chicken-breast-peprika-with-mushroom' },
-  { id: 10, name: 'Healthy Stuffed Paneer',             price: 299, cat: ['Dinner', 'High Protein'],     protein: 34,   diet: 'Veg',     desc: 'Paneer stuffed and baked for a wholesome, protein-rich meal.', img: '/brand_assets/menu/Healthy Stuffed Paneer.webp', slug: 'mediterranean-stuffed-paneer' },
-  { id: 11, name: 'Half Pound Paneer & Veggies',        price: 299, cat: ['Dinner', 'High Protein'],     protein: 42,   diet: 'Veg',     desc: 'A generous half-pound serving of grilled paneer with fresh veggies.', img: '/brand_assets/menu/Half Pound Paneer & Veggies.webp', slug: 'veg-protein-meal-half-pound' },
+  { id: 6,  name: 'Artisan Stuffed Chicken Breast',     price: 299, cat: ['Dinner', 'High Protein', 'Low Carb'],     protein: 65,   diet: 'Non-Veg', desc: 'Tender chicken breast stuffed and oven-baked, finished with a rich, savoury sauce.', img: '/brand_assets/menu/Artisan Stuffed Chicken Breast.webp', slug: 'artisan-stuffed-chicken-breast' },
+  { id: 7,  name: 'Half Pound Chicken Breast Meal',     price: 299, cat: ['Dinner', 'High Protein', 'Low Carb'],     protein: 55,   diet: 'Non-Veg', desc: 'A hearty half-pound portion of seasoned, grilled chicken breast.', img: '/brand_assets/menu/Half Pound Chicken Breast Meal.webp', slug: 'half-pound-chicken-breast-meal' },
+  { id: 8,  name: 'Steamed Chicken Hummus Salad',       price: 299, cat: ['Lunch', 'High Protein', 'Low Carb'],      protein: 53,   diet: 'Non-Veg', desc: 'Steamed chicken served over a fresh hummus salad.', img: '/brand_assets/menu/Steamed Chicken Hummus Salad.webp', slug: 'steamed-chicken-hummus-salad' },
+  { id: 9,  name: 'Baked Creamy Chicken with Mushroom & Paprika', price: 299, cat: ['Dinner', 'High Protein', 'Low Carb'], protein: 54, diet: 'Non-Veg', desc: 'Oven-baked chicken in a creamy mushroom and paprika sauce.', img: '/brand_assets/menu/Baked Creamy Chicken with Mushroom & Paprika.webp', slug: 'baked-creamy-chicken-breast-peprika-with-mushroom' },
+  { id: 10, name: 'Healthy Stuffed Paneer',             price: 299, cat: ['Dinner', 'High Protein', 'Low Carb'],     protein: 34,   diet: 'Veg',     desc: 'Paneer stuffed and baked for a wholesome, protein-rich meal.', img: '/brand_assets/menu/Healthy Stuffed Paneer.webp', slug: 'mediterranean-stuffed-paneer' },
+  { id: 11, name: 'Half Pound Paneer & Veggies',        price: 299, cat: ['Dinner', 'High Protein', 'Low Carb'],     protein: 42,   diet: 'Veg',     desc: 'A generous half-pound serving of grilled paneer with fresh veggies.', img: '/brand_assets/menu/Half Pound Paneer & Veggies.webp', slug: 'veg-protein-meal-half-pound' },
   { id: 12, name: 'Arrabiata Veg Protein Pasta',        price: 299, cat: ['Lunch', 'High Protein'],      protein: 26,   diet: 'Veg',     desc: 'Whole wheat pasta with fresh veggies, your choice of protein, and a spicy arrabiata sauce.', img: '/brand_assets/menu/Arrabiata Veg Protein Pasta.webp', slug: null },
   { id: 13, name: 'Mashed Potatoes Comfort Bowl (Veg)', price: 299, cat: ['Dinner'],                      protein: 18,   diet: 'Veg',     desc: 'Build-your-own comfort bowl with mashed potato and grilled paneer.', img: '/brand_assets/menu/Mashed Patatoes Comfort Bowl(Veg).webp', slug: 'mashed-potatoes-comfort-bowl-veg' },
   { id: 14, name: 'Mashed Potatoes Comfort Bowl (Non-Veg)', price: 299, cat: ['Dinner', 'High Protein'],  protein: 27,   diet: 'Non-Veg', desc: 'Build-your-own comfort bowl with mashed potato and steamed chicken.', img: '/brand_assets/menu/Mashed Potatoes Comfort Bowl(Non Veg).webp', slug: 'mashed-potatoes-comfort-bowl-non-veg' },
@@ -95,6 +96,11 @@ export default function Menu() {
 
   return (
     <>
+      <PageMeta
+        title="Our Menu | High-Protein, Calorie-Counted Meals | Dr Diet"
+        description="Explore the Dr Diet menu — calorie-counted, macro-balanced, high-protein meals in Veg and Non-Veg. Wraps, bowls, salads and more, updated weekly."
+        canonical="/menu"
+      />
       <PageHero
         title="Real Food That Fuels Real Results"
         subtitle="Every dish is calorie-counted, macro-balanced, and genuinely delicious. Updated weekly to keep things exciting."

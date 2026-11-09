@@ -2,7 +2,7 @@ import './WhySection.css'
 
 const CARDS = [
   {
-    title: '38+ Delicious Meal Options',
+    title: '22+ Delicious Meal Options',
     desc: "From everyday favourites to global flavours, there's always something exciting to eat.",
     img: '/brand_assets/why-section/card-1-main.png',
   },

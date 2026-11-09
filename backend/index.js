@@ -38,6 +38,16 @@ function sheetSafe(value) {
   return /^[=+\-@]/.test(str) ? `'${str}` : str
 }
 
+const clean = (v) => (v ?? '').toString().trim().replace(/\s+/g, ' ')
+
+function normalizeIndianPhone(raw) {
+  const digits = (raw || '').replace(/\D/g, '')
+  let ten = digits
+  if (ten.length === 12 && ten.startsWith('91')) ten = ten.slice(2)
+  else if (ten.length === 11 && ten.startsWith('0')) ten = ten.slice(1)
+  return /^[6-9]\d{9}$/.test(ten) ? ten : null
+}
+
 // ── Google Sheets Auth (service account) ──────────────────────
 function getSheetsClient() {
   const auth = new google.auth.JWT({
@@ -91,10 +101,29 @@ async function notifyUser(phone) {
 const SHEET_TABS = { 'Sheet1': 'Sheet1', 'Career Leads': 'Career Leads' }
 
 app.post('/submit', submitLimiter, async (req, res) => {
-  const { name, phone, city, goal, diet, source, sheet, cvUrl } = req.body
+  const body = req.body || {}
+  const name   = clean(body.name)
+  const city   = clean(body.city)
+  const goal   = clean(body.goal)
+  const diet   = clean(body.diet)
+  const source = clean(body.source)
+  const email  = clean(body.email)
+  const cvUrl  = clean(body.cvUrl)
+  const sheet  = body.sheet
+  const rawPhone = clean(body.phone)
 
-  if (!name || (!phone && !city)) {
+  if (!name || (!rawPhone && !city)) {
     return res.status(400).json({ success: false, error: 'Missing required fields.' })
+  }
+
+  // Validate phone when one is provided.
+  let phone = rawPhone
+  if (rawPhone) {
+    const normalized = normalizeIndianPhone(rawPhone)
+    if (!normalized) {
+      return res.status(400).json({ success: false, error: 'Please enter a valid 10-digit mobile number.' })
+    }
+    phone = normalized
   }
 
   const tab = SHEET_TABS[sheet] || 'Sheet1'
@@ -105,9 +134,11 @@ app.post('/submit', submitLimiter, async (req, res) => {
     hour: '2-digit', minute: '2-digit', hour12: true,
   })
 
-  // The CV is uploaded client-side (Cloudinary); we just store its link.
+  // Column H carries the CV link (Career Leads) or the email (other forms);
+  // a given submission has only one of them.
+  const extra = cvUrl || email || ''
   const values = [name, phone, city, goal, diet, source, timestamp]
-  if (cvUrl) values.push(cvUrl)
+  if (extra) values.push(extra)
   const row = values.map(sheetSafe)
 
   // 1. Save to Google Sheets
@@ -115,7 +146,7 @@ app.post('/submit', submitLimiter, async (req, res) => {
     const sheets = getSheetsClient()
     await sheets.spreadsheets.values.append({
       spreadsheetId:    process.env.GOOGLE_SHEET_ID,
-      range:            `'${tab}'!A:${cvUrl ? 'H' : 'G'}`,
+      range:            `'${tab}'!A:${extra ? 'H' : 'G'}`,
       valueInputOption: 'USER_ENTERED',
       insertDataOption: 'INSERT_ROWS',
       requestBody: { values: [row] },
