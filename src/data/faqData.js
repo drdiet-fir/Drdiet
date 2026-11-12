@@ -29,6 +29,7 @@ export const FAQ_GROUPS = [
       { q: 'Is your food oily or very spicy?', a: 'No. We cook light with olive oil and herbs, and you can ask for less spice or oil anytime.' },
       { q: 'What protein sources do you use?', a: 'We use paneer, tofu, egg and chicken for protein in our meals.' },
       { q: 'Is your food prepared hygienically?', a: 'Yes. Every meal is freshly prepared in our kitchen with care, only after you order.' },
+      { q: 'Is your chicken Halal certified?', a: 'Yes, our chicken is Halal certified.' },
     ],
   },
   {
