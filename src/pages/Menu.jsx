@@ -129,7 +129,7 @@ export default function Menu() {
                 </button>
               ))}
             </div>
-            <a href="/brand_assets/DR DIET MENU.pdf" target="_blank" rel="noopener noreferrer" className="menu-pdf-btn">
+            <a href="/brand_assets/DR DIET MENU.pdf?v=20261113" target="_blank" rel="noopener noreferrer" className="menu-pdf-btn">
               Restaurant Menu <i className="fas fa-arrow-right" />
             </a>
           </div>
@@ -159,7 +159,7 @@ export default function Menu() {
           )}
 
           <div className="menu-explore">
-            <a href="/brand_assets/DR DIET MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg">
+            <a href="/brand_assets/DR DIET MENU.pdf?v=20261113" target="_blank" rel="noopener noreferrer" className="btn btn--dark btn--lg">
               Explore Full Menu <i className="fas fa-arrow-right" />
             </a>
           </div>
