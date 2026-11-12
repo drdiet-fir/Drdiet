@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
@@ -7,24 +7,26 @@ import Footer from './components/Footer'
 import CtaBand from './components/CtaBand'
 import WhatsAppButton from './components/WhatsAppButton'
 import Home from './pages/Home'
-import About from './pages/About'
-import Subscription from './pages/Subscription'
-import Menu from './pages/Menu'
-import Media from './pages/Media'
-import Testimonials from './pages/Testimonials'
-import Locations from './pages/Locations'
-import JoinUs from './pages/JoinUs'
-import Contact from './pages/Contact'
-import Blog from './pages/Blog'
-import BlogPost from './pages/BlogPost'
-import Faq from './pages/Faq'
-import Delhi from './pages/cities/Delhi'
-import Gurgaon from './pages/cities/Gurgaon'
-import Bangalore from './pages/cities/Bangalore'
-import Chandigarh from './pages/cities/Chandigarh'
-import NotFound from './pages/NotFound'
-import Terms from './pages/Terms'
-import Privacy from './pages/Privacy'
+
+// Secondary routes are code-split so the landing page ships a smaller bundle.
+const About = lazy(() => import('./pages/About'))
+const Subscription = lazy(() => import('./pages/Subscription'))
+const Menu = lazy(() => import('./pages/Menu'))
+const Media = lazy(() => import('./pages/Media'))
+const Testimonials = lazy(() => import('./pages/Testimonials'))
+const Locations = lazy(() => import('./pages/Locations'))
+const JoinUs = lazy(() => import('./pages/JoinUs'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Blog = lazy(() => import('./pages/Blog'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
+const Faq = lazy(() => import('./pages/Faq'))
+const Delhi = lazy(() => import('./pages/cities/Delhi'))
+const Gurgaon = lazy(() => import('./pages/cities/Gurgaon'))
+const Bangalore = lazy(() => import('./pages/cities/Bangalore'))
+const Chandigarh = lazy(() => import('./pages/cities/Chandigarh'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const Terms = lazy(() => import('./pages/Terms'))
+const Privacy = lazy(() => import('./pages/Privacy'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -41,6 +43,7 @@ function AppContent() {
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
       <main id="main-content">
+        <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -63,6 +66,7 @@ function AppContent() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </main>
       <CtaBand />
       <Footer />

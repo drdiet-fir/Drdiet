@@ -1,5 +1,18 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import './ReelsSection.css'
+
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const onChange = () => setReduced(mq.matches)
+    mq.addEventListener?.('change', onChange)
+    return () => mq.removeEventListener?.('change', onChange)
+  }, [])
+  return reduced
+}
 
 const REELS = [
   { id: 'DejWzimBGPs', url: 'https://www.instagram.com/p/DejWzimBGPs/', video: '/brand_assets/reels/reel-1.mp4' },
@@ -7,9 +20,11 @@ const REELS = [
   { id: 'DYrKreOJqs1', url: 'https://www.instagram.com/p/DYrKreOJqs1/', video: '/brand_assets/reels/reel-3.mp4' },
   { id: 'DfOc4jYSxGu', url: 'https://www.instagram.com/p/DfOc4jYSxGu/', video: '/brand_assets/reels/reel-4.mp4' },
   { id: 'DYo7TXTJ5nq', url: 'https://www.instagram.com/p/DYo7TXTJ5nq/', video: '/brand_assets/reels/reel-5.mp4' },
+  { id: 'DYMeqVEOwnN', url: 'https://www.instagram.com/reel/DYMeqVEOwnN/', video: '/brand_assets/reels/reel-6.mp4' },
+  { id: 'DNiSfkrpeHt', url: 'https://www.instagram.com/reel/DNiSfkrpeHt/', video: '/brand_assets/reels/reel-7.mp4' },
 ]
 
-const CENTER = 2
+const CENTER = Math.floor(REELS.length / 2)
 const DURATION = 320
 const EASE = 'cubic-bezier(0.4, 0, 0.2, 1)'
 
@@ -21,7 +36,23 @@ function recenter(arr, index) {
   return arr.slice(shift).concat(arr.slice(0, shift))
 }
 
-function ReelCard({ reel, isCenter, muted, onToggleMute, onClick, cardRef }) {
+function ReelCard({ reel, isCenter, muted, reducedMotion, onToggleMute, onClick, cardRef }) {
+  const videoRef = useRef(null)
+
+  // Only the centered reel plays (and only when motion isn't reduced); the rest
+  // stay paused and aren't fetched until they reach the centre — so the page
+  // streams one clip instead of downloading all five on load.
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    if (isCenter && !reducedMotion) {
+      const p = v.play()
+      if (p && typeof p.catch === 'function') p.catch(() => {})
+    } else {
+      v.pause()
+    }
+  }, [isCenter, reducedMotion])
+
   return (
     <div
       className={`reel-card ${isCenter ? 'reel-card--center' : ''}`}
@@ -29,12 +60,13 @@ function ReelCard({ reel, isCenter, muted, onToggleMute, onClick, cardRef }) {
       onClick={onClick}
     >
       <video
+        ref={videoRef}
         className="reel-card__video"
         src={reel.video}
-        autoPlay
         loop
         muted={muted}
         playsInline
+        preload={isCenter ? 'auto' : 'metadata'}
       />
       <a
         className="reel-card__badge"
@@ -64,8 +96,10 @@ function ReelCard({ reel, isCenter, muted, onToggleMute, onClick, cardRef }) {
 }
 
 export default function ReelsSection() {
-  const [order, setOrder] = useState(REELS.map((_, i) => i))
+  // Start with reel-4 (index 3) in the centre slot.
+  const [order, setOrder] = useState(() => recenter(REELS.map((_, i) => i), 3))
   const [muted, setMuted] = useState(true)
+  const reducedMotion = usePrefersReducedMotion()
   const sectionRef = useRef(null)
   const nodeRefs = useRef(new Map())
   const pending = useRef(null)
@@ -194,6 +228,7 @@ export default function ReelsSection() {
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
+        onPointerCancel={endDrag}
         onClickCapture={handleTrackClickCapture}
       >
         {order.map((reelIndex, slotIndex) => {
@@ -204,6 +239,7 @@ export default function ReelsSection() {
               reel={reel}
               isCenter={slotIndex === CENTER}
               muted={slotIndex === CENTER ? muted : true}
+              reducedMotion={reducedMotion}
               onToggleMute={() => setMuted((m) => !m)}
               onClick={() => handleClick(slotIndex)}
               cardRef={(el) => {

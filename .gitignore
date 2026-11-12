@@ -34,3 +34,11 @@ Thumbs.db
 # Cache
 .cache/
 .parcel-cache/
+
+# Local AI tooling (per-developer skill/plugin installs, runtime caches)
+.agents/
+.codex/
+.claude/
+skills-lock.json
+.impeccable/config.local.json
+.impeccable/hook.cache.json

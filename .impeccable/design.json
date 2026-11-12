@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T00:00:00Z",
+  "title": "Design System: Dr Diet",
+  "extensions": {
+    "colorMeta": {
+      "brand-green": { "role": "primary", "displayName": "Deep Olive Green", "canonical": "#414C3C", "tonalRamp": ["#14170F", "#232A1D", "#333D2C", "#414C3C", "#5A6552", "#7E8878", "#AEB4A8", "#D7DAD2"] },
+      "cream": { "role": "neutral", "displayName": "Warm Cream", "canonical": "#F8F4EC", "tonalRamp": ["#4A4638", "#6E6954", "#938D73", "#BBB69E", "#D8D3BE", "#ECE7D8", "#F8F4EC", "#FFFFFF"] },
+      "lime-accent": { "role": "secondary", "displayName": "Lime Yellow", "canonical": "#E2E573", "tonalRamp": ["#3A3C10", "#595C1D", "#7C8029", "#A3A73C", "#C4C851", "#E2E573", "#EDEFA3", "#F7F8D8"] },
+      "muted-cream-text": { "role": "neutral", "displayName": "Muted Cream", "canonical": "#EBE0C9", "tonalRamp": ["#5A5136", "#7E734E", "#A3966A", "#C4B78E", "#DBCFAC", "#EBE0C9", "#F3ECDD", "#FBF8F0"] },
+      "border-stroke": { "role": "neutral", "displayName": "Sand Stroke", "canonical": "#DACAA9", "tonalRamp": ["#4E4327", "#6E5F39", "#8F7E52", "#B09B70", "#C8B591", "#DACAA9", "#E8DCC5", "#F4EEE1"] },
+      "label": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#646464", "tonalRamp": ["#1F1F1F", "#333333", "#474747", "#646464", "#858585", "#A6A6A6", "#C9C9C9", "#E8E8E8"] },
+      "white": { "role": "neutral", "displayName": "White", "canonical": "#FFFFFF", "tonalRamp": ["#9E9E9E", "#B5B5B5", "#CCCCCC", "#DCDCDC", "#EBEBEB", "#F5F5F5", "#FBFBFB", "#FFFFFF"] }
+    },
+    "typographyMeta": {
+      "hero": { "displayName": "Hero Script", "purpose": "The single pinned hero headline only." },
+      "display": { "displayName": "Section Script", "purpose": "Section headlines, in the handwritten display face." },
+      "body": { "displayName": "Body (Inter)", "purpose": "Paragraphs and descriptions; ~65-75ch measure." },
+      "label": { "displayName": "Label (Inter)", "purpose": "Pills, meta rows, nav links, button text." }
+    },
+    "shadows": [
+      { "name": "sm", "value": "0 2px 8px rgba(0,0,0,0.06)", "purpose": "Resting lift on light cards." },
+      { "name": "md", "value": "0 8px 32px rgba(0,0,0,0.10)", "purpose": "Hover elevation and open FAQ items." },
+      { "name": "lg", "value": "0 20px 60px rgba(0,0,0,0.14)", "purpose": "Rare, most-raised surfaces." },
+      { "name": "food-drop", "value": "drop-shadow(-8px 10px 14px rgba(0,0,0,0.22))", "purpose": "Warmth under food photos and hero stickers." }
+    ],
+    "motion": [
+      { "name": "transition", "value": "0.3s ease", "purpose": "Default state transition (hover, color, border)." },
+      { "name": "transition-slow", "value": "0.5s ease", "purpose": "Image scale and larger reveals." },
+      { "name": "reel-ease", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Reel recenter / FLIP animation (320ms)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "900px" },
+      { "name": "xl", "value": "960px" },
+      { "name": "2xl", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Dark Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Primary CTA — brand-green pill with cream text.",
+      "html": "<button class=\"ds-btn-dark\">Start Your Plan</button>",
+      "css": ".ds-btn-dark { display:inline-flex; align-items:center; gap:8px; background:var(--primary-dr-diet-color,#414C3C); color:var(--dr-diet-bg-color,#F8F4EC); font:500 14px/1.4 'Inter',sans-serif; letter-spacing:0.1px; padding:12px 28px; border:none; border-radius:9999px; cursor:pointer; transition:filter 0.3s ease; } .ds-btn-dark:hover { filter:brightness(0.85); } .ds-btn-dark:focus-visible { outline:3px solid var(--primary-dr-diet-color,#414C3C); outline-offset:3px; }"
+    },
+    {
+      "name": "Outline Dark Button",
+      "kind": "button",
+      "refersTo": "button-outline-dark",
+      "description": "Secondary CTA — green outline on cream, fills on hover.",
+      "html": "<button class=\"ds-btn-outline\">Talk to Us</button>",
+      "css": ".ds-btn-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--primary-dr-diet-color,#414C3C); font:500 14px/1.4 'Inter',sans-serif; letter-spacing:0.1px; padding:12px 28px; border:1.5px solid var(--primary-dr-diet-color,#414C3C); border-radius:9999px; cursor:pointer; transition:background 0.3s ease, color 0.3s ease; } .ds-btn-outline:hover { background:var(--primary-dr-diet-color,#414C3C); color:var(--dr-diet-bg-color,#F8F4EC); }"
+    },
+    {
+      "name": "Order Pill",
+      "kind": "button",
+      "refersTo": "order-pill",
+      "description": "Per-dish order link on meal cards — white pill, inverts on hover.",
+      "html": "<a class=\"ds-order-pill\">Order <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-order-pill { display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--primary-dr-diet-color,#414C3C); font:500 14px/1.4 'Inter',sans-serif; padding:10px 20px; border:1px solid var(--primary-dr-diet-color,#414C3C); border-radius:9999px; text-decoration:none; transition:background 0.3s ease, color 0.3s ease; } .ds-order-pill:hover { background:var(--primary-dr-diet-color,#414C3C); color:var(--dr-diet-bg-color,#F8F4EC); }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Menu/location filter pill; active inverts to green fill.",
+      "html": "<button class=\"ds-chip ds-chip--active\">High Protein</button>",
+      "css": ".ds-chip { background:transparent; color:var(--primary-dr-diet-color,#414C3C); font:600 0.88rem/1 'Inter',sans-serif; padding:9px 22px; border:1.5px solid var(--primary-dr-diet-color,#414C3C); border-radius:9999px; cursor:pointer; transition:all 0.3s ease; } .ds-chip:hover { background:rgba(65,76,60,0.08); } .ds-chip--active { background:var(--primary-dr-diet-color,#414C3C); color:#fff; }"
+    },
+    {
+      "name": "Meal Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Dish card — white, flat at rest, green border + shadow on hover.",
+      "html": "<div class=\"ds-meal-card\"><div class=\"ds-meal-card__img\"></div><h3>Artisan Stuffed Chicken Breast</h3><p>Tender chicken breast stuffed and oven-baked.</p></div>",
+      "css": ".ds-meal-card { background:#fff; border:1px solid transparent; border-radius:12px; padding:24px; transition:border-color 0.2s ease, box-shadow 0.2s ease; } .ds-meal-card:hover { border-color:var(--primary-dr-diet-color,#414C3C); box-shadow:0 0 14px rgba(0,0,0,0.12); } .ds-meal-card__img { aspect-ratio:1/1; border-radius:8px; background:#DACAA9; margin-bottom:24px; } .ds-meal-card h3 { font:400 24px/1.25 'Bethany Elingston',cursive; color:var(--primary-dr-diet-color,#414C3C); margin:0 0 12px; } .ds-meal-card p { font:400 16px/1.5 'Inter',sans-serif; color:#646464; margin:0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Wholesome Kitchen",
+    "overview": "Dr Diet looks like the brand feels: warm, hand-made, and honest. The whole world sits on two colours — a deep olive brand green and a warm cream — with a single lime-yellow accent kept for backgrounds only. Headlines are set in a flowing handwritten script, as if chalked on a kitchen board, while everything functional is clean Inter. Food photography does the selling: real dishes on a dark slate, shot close. The green is the single ink colour on cream; hierarchy comes from the script-vs-sans contrast, size, and weight, not from more hues. Depth is soft and state-driven — faint shadows that lift a card on hover, never a hard edge or a neon glow. This is a Persuade surface: ambition shows as appetite and trust, not spectacle.",
+    "keyCharacteristics": [
+      "Two-colour world (olive green + cream) with lime accent reserved for fills.",
+      "Handwritten script display face against clean Inter body.",
+      "Real, close food photography on dark slate — never stock clichés.",
+      "Soft, state-driven depth; rounded, friendly forms.",
+      "One or two authored motion moments per page; everything else is quiet."
+    ],
+    "rules": [
+      { "name": "The One-Ink Rule", "body": "On any surface there is exactly one text colour: brand green on light, cream on dark. Secondary text is tinted from the surface, never a generic grey and never a second brand hue.", "section": "colors" },
+      { "name": "The Accent-Is-A-Fill Rule", "body": "Lime #E2E573 is a background, not an ink. If tempted to colour text or an icon lime, use weight or size instead.", "section": "colors" },
+      { "name": "The Script-For-Voice Rule", "body": "Script is for headings and card titles only. Used for body, a label, or a button it stops being special and becomes unreadable.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Cards sit flat on their ground and gain shadow only on hover/focus/open. Depth narrates interaction; it is never decoration at rest.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep one ink per surface: brand green on light, cream on dark. Tint secondary text from the surface.",
+      "Do set every heading and card title in the script face, and everything functional in Inter.",
+      "Do use real, close food photography on dark slate; pull dish names, protein, and price from the menu PDF.",
+      "Do reserve lime #E2E573 for background fills (CTA, bands) only.",
+      "Do keep cards flat at rest and let shadow respond to hover/focus (sm to md).",
+      "Do use pills for all buttons, tags, and filters; hairline stroke-colour borders."
+    ],
+    "donts": [
+      "Don't introduce a third brand colour, gradient text, or a grey secondary text colour.",
+      "Don't set body copy, labels, or buttons in the script face.",
+      "Don't use stock 'healthy lifestyle' photography, invented testimonials, press, or transformation before/afters.",
+      "Don't add hard offset shadows, coloured halos, or thick coloured border-left accents.",
+      "Don't claim outlet/city counts other than the real 17 outlets / 6 cities."
+    ]
+  }
+}

@@ -26,7 +26,7 @@
   --dr-diet-stroke-color-2: #DACAA9; /* Dr Diet Stroke Color 2 — the actual border/stroke color for cards, pills & inputs */
   --accent:         #E2E573;         /* Accent — lime-yellow, backgrounds only */
   --accent-rgb:     226, 229, 115;   /* RGB triplet of the above, for rgba() tints */
-  --label:          #7B7B7B;         /* Label — muted secondary/meta text */
+  --label:          #646464;         /* Label — muted secondary/meta text (≥4.5:1 on cream & white) */
   --white:          #FFFFFF;         /* Light */
 
   /* Typography — the two-font pairing */
@@ -151,6 +151,12 @@ button {
 /* Remove outline for mouse users */
 :focus:not(:focus-visible) {
   outline: none;
+}
+
+/* Themed text selection — a browser surface that ships in the brand palette */
+::selection {
+  background: var(--accent);
+  color: var(--primary-dr-diet-color);
 }
 
 input, textarea, select {
