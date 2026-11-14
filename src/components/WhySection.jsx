@@ -2,7 +2,7 @@ import './WhySection.css'
 
 const CARDS = [
   {
-    title: '22+ Delicious Meal Options',
+    title: '50+ Delicious Meals',
     desc: "From everyday favourites to global flavours, there's always something exciting to eat.",
     img: '/brand_assets/why-section/card-1-main.png',
   },
@@ -13,7 +13,7 @@ const CARDS = [
   },
   {
     title: 'Healthy Eating, Made Easy',
-    desc: 'Skip the meal prep. Get delicious, wholesome food delivered to your doorstep.',
+    desc: 'No grocery shopping, no meal prep. Get delicious, wholesome food delivered to your doorstep.',
     img: '/brand_assets/why-section/card-3.png',
   },
   {

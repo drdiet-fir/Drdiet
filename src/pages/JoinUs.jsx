@@ -192,7 +192,7 @@ export default function JoinUs() {
                 <span>Successful branches</span>
               </div>
               <div className="joinus-stat-card">
-                <strong>18mo</strong>
+                <strong>12-15mo</strong>
                 <span>Avg. payback period</span>
               </div>
             </div>
