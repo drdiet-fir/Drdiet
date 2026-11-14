@@ -10,7 +10,7 @@ const footerLinks = {
     { label: 'Media/Gallery', path: '/media' },
     { label: 'Contact Us', path: '/contact' },
     { label: 'FAQs', path: '/faq' },
-    { label: 'Menu', href: '/brand_assets/DR DIET MENU.pdf?v=20261113-min' },
+    { label: 'Menu', href: '/brand_assets/DR DIET MENU.pdf?v=20261114' },
   ],
   Plans: [
     { label: 'Subscription Plans', path: '/subscription' },
