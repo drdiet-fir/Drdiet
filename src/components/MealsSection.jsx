@@ -8,7 +8,7 @@ const MEALS = [
   {
     name: 'Artisan Stuffed Chicken Breast',
     desc: 'Tender chicken breast stuffed and oven-baked, finished with a rich, savoury sauce.',
-    protein: '65g Protein',
+    protein: '52g Protein',
     price: '₹299',
     diet: 'Non-Veg',
     img: '/brand_assets/menu/Artisan Stuffed Chicken Breast.webp',
@@ -24,7 +24,7 @@ const MEALS = [
   {
     name: 'Chicken Tikka Wrap',
     desc: 'Smoky chicken tikka rolled in a soft multigrain wrap.',
-    protein: '25.5g Protein',
+    protein: '28g Protein',
     price: '₹249',
     diet: 'Non-Veg',
     img: '/brand_assets/menu/Chicken Tikka Wrap.webp',
