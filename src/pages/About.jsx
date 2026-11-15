@@ -57,13 +57,13 @@ const pressItems = [
 ]
 
 const milestones = [
-  { year: '2019', event: 'Started in a 10×8 room in Chandigarh. First meals at ₹99.', img: '/brand_assets/about/timeline-2019.png' },
-  { year: '2020', event: "COVID shutdown. Lost entire investment. Restarted with landlord's support.", img: '/brand_assets/about/timeline-2020.png' },
-  { year: '2021', event: 'Official relaunch. New kitchen, team of 5 chefs, listed on Swiggy & Zomato.', img: '/brand_assets/about/timeline-2021.png' },
-  { year: '2022–23', event: 'Expanded to Delhi, Noida, Gurgaon and Mohali via partner model.', img: '/brand_assets/about/timeline-2022.png' },
-  { year: '2024', event: 'Crossed 14 outlets. Launched in Bengaluru. Cloud kitchens + QSR + Dine-in.', img: '/brand_assets/about/timeline-2024.png' },
-  { year: '2025', event: '₹10 Cr+ annual revenue. Startup Pedia feature. Went viral nationally.', img: '/brand_assets/about/timeline-2025.png' },
-  { year: '2026', event: 'Targeting ₹15–16 Cr. Expanding to Hyderabad, Pune & Mumbai.', img: '/brand_assets/about/timeline-2026.png' },
+  { year: '2020', event: 'Our first kitchen opened in Chandigarh. Twelve days later, the country went into lockdown.', img: '/brand_assets/about/timeline-2020.png' },
+  { year: '2021', event: '30 September: Dr. Diet officially begins in Chandigarh. Live on Swiggy & Zomato.', img: '/brand_assets/about/timeline-2021.png' },
+  { year: '2022–23', event: '4 outlets across Chandigarh & Mohali.', img: '/brand_assets/about/timeline-2019.png' },
+  { year: '2023–24', event: '5 outlets. More kitchens, same food.', img: '/brand_assets/about/timeline-2022.png' },
+  { year: '2024–25', event: '7 outlets. Into Delhi NCR with our partner model.', img: '/brand_assets/about/timeline-2024.png' },
+  { year: '2025–26', event: '12 outlets. Launched in Bengaluru.', img: '/brand_assets/about/timeline-2025.png' },
+  { year: '2026', event: '17 outlets. 2,500 meals a day across Delhi NCR, Chandigarh & Bengaluru.', img: '/brand_assets/about/timeline-2026.png' },
 ]
 
 export default function About() {
@@ -124,7 +124,7 @@ export default function About() {
       <section className="about-journey-v2" ref={s3}>
         <div className="container about-journey-v2__inner">
           <div className="about-journey-v2__header">
-            <h2>From One Room<br />to a Nationwide Movement</h2>
+            <h2>From One Kitchen<br />to 17 Outlets</h2>
             <div className="about-journey-v2__accent" />
           </div>
 
