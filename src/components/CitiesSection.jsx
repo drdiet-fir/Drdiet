@@ -2,9 +2,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import './CitiesSection.css'
 
 const CITIES = [
-  { name: 'Delhi', img: '/brand_assets/cities/city-1.png', path: '/healthy-meal-plan-delhi' },
-  { name: 'Gurgaon', img: '/brand_assets/cities/city-2.png', path: '/diet-food-gurgaon' },
-  { name: 'Bengaluru', img: '/brand_assets/cities/city-3.png', path: '/weight-loss-meals-bangalore' },
+  { name: 'Delhi', img: '/brand_assets/cities/city-2.png', path: '/healthy-meal-plan-delhi' },
+  { name: 'Gurgaon', img: '/brand_assets/cities/city-3.png', path: '/diet-food-gurgaon' },
+  { name: 'Bengaluru', img: '/brand_assets/cities/city-1.png', path: '/weight-loss-meals-bangalore' },
   { name: 'Noida', img: '/brand_assets/cities/city-4.png', path: '/locations' },
   { name: 'Mohali', img: '/brand_assets/cities/city-5.png', path: '/locations' },
   { name: 'Chandigarh', img: '/brand_assets/cities/city-6.png', path: '/healthy-meals-chandigarh' },
