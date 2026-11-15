@@ -97,8 +97,11 @@ async function notifyUser(phone) {
 }
 
 // ── POST /submit ──────────────────────────────────────────────
-// Allowed destination tabs (prevents injecting arbitrary ranges).
-const SHEET_TABS = { 'Sheet1': 'Sheet1', 'Career Leads': 'Career Leads' }
+// Allowed destination tabs (must match the actual tab names in the sheet;
+// prevents injecting arbitrary ranges). General leads go to "Subscription
+// Lead"; the careers form sends sheet:"Career Leads".
+const DEFAULT_TAB = 'Subscription Lead'
+const SHEET_TABS = { 'Subscription Lead': 'Subscription Lead', 'Career Leads': 'Career Leads' }
 
 app.post('/submit', submitLimiter, async (req, res) => {
   const body = req.body || {}
@@ -126,7 +129,7 @@ app.post('/submit', submitLimiter, async (req, res) => {
     phone = normalized
   }
 
-  const tab = SHEET_TABS[sheet] || 'Sheet1'
+  const tab = SHEET_TABS[sheet] || DEFAULT_TAB
 
   const timestamp = new Date().toLocaleString('en-IN', {
     timeZone: 'Asia/Kolkata',
