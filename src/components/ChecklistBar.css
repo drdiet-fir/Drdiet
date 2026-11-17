@@ -4,14 +4,25 @@
 .checklist-bar {
   background: var(--accent);
   padding: 32px 24px;
+  overflow: hidden;
 }
 
-.checklist-bar__inner {
+.checklist-bar__track {
+  display: flex;
+  justify-content: center;
+}
+
+.checklist-bar__group {
   display: flex;
   flex-wrap: wrap;
   gap: 16px 48px;
   align-items: center;
   justify-content: center;
+}
+
+/* Desktop: the duplicate set is not needed — one centered, wrapping row. */
+.checklist-bar__group[aria-hidden='true'] {
+  display: none;
 }
 
 .checklist-bar__item {
@@ -28,11 +39,46 @@
   font-size: 20px;
 }
 
+/* Mobile: one horizontal line that auto-scrolls as a seamless marquee. */
 @media (max-width: 640px) {
-  .checklist-bar__inner {
-    gap: 12px 24px;
+  .checklist-bar {
+    padding: 20px 0;
+  }
+  .checklist-bar__track {
+    width: max-content;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    animation: checklist-marquee 22s linear infinite;
+  }
+  .checklist-bar__group {
+    flex-wrap: nowrap;
+    gap: 28px;
+    /* right margin equals the inter-item gap so a -50% shift loops seamlessly */
+    margin-right: 28px;
+    flex: 0 0 auto;
+  }
+  .checklist-bar__group[aria-hidden='true'] {
+    display: flex;
   }
   .checklist-bar__item {
     font-size: 16px;
+  }
+}
+
+@keyframes checklist-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Reduced motion: no auto-scroll — a single, manually scrollable row. */
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .checklist-bar {
+    overflow-x: auto;
+  }
+  .checklist-bar__track {
+    animation: none;
+  }
+  .checklist-bar__group[aria-hidden='true'] {
+    display: none;
   }
 }

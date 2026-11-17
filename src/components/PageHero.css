@@ -93,6 +93,10 @@
   .page-hero-v2__inner h1 {
     font-size: 2rem;
   }
+  .page-hero-v2__inner p {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
   /* The wave scales shorter than the fixed -50px offset on small screens,
      which leaves a gap below the hero. Anchor its straight top edge to the
      hero's bottom, span full width, and make the crests more pronounced. */

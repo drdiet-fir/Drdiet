@@ -80,4 +80,39 @@
   .meals-section-v2__inner {
     gap: 40px;
   }
+  .meals-section-v2__sub {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Mobile: one horizontal-scroll row of smaller cards (matches /menu) */
+  .meals-section-v2__grid {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: 16px;
+    /* bleed to the screen edges, re-inset the first card */
+    margin: 0 -16px;
+    padding: 4px 16px 12px;
+    scrollbar-width: none;
+  }
+  .meals-section-v2__grid::-webkit-scrollbar { display: none; }
+  .meals-section-v2__grid > .meal-card-v2 {
+    flex: 0 0 auto;
+    width: 76%;
+    max-width: 280px;
+    scroll-snap-align: start;
+  }
+  /* Scale the card down proportionally (homepage meals only) */
+  .meals-section-v2__grid .meal-card-v2 { padding: 16px; gap: 16px; }
+  .meals-section-v2__grid .meal-card-v2__content { gap: 12px; }
+  .meals-section-v2__grid .meal-card-v2__title-row h3 { font-size: 20px; }
+  .meals-section-v2__grid .meal-card-v2__desc { font-size: 14px; line-height: 20px; }
+  .meals-section-v2__grid .meal-card-v2__order { height: 32px; padding: 7px 14px; }
+  .meals-section-v2__grid .meal-card-v2__meta span { font-size: 13px; }
 }
