@@ -49,7 +49,12 @@ function normalizeIndianPhone(raw) {
 }
 
 // ── Google Sheets Auth (service account) ──────────────────────
+// Build the auth client once and reuse it. googleapis caches the OAuth
+// access token on the auth object, so reusing it avoids a token-exchange
+// round-trip to Google on every submit (a chunk of the per-request latency).
+let sheetsClient = null
 function getSheetsClient() {
+  if (sheetsClient) return sheetsClient
   const auth = new google.auth.JWT({
     email:  process.env.GOOGLE_CLIENT_EMAIL,
     key:    (process.env.GOOGLE_PRIVATE_KEY || '')
@@ -57,7 +62,8 @@ function getSheetsClient() {
               .replace(/\\n/g, '\n'),
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   })
-  return google.sheets({ version: 'v4', auth })
+  sheetsClient = google.sheets({ version: 'v4', auth })
+  return sheetsClient
 }
 
 // ── Twilio client ─────────────────────────────────────────────
@@ -185,6 +191,18 @@ app.use((err, _req, res, _next) => {
   console.error('❌ Unhandled error:', err.message)
   return res.status(500).json({ success: false, error: 'Internal server error.' })
 })
+
+// ── Keep the instance warm ────────────────────────────────────
+// Render's free tier spins the service down after ~15 min idle, so the
+// next form submission pays a 30–60s cold start. Ping our own public URL
+// on an interval to keep the service awake. RENDER_EXTERNAL_URL is injected
+// by Render; it's undefined locally, so this is skipped in development.
+const SELF_URL = process.env.RENDER_EXTERNAL_URL
+if (SELF_URL && typeof fetch === 'function') {
+  setInterval(() => {
+    fetch(`${SELF_URL}/`).catch(() => {})
+  }, 10 * 60 * 1000) // every 10 minutes
+}
 
 // ── Start ─────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3001
