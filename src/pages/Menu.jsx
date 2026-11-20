@@ -166,7 +166,7 @@ export default function Menu() {
 
           <div className="menu-note">
             <i className="fas fa-info-circle" />
-            <p>This is a sample menu. Your actual meals are <strong>fully customized</strong> to your caloric goals and preferences. Menus rotate weekly.</p>
+            <p>An average active adult requires <strong>2,000 kcal</strong> energy per day, however, calorie needs may vary.</p>
           </div>
         </div>
       </section>
