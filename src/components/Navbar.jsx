@@ -17,7 +17,7 @@ const navLinksRight = [
 
 const navLinks = [...navLinksLeft, ...navLinksRight]
 
-const PROMO_MESSAGE = '20% Off on Your First Subscription'
+const PROMO_MESSAGE = 'Get 5 Desserts or Beverages Free on 60 Days Meal Plan'
 const promoItems = Array.from({ length: 8 })
 
 export default function Navbar() {
